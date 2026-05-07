@@ -3,114 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>0.0.0 - Plantilla Frontend de Hackathon</title>
+  <meta name="description" content="Turismo y Cultura: una propuesta digital, accesible y sostenible para rutas eco-culturales de Durango." />
+  <title>Turismo y Cultura</title>
   <link rel="icon" href="icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home" data-key="brand">0.0.0</a>
-      <nav class="nav" id="navMenu">
-        <a href="#home" data-key="nav0">Inicio</a>
-        <a href="#features" data-key="nav1">Características</a>
-        <a href="#demo" data-key="nav2">Demo</a>
-        <a href="#contact" data-key="nav3">Contacto</a>
+      <a class="brand" href="#home" data-key="brand">Turismo y Cultura</a>
+      <nav class="nav" id="navMenu" aria-label="Principal">
+        <a href="#problem" data-key="nav0">Problema</a>
+        <a href="#approach" data-key="nav1">Contradicciones</a>
+        <a href="#impact" data-key="nav2">Impacto</a>
+        <a href="#community" data-key="nav3">Comunidad</a>
       </nav>
       <div class="header-controls">
-        <button class="btn btn-secondary" id="themeToggle" data-key="toggleTheme">🌙</button>
+        <button class="icon-btn" id="themeToggle" data-key="toggleTheme" aria-label="Cambiar tema">🌙</button>
         <div class="language-dropdown">
-          <button class="lang-btn-main" id="langToggle">🌐</button>
+          <button class="icon-btn" id="langToggle" aria-label="Cambiar idioma">🌐</button>
           <div class="language-menu" id="languageMenu">
             <button class="lang-option" data-lang="es">Español</button>
             <button class="lang-option" data-lang="zh">简体中文</button>
             <button class="lang-option" data-lang="en">English</button>
           </div>
         </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Alternar menú">☰</button>
+        <button class="menu-toggle" id="menuToggle" data-key="menuToggle" aria-label="Alternar menú">☰</button>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-content">
-        <div>
-          <p class="eyebrow" data-key="eyebrow">Plantilla de Hackathon</p>
-          <h1 data-key="h1">Inicia rápidamente tu proyecto frontend</h1>
-          <p data-key="heroP">Una plantilla frontend ligera, responsiva y extensible, ideal para prototipos y páginas de presentación de hackathons.</p>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow" data-key="eyebrow">Durango eco-cultural</p>
+          <h1 data-key="h1">Turismo y Cultura</h1>
+          <p class="lead" data-key="heroP">Ya no se trata solo de paisajes e historias, sino de lograr que cada visita camine con suavidad y que ninguna cultura quede silenciada en el olvido.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#features" data-key="viewFeatures">Ver Características</a>
+            <a class="btn btn-primary" href="#problem" data-key="primaryAction">Ver diagnóstico</a>
+            <a class="btn btn-secondary" href="#approach" data-key="secondaryAction">Explorar contradicciones</a>
           </div>
         </div>
-        <div class="hero-panel">
-          <div class="panel-card">
-            <h2 data-key="liveDemo">Demo en Vivo</h2>
-            <p data-key="demoDesc">La interfaz predeterminada incluye navegación, cuadrícula responsiva, botones, tarjetas y lógica de interacción simple.</p>
+        <div class="hero-visual" aria-label="Mapa visual de rutas culturales accesibles">
+          <img src="durango-cultural-map.png" alt="Ilustración de rutas culturales, accesibilidad y sostenibilidad en Durango" />
+          <div class="signal signal-access">
+            <strong data-key="signalAccessTitle">Acceso</strong>
+            <span data-key="signalAccessText">Visitas suaves para todas las personas</span>
+          </div>
+          <div class="signal signal-data">
+            <strong data-key="signalDataTitle">Datos</strong>
+            <span data-key="signalDataText">Huella y flujo en tiempo real</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="features">
+    <section class="section" id="problem">
       <div class="container">
-        <p class="section-label" data-key="coreFeatures">Características Principales</p>
-        <div class="features-grid">
-          <article class="feature-card">
-            <h3 data-key="responsive">Diseño Responsivo</h3>
-            <p data-key="responsiveDesc">Se adapta automáticamente a pantallas móviles, tabletas y de escritorio, facilitando el desarrollo rápido de prototipos.</p>
+        <div class="section-heading">
+          <p class="section-label" data-key="problemLabel">Situación actual y problema</p>
+          <h2 data-key="problemTitle">Durango se encuentra en una encrucijada cultural, digital y ambiental</h2>
+          <p data-key="problemIntro">El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.</p>
+        </div>
+        <div class="cards-grid three">
+          <article class="card">
+            <span class="card-icon">01</span>
+            <h3 data-key="problemCard1Title">Participación cultural desigual</h3>
+            <p data-key="problemCard1Text">Las personas con discapacidad, los adultos mayores y quienes tienen bajas competencias digitales quedan prácticamente excluidos de las experiencias inmersivas. Las historias en lenguas originarias a menudo no llegan a todos por falta de adaptación a lengua de señas o a formatos de audio accesibles.</p>
           </article>
-          <article class="feature-card">
-            <h3 data-key="modular">Estilos Modulares</h3>
-            <p data-key="modularDesc">Estructura CSS clara, fácil de extender y personalizar colores.</p>
+          <article class="card">
+            <span class="card-icon">02</span>
+            <h3 data-key="problemCard2Title">Costo ecológico del crecimiento turístico</h3>
+            <p data-key="problemCard2Text">Aunque las rutas comunitarias llevan la etiqueta eco, carecen de cuantificación en tiempo real y de retroalimentación sobre visitantes, transporte y residuos. La sostenibilidad se queda demasiadas veces en una intención sin datos que la respalden.</p>
           </article>
-          <article class="feature-card">
-            <h3 data-key="light">Interacciones Ligeras</h3>
-            <p data-key="lightDesc">Funciones integradas de alternancia de menú y cambio de tema, para mejorar rápidamente la experiencia del usuario.</p>
+          <article class="card">
+            <span class="card-icon">03</span>
+            <h3 data-key="problemCard3Title">Poder comunitario insuficiente</h3>
+            <p data-key="problemCard3Text">El diseño y la distribución de beneficios turísticos siguen dependiendo en gran medida de plataformas externas. Las comunidades difícilmente gestionan sus narrativas culturales y su ética ambiental con herramientas tecnológicas inclusivas.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="demo">
+    <section class="section section-tint" id="approach">
+      <div class="container split-section">
+        <div>
+          <p class="section-label" data-key="approachLabel">Contradicciones centrales actuales</p>
+          <h2 data-key="approachTitle">El reto no es solo mostrar cultura, sino hacerla accesible, medible y comunitaria</h2>
+          <p data-key="approachText">La propuesta parte de tres tensiones principales: quién puede participar, cómo se mide el costo ecológico y quién controla la narrativa cultural.</p>
+        </div>
+        <div class="feature-list">
+          <article class="feature-row">
+            <span>↗</span>
+            <div>
+              <h3 data-key="approach1Title">Accesibilidad real</h3>
+              <p data-key="approach1Text">Contenidos en audio, lectura clara, lengua de señas, alto contraste y formatos adecuados para diferentes edades, capacidades y niveles digitales.</p>
+            </div>
+          </article>
+          <article class="feature-row">
+            <span>◎</span>
+            <div>
+              <h3 data-key="approach2Title">Sostenibilidad con evidencia</h3>
+              <p data-key="approach2Text">Indicadores de flujo, transporte, residuos y huella de carbono para que las rutas eco no dependan solo de una declaración de intenciones.</p>
+            </div>
+          </article>
+          <article class="feature-row">
+            <span>✦</span>
+            <div>
+              <h3 data-key="approach3Title">Autonomía narrativa</h3>
+              <p data-key="approach3Text">Herramientas simples para que las comunidades publiquen, corrijan y administren sus historias, beneficios y criterios ambientales.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
       <div class="container">
-        <p class="section-label" data-key="quickDemo">Demo Rápido</p>
-        <div class="demo-grid">
-          <div class="demo-card">
-            <h3 data-key="highlights">Puntos Destacados del Proyecto</h3>
-            <ul>
-              <li data-key="highlights0">Desarrollo nativo con HTML + CSS + JavaScript</li>
-              <li data-key="highlights1">Se puede empaquetar e implementar inmediatamente en GitHub Pages</li>
-              <li data-key="highlights2">Fácil migración a React/Vue/Svelte</li>
-            </ul>
-          </div>
-          <div class="demo-card">
-            <h3 data-key="suggestions">Extensiones Sugeridas</h3>
-            <ul>
-              <li data-key="suggestions0">Agregar formularios y solicitudes API</li>
-              <li data-key="suggestions1">Integrar bibliotecas de componentes y gráficos</li>
-              <li data-key="suggestions2">Incorporar animaciones e interacciones avanzadas</li>
-            </ul>
-          </div>
+        <div class="section-heading">
+          <p class="section-label" data-key="impactLabel">Impacto esperado</p>
+          <h2 data-key="impactTitle">Del recorrido turístico a una memoria viva y accesible</h2>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric">
+            <strong data-key="metric1Value">3</strong>
+            <span data-key="metric1Label">contradicciones por resolver</span>
+          </article>
+          <article class="metric">
+            <strong data-key="metric2Value">24/7</strong>
+            <span data-key="metric2Label">acceso digital a historias y rutas</span>
+          </article>
+          <article class="metric">
+            <strong data-key="metric3Value">0</strong>
+            <span data-key="metric3Label">culturas silenciadas por falta de formato</span>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container contact-card">
-        <h2 data-key="start">Comienza tu Hackathon</h2>
-        <p data-key="startDesc">Copia esta plantilla, reemplaza el contenido, ajusta los colores y úsala como tu página de presentación MVP.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="https://github.com/DaniG2006/hackathon-frontend-template" target="_blank" rel="noreferrer" data-key="viewCode">Ver Código Fuente</a>
-          <a class="btn btn-secondary" href="#home" data-key="backTop">Volver Arriba</a>
+    <section class="section section-dark" id="community">
+      <div class="container community-panel">
+        <div>
+          <p class="section-label" data-key="communityLabel">Poder comunitario</p>
+          <h2 data-key="communityTitle">La tecnología debe servir a quienes sostienen la cultura</h2>
+          <p data-key="communityText">El turismo cultural necesita herramientas inclusivas para que las propias comunidades gestionen sus narrativas, midan su ética ambiental y participen en la distribución de beneficios sin depender por completo de plataformas externas.</p>
         </div>
+        <a class="btn btn-light" href="#home" data-key="backTop">Volver arriba</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p data-key="footer">© 2026 Plantilla HackSprint · Para prototipos de hackathons</p>
+      <p data-key="footer">© 2026 Turismo y Cultura · Durango eco-cultural</p>
     </div>
   </footer>
 

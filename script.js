@@ -5,196 +5,233 @@ const langToggle = document.getElementById('langToggle');
 const languageMenu = document.getElementById('languageMenu');
 const langOptions = document.querySelectorAll('.lang-option');
 
-const languages = ['es', 'zh', 'en'];
-let currentLangIndex = 0;
-
 const translations = {
   es: {
-    title: "Plantilla Frontend de Hackathon",
-    brand: "HackSprint",
-    nav0: "Inicio",
-    nav1: "Características",
-    nav2: "Demo",
-    nav3: "Contacto",
+    title: "Turismo y Cultura",
+    brand: "Turismo y Cultura",
+    nav0: "Problema",
+    nav1: "Contradicciones",
+    nav2: "Impacto",
+    nav3: "Comunidad",
     menuToggle: "Alternar menú",
-    eyebrow: "Plantilla de Hackathon",
-    h1: "Inicia rápidamente tu proyecto frontend",
-    heroP: "Una plantilla frontend ligera, responsiva y extensible, ideal para prototipos y páginas de presentación de hackathons.",
-    viewFeatures: "Ver Características",
-    toggleTheme: "Cambiar Tema",
-    liveDemo: "Demo en Vivo",
-    demoDesc: "La interfaz predeterminada incluye navegación, cuadrícula responsiva, botones, tarjetas y lógica de interacción simple.",
-    coreFeatures: "Características Principales",
-    responsive: "Diseño Responsivo",
-    responsiveDesc: "Se adapta automáticamente a pantallas móviles, tabletas y de escritorio, facilitando el desarrollo rápido de prototipos.",
-    modular: "Estilos Modulares",
-    modularDesc: "Estructura CSS clara, fácil de extender y personalizar colores.",
-    light: "Interacciones Ligeras",
-    lightDesc: "Funciones integradas de alternancia de menú y cambio de tema, para mejorar rápidamente la experiencia del usuario.",
-    quickDemo: "Demo Rápido",
-    highlights: "Puntos Destacados del Proyecto",
-    highlights0: "Desarrollo nativo con HTML + CSS + JavaScript",
-    highlights1: "Se puede empaquetar e implementar inmediatamente en GitHub Pages",
-    highlights2: "Fácil migración a React/Vue/Svelte",
-    suggestions: "Extensiones Sugeridas",
-    suggestions0: "Agregar formularios y solicitudes API",
-    suggestions1: "Integrar bibliotecas de componentes y gráficos",
-    suggestions2: "Incorporar animaciones e interacciones avanzadas",
-    start: "Comienza tu Hackathon",
-    startDesc: "Copia esta plantilla, reemplaza el contenido, ajusta los colores y úsala como tu página de presentación MVP.",
-    viewCode: "Ver Código Fuente",
-    backTop: "Volver Arriba",
-    footer: "© 2026 Plantilla HackSprint · Para prototipos de hackathons",
-    lightMode: "Modo Claro",
-    darkMode: "Modo Oscuro"
+    toggleTheme: "Cambiar tema",
+    eyebrow: "Durango eco-cultural",
+    h1: "Turismo y Cultura",
+    heroP: "Ya no se trata solo de paisajes e historias, sino de lograr que cada visita camine con suavidad y que ninguna cultura quede silenciada en el olvido.",
+    primaryAction: "Ver diagnóstico",
+    secondaryAction: "Explorar contradicciones",
+    signalAccessTitle: "Acceso",
+    signalAccessText: "Visitas suaves para todas las personas",
+    signalDataTitle: "Datos",
+    signalDataText: "Huella y flujo en tiempo real",
+    problemLabel: "Situación actual y problema",
+    problemTitle: "Durango se encuentra en una encrucijada cultural, digital y ambiental",
+    problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.",
+    problemCard1Title: "Participación cultural desigual",
+    problemCard1Text: "Las personas con discapacidad, los adultos mayores y quienes tienen bajas competencias digitales quedan prácticamente excluidos de las experiencias inmersivas. Las historias en lenguas originarias a menudo no llegan a todos por falta de adaptación a lengua de señas o a formatos de audio accesibles.",
+    problemCard2Title: "Costo ecológico del crecimiento turístico",
+    problemCard2Text: "Aunque las rutas comunitarias llevan la etiqueta eco, carecen de cuantificación en tiempo real y de retroalimentación sobre visitantes, transporte y residuos. La sostenibilidad se queda demasiadas veces en una intención sin datos que la respalden.",
+    problemCard3Title: "Poder comunitario insuficiente",
+    problemCard3Text: "El diseño y la distribución de beneficios turísticos siguen dependiendo en gran medida de plataformas externas. Las comunidades difícilmente gestionan sus narrativas culturales y su ética ambiental con herramientas tecnológicas inclusivas.",
+    approachLabel: "Contradicciones centrales actuales",
+    approachTitle: "El reto no es solo mostrar cultura, sino hacerla accesible, medible y comunitaria",
+    approachText: "La propuesta parte de tres tensiones principales: quién puede participar, cómo se mide el costo ecológico y quién controla la narrativa cultural.",
+    approach1Title: "Accesibilidad real",
+    approach1Text: "Contenidos en audio, lectura clara, lengua de señas, alto contraste y formatos adecuados para diferentes edades, capacidades y niveles digitales.",
+    approach2Title: "Sostenibilidad con evidencia",
+    approach2Text: "Indicadores de flujo, transporte, residuos y huella de carbono para que las rutas eco no dependan solo de una declaración de intenciones.",
+    approach3Title: "Autonomía narrativa",
+    approach3Text: "Herramientas simples para que las comunidades publiquen, corrijan y administren sus historias, beneficios y criterios ambientales.",
+    impactLabel: "Impacto esperado",
+    impactTitle: "Del recorrido turístico a una memoria viva y accesible",
+    metric1Value: "3",
+    metric1Label: "contradicciones por resolver",
+    metric2Value: "24/7",
+    metric2Label: "acceso digital a historias y rutas",
+    metric3Value: "0",
+    metric3Label: "culturas silenciadas por falta de formato",
+    communityLabel: "Poder comunitario",
+    communityTitle: "La tecnología debe servir a quienes sostienen la cultura",
+    communityText: "El turismo cultural necesita herramientas inclusivas para que las propias comunidades gestionen sus narrativas, midan su ética ambiental y participen en la distribución de beneficios sin depender por completo de plataformas externas.",
+    backTop: "Volver arriba",
+    footer: "© 2026 Turismo y Cultura · Durango eco-cultural"
   },
   zh: {
-    title: "黑客松前端模板",
-    brand: "HackSprint",
-    nav0: "首页",
-    nav1: "特性",
-    nav2: "演示",
-    nav3: "联系",
+    title: "旅游与文化",
+    brand: "旅游与文化",
+    nav0: "问题",
+    nav1: "矛盾",
+    nav2: "影响",
+    nav3: "社区",
     menuToggle: "切换菜单",
-    eyebrow: "黑客松模板",
-    h1: "快速启动你的前端项目",
-    heroP: "一个轻量、响应式、可扩展的前端模板，适合黑客松原型与展示页面。",
-    viewFeatures: "查看特性",
     toggleTheme: "切换主题",
-    liveDemo: "实时演示",
-    demoDesc: "默认界面包含导航、响应式网格、按钮、卡片和简单的交互逻辑。",
-    coreFeatures: "核心特性",
-    responsive: "响应式布局",
-    responsiveDesc: "自动适配移动端、平板和桌面屏幕，方便快速原型开发。",
-    modular: "模块化样式",
-    modularDesc: "清晰的 CSS 结构，易于扩展与定制化配色。",
-    light: "轻量交互",
-    lightDesc: "内置菜单切换与主题切换功能，方便快速增强用户体验。",
-    quickDemo: "快速演示",
-    highlights: "项目亮点",
-    highlights0: "HTML + CSS + JavaScript 原生开发",
-    highlights1: "可立即打包部署到 GitHub Pages",
-    highlights2: "易于迁移到 React/Vue/Svelte",
-    suggestions: "建议扩展",
-    suggestions0: "添加表单与 API 请求",
-    suggestions1: "集成组件库与图表",
-    suggestions2: "加入动画与进阶交互",
-    start: "开始你的黑客松",
-    startDesc: "复制此模板，替换内容，调整配色，并将其作为你的 MVP 展示页面。",
-    viewCode: "查看源码",
+    eyebrow: "杜兰戈生态文化",
+    h1: "旅游与文化",
+    heroP: "如今，重点不再只是风景和故事，而是让每一次到访都能温和地前行，并确保没有任何文化在遗忘中被迫沉默。",
+    primaryAction: "查看诊断",
+    secondaryAction: "探索矛盾",
+    signalAccessTitle: "无障碍",
+    signalAccessText: "面向所有人的温和参访",
+    signalDataTitle: "数据",
+    signalDataText: "实时追踪足迹与人流",
+    problemLabel: "当前状况与问题",
+    problemTitle: "杜兰戈正处在文化、数字化与环境的十字路口",
+    problemIntro: "杜兰戈的文化旅游面临清晰的张力：一方面，“生态文化社区路线”已经有了良好的开端；另一方面，大量珍贵的文化记忆仍然无法被数字化触达。当游客在历史建筑前举起手机时，坐轮椅的人也许连进入建筑都做不到。而在推广生态路线的同时，旅行本身的碳足迹也可能正在悄悄侵蚀那些原本想要保护的森林与峡谷。",
+    problemCard1Title: "文化参与不平等",
+    problemCard1Text: "残障人士、老年人以及数字能力较弱的人几乎被排除在沉浸式体验之外。由于缺少手语或无障碍音频格式，原住民语言中的故事往往无法抵达所有人。",
+    problemCard2Title: "旅游增长的生态成本",
+    problemCard2Text: "虽然社区路线带有“生态”标签，却缺乏关于游客流量、交通方式和废弃物的实时量化与反馈。可持续性太常停留在意愿声明中，而没有数据支撑。",
+    problemCard3Title: "社区力量表达不足",
+    problemCard3Text: "旅游设计和收益分配仍在很大程度上依赖外部平台。社区自身很难通过包容性的技术工具，自主管理文化叙事和环境伦理。",
+    approachLabel: "当前的核心矛盾",
+    approachTitle: "挑战不只是展示文化，而是让文化可及、可衡量，并由社区掌握",
+    approachText: "方案从三组主要张力出发：谁能参与，如何衡量生态成本，以及谁掌握文化叙事。",
+    approach1Title: "真正的无障碍",
+    approach1Text: "提供音频、清晰阅读、手语、高对比度，以及适合不同年龄、能力和数字水平的内容格式。",
+    approach2Title: "由证据支撑的可持续",
+    approach2Text: "用人流、交通、废弃物和碳足迹指标，让生态路线不只依赖意愿声明。",
+    approach3Title: "叙事自主权",
+    approach3Text: "提供简单工具，让社区能够发布、修正和管理自己的故事、收益与环境标准。",
+    impactLabel: "预期影响",
+    impactTitle: "从旅游路线走向鲜活且可及的记忆",
+    metric1Value: "3",
+    metric1Label: "需要解决的核心矛盾",
+    metric2Value: "24/7",
+    metric2Label: "数字化访问故事与路线",
+    metric3Value: "0",
+    metric3Label: "因格式缺失而被沉默的文化",
+    communityLabel: "社区力量",
+    communityTitle: "技术应服务于真正守护文化的人",
+    communityText: "文化旅游需要包容性的工具，让社区能够自主管理自身叙事、衡量环境伦理，并参与收益分配，而不是完全依赖外部平台。",
     backTop: "返回顶部",
-    footer: "© 2026 HackSprint 模板 · 适用于黑客松原型",
-    lightMode: "浅色模式",
-    darkMode: "暗色模式"
+    footer: "© 2026 旅游与文化 · 杜兰戈生态文化"
   },
   en: {
-    title: "Hackathon Frontend Template",
-    brand: "HackSprint",
-    nav0: "Home",
-    nav1: "Features",
-    nav2: "Demo",
-    nav3: "Contact",
-    menuToggle: "Toggle Menu",
-    eyebrow: "Hackathon Template",
-    h1: "Kickstart Your Frontend Project",
-    heroP: "A lightweight, responsive, and extensible frontend template perfect for hackathon prototypes and showcase pages.",
-    viewFeatures: "View Features",
-    toggleTheme: "Toggle Theme",
-    liveDemo: "Live Demo",
-    demoDesc: "The default interface includes navigation, responsive grid, buttons, cards, and simple interaction logic.",
-    coreFeatures: "Core Features",
-    responsive: "Responsive Design",
-    responsiveDesc: "Automatically adapts to mobile, tablet, and desktop screens, facilitating rapid prototype development.",
-    modular: "Modular Styles",
-    modularDesc: "Clear CSS structure, easy to extend and customize colors.",
-    light: "Light Interactions",
-    lightDesc: "Built-in menu toggle and theme switch functions to quickly enhance user experience.",
-    quickDemo: "Quick Demo",
-    highlights: "Project Highlights",
-    highlights0: "Native development with HTML + CSS + JavaScript",
-    highlights1: "Can be packaged and deployed immediately to GitHub Pages",
-    highlights2: "Easy migration to React/Vue/Svelte",
-    suggestions: "Suggested Extensions",
-    suggestions0: "Add forms and API requests",
-    suggestions1: "Integrate component libraries and charts",
-    suggestions2: "Incorporate animations and advanced interactions",
-    start: "Start Your Hackathon",
-    startDesc: "Copy this template, replace the content, adjust the colors, and use it as your MVP showcase page.",
-    viewCode: "View Source Code",
-    backTop: "Back to Top",
-    footer: "© 2026 HackSprint Template · For Hackathon Prototypes",
-    lightMode: "Light Mode",
-    darkMode: "Dark Mode"
+    title: "Tourism and Culture",
+    brand: "Tourism and Culture",
+    nav0: "Problem",
+    nav1: "Contradictions",
+    nav2: "Impact",
+    nav3: "Community",
+    menuToggle: "Toggle menu",
+    toggleTheme: "Toggle theme",
+    eyebrow: "Eco-cultural Durango",
+    h1: "Tourism and Culture",
+    heroP: "It is no longer only about landscapes and stories, but about making every visit move gently and ensuring that no culture is silenced by oblivion.",
+    primaryAction: "View diagnosis",
+    secondaryAction: "Explore contradictions",
+    signalAccessTitle: "Access",
+    signalAccessText: "Gentle visits for every person",
+    signalDataTitle: "Data",
+    signalDataText: "Real-time footprint and flow",
+    problemLabel: "Current situation and problem",
+    problemTitle: "Durango stands at a cultural, digital, and environmental crossroads",
+    problemIntro: "Cultural tourism in Durango faces a clear tension: the Eco-Cultural Community Routes have had a promising start, yet a great deal of valuable cultural memory remains outside digital reach. While one tourist raises a phone in front of a historic building, a person in a wheelchair may not even be able to enter. And while ecological routes are promoted, the carbon footprint of the journey itself may be silently eroding the forests and canyons they aim to protect.",
+    problemCard1Title: "Unequal cultural participation",
+    problemCard1Text: "People with disabilities, older adults, and those with low digital skills are practically excluded from immersive experiences. Stories in Indigenous languages often do not reach everyone because they are not adapted to sign language or accessible audio formats.",
+    problemCard2Title: "Ecological cost of tourism growth",
+    problemCard2Text: "Although community routes carry the eco label, they lack real-time measurement and feedback on visitor flow, transport, and waste. Sustainability too often remains a statement of intent without data to support it.",
+    problemCard3Title: "Insufficient community power",
+    problemCard3Text: "Tourism design and benefit distribution still depend heavily on external platforms. Communities struggle to manage their cultural narratives and environmental ethics autonomously through inclusive technology.",
+    approachLabel: "Current central contradictions",
+    approachTitle: "The challenge is not only to show culture, but to make it accessible, measurable, and community-led",
+    approachText: "The proposal begins with three main tensions: who can participate, how ecological cost is measured, and who controls the cultural narrative.",
+    approach1Title: "Real accessibility",
+    approach1Text: "Audio, clear reading, sign language, high contrast, and formats adapted to different ages, abilities, and levels of digital skill.",
+    approach2Title: "Sustainability with evidence",
+    approach2Text: "Visitor-flow, transport, waste, and carbon-footprint indicators so eco routes do not rely only on declarations of intent.",
+    approach3Title: "Narrative autonomy",
+    approach3Text: "Simple tools for communities to publish, correct, and manage their own stories, benefits, and environmental criteria.",
+    impactLabel: "Expected impact",
+    impactTitle: "From tourist route to living and accessible memory",
+    metric1Value: "3",
+    metric1Label: "central contradictions to solve",
+    metric2Value: "24/7",
+    metric2Label: "digital access to stories and routes",
+    metric3Value: "0",
+    metric3Label: "cultures silenced by missing formats",
+    communityLabel: "Community power",
+    communityTitle: "Technology should serve those who sustain culture",
+    communityText: "Cultural tourism needs inclusive tools so communities can manage their own narratives, measure their environmental ethics, and participate in benefit distribution without depending entirely on external platforms.",
+    backTop: "Back to top",
+    footer: "© 2026 Tourism and Culture · Eco-cultural Durango"
   }
 };
 
-const updateLanguage = (lang) => {
+const setText = (lang) => {
+  const copy = translations[lang] || translations.es;
   document.documentElement.lang = lang;
-  document.title = '0.0.0 - ' + translations[lang].title;
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const key = el.dataset.key;
-    if (translations[lang][key]) {
-      if (el.id === 'themeToggle') {
-        // 跳过主题按钮，保留emoji
-        return;
-      } else if (el.getAttribute('aria-label')) {
-        el.setAttribute('aria-label', translations[lang][key]);
-      } else {
-        el.textContent = translations[lang][key];
-      }
+  document.title = copy.title;
+
+  document.querySelectorAll('[data-key]').forEach((element) => {
+    const key = element.dataset.key;
+    const value = copy[key];
+    if (!value) return;
+
+    if (element.hasAttribute('aria-label')) {
+      element.setAttribute('aria-label', value);
+    } else {
+      element.textContent = value;
     }
   });
-  localStorage.setItem('hackathonLang', lang);
-};
 
-menuToggle?.addEventListener('click', () => {
-  navMenu?.classList.toggle('open');
-});
+  localStorage.setItem('turismoLang', lang);
+};
 
 const setTheme = (theme) => {
   document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('hackathonTheme', theme);
+  localStorage.setItem('turismoTheme', theme);
   if (themeToggle) {
     themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
   }
 };
+
+const setActiveLanguage = (lang) => {
+  langOptions.forEach((option) => {
+    option.classList.toggle('active', option.dataset.lang === lang);
+  });
+};
+
+menuToggle?.addEventListener('click', () => {
+  const isOpen = navMenu?.classList.toggle('open');
+  document.body.classList.toggle('menu-open', Boolean(isOpen));
+});
+
+navMenu?.addEventListener('click', (event) => {
+  const link = event.target instanceof Element ? event.target.closest('a') : null;
+  if (link) {
+    navMenu.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+});
 
 themeToggle?.addEventListener('click', () => {
   const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 });
 
-const updateActiveLanguageButton = (lang) => {
-  langOptions.forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.dataset.lang === lang) {
-      btn.classList.add('active');
-    }
-  });
-};
-
-langToggle?.addEventListener('click', () => {
-  languageMenu.classList.toggle('active');
+langToggle?.addEventListener('click', (event) => {
+  event.stopPropagation();
+  languageMenu?.classList.toggle('active');
 });
 
-langOptions.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.dataset.lang;
-    updateLanguage(lang);
-    currentLangIndex = languages.indexOf(lang);
-    updateActiveLanguageButton(lang);
-    languageMenu.classList.remove('active');
+langOptions.forEach((option) => {
+  option.addEventListener('click', () => {
+    const lang = option.dataset.lang || 'es';
+    setText(lang);
+    setActiveLanguage(lang);
+    languageMenu?.classList.remove('active');
   });
 });
 
-// 点击外部关闭菜单
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.language-dropdown')) {
-    languageMenu.classList.remove('active');
+document.addEventListener('click', (event) => {
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target?.closest('.language-dropdown')) {
+    languageMenu?.classList.remove('active');
   }
 });
 
-const savedTheme = localStorage.getItem('hackathonTheme');
+const savedTheme = localStorage.getItem('turismoTheme');
 if (savedTheme) {
   setTheme(savedTheme);
 } else {
@@ -202,13 +239,6 @@ if (savedTheme) {
   setTheme(prefersDark ? 'dark' : 'light');
 }
 
-const savedLang = localStorage.getItem('hackathonLang');
-if (savedLang) {
-  currentLangIndex = languages.indexOf(savedLang);
-  if (currentLangIndex === -1) currentLangIndex = 0;
-  updateLanguage(savedLang);
-  updateActiveLanguageButton(savedLang);
-} else {
-  updateLanguage('es');
-  updateActiveLanguageButton('es');
-}
+const savedLang = localStorage.getItem('turismoLang') || 'es';
+setText(translations[savedLang] ? savedLang : 'es');
+setActiveLanguage(translations[savedLang] ? savedLang : 'es');
