@@ -18,7 +18,7 @@
         <div class="registration-points">
           <span data-key="registerPoint1">Acceso personalizado</span>
           <span data-key="registerPoint2">Preferencias de idioma</span>
-          <span data-key="registerPoint3">Necesidades de accesibilidad</span>
+          <span data-key="registerPoint3">Tipo de visitante</span>
         </div>
       </div>
 
@@ -58,16 +58,9 @@
           <span data-key="visitorTypeLabel">Tipo de visitante</span>
           <select id="visitorType" name="visitorType" required>
             <option value="" data-key="visitorPlaceholder">Selecciona una opción</option>
-            <option value="tourist" data-key="visitorTourist">Turista</option>
-            <option value="student" data-key="visitorStudent">Estudiante</option>
-            <option value="community" data-key="visitorCommunity">Integrante de comunidad</option>
-            <option value="researcher" data-key="visitorResearcher">Investigador/a</option>
+            <option value="tourist_visitor" data-key="visitorTouristVisitor">Turista/Visitante</option>
+            <option value="merchant" data-key="visitorMerchant">Comerciante</option>
           </select>
-        </label>
-
-        <label>
-          <span data-key="accessNeedsLabel">Necesidades de accesibilidad</span>
-          <textarea id="accessNeeds" name="accessNeeds" rows="3" data-placeholder-key="accessNeedsPlaceholder" placeholder="Audio, alto contraste, lectura sencilla, lengua de señas..."></textarea>
         </label>
 
         <label class="check-row">

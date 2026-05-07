@@ -204,10 +204,14 @@ a {
   position: fixed;
   inset: 0;
   z-index: 100;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(16px, 5vh, 44px) 24px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background:
     linear-gradient(rgba(247, 242, 232, 0.9), rgba(247, 242, 232, 0.94)),
     url("durango-cultural-map.png") center / cover;
@@ -225,6 +229,7 @@ a {
 
 .registration-panel {
   width: min(1040px, 100%);
+  margin: auto 0;
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1fr);
   gap: clamp(24px, 4vw, 48px);
@@ -760,11 +765,12 @@ a {
 
   .registration-gate {
     padding: 12px;
-    place-items: start center;
+    align-items: flex-start;
   }
 
   .registration-panel {
     grid-template-columns: 1fr;
+    margin: 0;
     padding: 18px;
   }
 
