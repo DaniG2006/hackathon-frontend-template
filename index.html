@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0.0.0 - Plantilla Frontend de Hackathon</title>
+  <link rel="icon" href="icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" data-key="brand">0.0.0</a>
+      <nav class="nav" id="navMenu">
+        <a href="#home" data-key="nav0">Inicio</a>
+        <a href="#features" data-key="nav1">Características</a>
+        <a href="#demo" data-key="nav2">Demo</a>
+        <a href="#contact" data-key="nav3">Contacto</a>
+      </nav>
+      <div class="header-controls">
+        <button class="btn btn-secondary" id="themeToggle" data-key="toggleTheme">🌙</button>
+        <div class="language-dropdown">
+          <button class="lang-btn-main" id="langToggle">🌐</button>
+          <div class="language-menu" id="languageMenu">
+            <button class="lang-option" data-lang="es">Español</button>
+            <button class="lang-option" data-lang="zh">简体中文</button>
+            <button class="lang-option" data-lang="en">English</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Alternar menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow" data-key="eyebrow">Plantilla de Hackathon</p>
+          <h1 data-key="h1">Inicia rápidamente tu proyecto frontend</h1>
+          <p data-key="heroP">Una plantilla frontend ligera, responsiva y extensible, ideal para prototipos y páginas de presentación de hackathons.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#features" data-key="viewFeatures">Ver Características</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-card">
+            <h2 data-key="liveDemo">Demo en Vivo</h2>
+            <p data-key="demoDesc">La interfaz predeterminada incluye navegación, cuadrícula responsiva, botones, tarjetas y lógica de interacción simple.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <p class="section-label" data-key="coreFeatures">Características Principales</p>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3 data-key="responsive">Diseño Responsivo</h3>
+            <p data-key="responsiveDesc">Se adapta automáticamente a pantallas móviles, tabletas y de escritorio, facilitando el desarrollo rápido de prototipos.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-key="modular">Estilos Modulares</h3>
+            <p data-key="modularDesc">Estructura CSS clara, fácil de extender y personalizar colores.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-key="light">Interacciones Ligeras</h3>
+            <p data-key="lightDesc">Funciones integradas de alternancia de menú y cambio de tema, para mejorar rápidamente la experiencia del usuario.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="demo">
+      <div class="container">
+        <p class="section-label" data-key="quickDemo">Demo Rápido</p>
+        <div class="demo-grid">
+          <div class="demo-card">
+            <h3 data-key="highlights">Puntos Destacados del Proyecto</h3>
+            <ul>
+              <li data-key="highlights0">Desarrollo nativo con HTML + CSS + JavaScript</li>
+              <li data-key="highlights1">Se puede empaquetar e implementar inmediatamente en GitHub Pages</li>
+              <li data-key="highlights2">Fácil migración a React/Vue/Svelte</li>
+            </ul>
+          </div>
+          <div class="demo-card">
+            <h3 data-key="suggestions">Extensiones Sugeridas</h3>
+            <ul>
+              <li data-key="suggestions0">Agregar formularios y solicitudes API</li>
+              <li data-key="suggestions1">Integrar bibliotecas de componentes y gráficos</li>
+              <li data-key="suggestions2">Incorporar animaciones e interacciones avanzadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-card">
+        <h2 data-key="start">Comienza tu Hackathon</h2>
+        <p data-key="startDesc">Copia esta plantilla, reemplaza el contenido, ajusta los colores y úsala como tu página de presentación MVP.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://github.com/search?q=filename:index.html" target="_blank" rel="noreferrer" data-key="viewCode">Ver Código Fuente</a>
+          <a class="btn btn-secondary" href="#home" data-key="backTop">Volver Arriba</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-key="footer">© 2026 Plantilla HackSprint · Para prototipos de hackathons</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
