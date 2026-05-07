@@ -410,6 +410,11 @@ if (savedTheme) {
   setTheme(prefersDark ? 'dark' : 'light');
 }
 
+const resetRegistration = new URLSearchParams(window.location.search).has('reset');
+if (resetRegistration) {
+  localStorage.removeItem('turismoRegisteredUser');
+}
+
 const savedUser = getRegisteredUser();
 const savedLang = savedUser?.preferredLanguage || localStorage.getItem('turismoLang') || 'es';
 setText(translations[savedLang] ? savedLang : 'es');
