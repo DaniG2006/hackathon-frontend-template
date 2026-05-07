@@ -247,11 +247,13 @@ a {
   justify-content: center;
 }
 
-.registration-copy h1 {
-  margin: 0;
-  font-size: clamp(2.2rem, 5vw, 4.7rem);
-  line-height: 1.02;
-  text-wrap: balance;
+.registration-logo {
+  width: min(360px, 100%);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  align-self: center;
+  margin: 4px 0 0;
+  border-radius: 8px;
 }
 
 .registration-copy p:not(.section-label) {
@@ -774,8 +776,8 @@ a {
     padding: 18px;
   }
 
-  .registration-copy h1 {
-    font-size: clamp(2rem, 13vw, 3.5rem);
+  .registration-logo {
+    width: min(260px, 82vw);
   }
 
   .form-grid {
