@@ -4,6 +4,12 @@ const themeToggle = document.getElementById('themeToggle');
 const langToggle = document.getElementById('langToggle');
 const languageMenu = document.getElementById('languageMenu');
 const langOptions = document.querySelectorAll('.lang-option');
+const registrationGate = document.getElementById('registrationGate');
+const registrationForm = document.getElementById('registrationForm');
+const preferredLanguage = document.getElementById('preferredLanguage');
+const formError = document.getElementById('formError');
+const accountPill = document.getElementById('accountPill');
+const signOutButton = document.getElementById('signOutButton');
 
 const translations = {
   es: {
@@ -15,6 +21,7 @@ const translations = {
     nav3: "Comunidad",
     menuToggle: "Alternar menú",
     toggleTheme: "Cambiar tema",
+    signOut: "Salir",
     eyebrow: "Durango eco-cultural",
     h1: "Turismo y Cultura",
     heroP: "Ya no se trata solo de paisajes e historias, sino de lograr que cada visita camine con suavidad y que ninguna cultura quede silenciada en el olvido.",
@@ -54,7 +61,36 @@ const translations = {
     communityTitle: "La tecnología debe servir a quienes sostienen la cultura",
     communityText: "El turismo cultural necesita herramientas inclusivas para que las propias comunidades gestionen sus narrativas, midan su ética ambiental y participen en la distribución de beneficios sin depender por completo de plataformas externas.",
     backTop: "Volver arriba",
-    footer: "© 2026 Turismo y Cultura · Durango eco-cultural"
+    footer: "© 2026 Turismo y Cultura · Durango eco-cultural",
+    registerLabel: "Registro de acceso",
+    registerTitle: "Crea tu acceso a Turismo y Cultura",
+    registerIntro: "Completa estos datos para entrar a la experiencia eco-cultural de Durango.",
+    registerPoint1: "Acceso personalizado",
+    registerPoint2: "Preferencias de idioma",
+    registerPoint3: "Necesidades de accesibilidad",
+    fullNameLabel: "Nombre completo",
+    fullNamePlaceholder: "Escribe tu nombre",
+    emailLabel: "Correo electrónico",
+    emailPlaceholder: "nombre@correo.com",
+    passwordLabel: "Contraseña",
+    passwordPlaceholder: "Mínimo 6 caracteres",
+    countryLabel: "País o región",
+    countryPlaceholder: "México",
+    languageLabel: "Idioma preferido",
+    languageEs: "Español",
+    languageZh: "简体中文",
+    languageEn: "English",
+    visitorTypeLabel: "Tipo de visitante",
+    visitorPlaceholder: "Selecciona una opción",
+    visitorTourist: "Turista",
+    visitorStudent: "Estudiante",
+    visitorCommunity: "Integrante de comunidad",
+    visitorResearcher: "Investigador/a",
+    accessNeedsLabel: "Necesidades de accesibilidad",
+    accessNeedsPlaceholder: "Audio, alto contraste, lectura sencilla, lengua de señas...",
+    termsLabel: "Acepto usar esta experiencia con respeto hacia las comunidades y su memoria cultural.",
+    registerButton: "Registrarme y entrar",
+    formErrorRequired: "Completa los campos obligatorios para continuar."
   },
   zh: {
     title: "旅游与文化",
@@ -65,6 +101,7 @@ const translations = {
     nav3: "社区",
     menuToggle: "切换菜单",
     toggleTheme: "切换主题",
+    signOut: "退出",
     eyebrow: "杜兰戈生态文化",
     h1: "旅游与文化",
     heroP: "如今，重点不再只是风景和故事，而是让每一次到访都能温和地前行，并确保没有任何文化在遗忘中被迫沉默。",
@@ -104,7 +141,36 @@ const translations = {
     communityTitle: "技术应服务于真正守护文化的人",
     communityText: "文化旅游需要包容性的工具，让社区能够自主管理自身叙事、衡量环境伦理，并参与收益分配，而不是完全依赖外部平台。",
     backTop: "返回顶部",
-    footer: "© 2026 旅游与文化 · 杜兰戈生态文化"
+    footer: "© 2026 旅游与文化 · 杜兰戈生态文化",
+    registerLabel: "访问注册",
+    registerTitle: "创建你的“旅游与文化”访问账号",
+    registerIntro: "填写以下信息后，即可进入杜兰戈生态文化体验。",
+    registerPoint1: "个性化访问",
+    registerPoint2: "语言偏好",
+    registerPoint3: "无障碍需求",
+    fullNameLabel: "姓名",
+    fullNamePlaceholder: "请输入你的姓名",
+    emailLabel: "电子邮箱",
+    emailPlaceholder: "name@email.com",
+    passwordLabel: "密码",
+    passwordPlaceholder: "至少 6 个字符",
+    countryLabel: "国家或地区",
+    countryPlaceholder: "墨西哥",
+    languageLabel: "首选语言",
+    languageEs: "Español",
+    languageZh: "简体中文",
+    languageEn: "English",
+    visitorTypeLabel: "访客类型",
+    visitorPlaceholder: "请选择一个选项",
+    visitorTourist: "游客",
+    visitorStudent: "学生",
+    visitorCommunity: "社区成员",
+    visitorResearcher: "研究人员",
+    accessNeedsLabel: "无障碍需求",
+    accessNeedsPlaceholder: "音频、高对比度、简明阅读、手语等...",
+    termsLabel: "我同意以尊重社区及其文化记忆的方式使用此体验。",
+    registerButton: "注册并进入",
+    formErrorRequired: "请填写必填项后继续。"
   },
   en: {
     title: "Tourism and Culture",
@@ -115,6 +181,7 @@ const translations = {
     nav3: "Community",
     menuToggle: "Toggle menu",
     toggleTheme: "Toggle theme",
+    signOut: "Exit",
     eyebrow: "Eco-cultural Durango",
     h1: "Tourism and Culture",
     heroP: "It is no longer only about landscapes and stories, but about making every visit move gently and ensuring that no culture is silenced by oblivion.",
@@ -154,7 +221,60 @@ const translations = {
     communityTitle: "Technology should serve those who sustain culture",
     communityText: "Cultural tourism needs inclusive tools so communities can manage their own narratives, measure their environmental ethics, and participate in benefit distribution without depending entirely on external platforms.",
     backTop: "Back to top",
-    footer: "© 2026 Tourism and Culture · Eco-cultural Durango"
+    footer: "© 2026 Tourism and Culture · Eco-cultural Durango",
+    registerLabel: "Access registration",
+    registerTitle: "Create your Tourism and Culture access",
+    registerIntro: "Complete these details to enter Durango's eco-cultural experience.",
+    registerPoint1: "Personalized access",
+    registerPoint2: "Language preferences",
+    registerPoint3: "Accessibility needs",
+    fullNameLabel: "Full name",
+    fullNamePlaceholder: "Write your name",
+    emailLabel: "Email",
+    emailPlaceholder: "name@email.com",
+    passwordLabel: "Password",
+    passwordPlaceholder: "At least 6 characters",
+    countryLabel: "Country or region",
+    countryPlaceholder: "Mexico",
+    languageLabel: "Preferred language",
+    languageEs: "Español",
+    languageZh: "简体中文",
+    languageEn: "English",
+    visitorTypeLabel: "Visitor type",
+    visitorPlaceholder: "Select one option",
+    visitorTourist: "Tourist",
+    visitorStudent: "Student",
+    visitorCommunity: "Community member",
+    visitorResearcher: "Researcher",
+    accessNeedsLabel: "Accessibility needs",
+    accessNeedsPlaceholder: "Audio, high contrast, simple reading, sign language...",
+    termsLabel: "I agree to use this experience with respect for communities and their cultural memory.",
+    registerButton: "Register and enter",
+    formErrorRequired: "Complete the required fields to continue."
+  }
+};
+
+const getRegisteredUser = () => {
+  try {
+    return JSON.parse(localStorage.getItem('turismoRegisteredUser'));
+  } catch {
+    return null;
+  }
+};
+
+const updateRegistrationState = () => {
+  const user = getRegisteredUser();
+  const isRegistered = Boolean(user?.email);
+  document.body.classList.toggle('registration-locked', !isRegistered);
+  registrationGate?.setAttribute('aria-hidden', String(isRegistered));
+
+  if (accountPill) {
+    accountPill.hidden = !isRegistered;
+    accountPill.textContent = isRegistered ? user.fullName.split(' ')[0] : '';
+  }
+
+  if (signOutButton) {
+    signOutButton.hidden = !isRegistered;
   }
 };
 
@@ -174,6 +294,16 @@ const setText = (lang) => {
       element.textContent = value;
     }
   });
+
+  document.querySelectorAll('[data-placeholder-key]').forEach((element) => {
+    const key = element.dataset.placeholderKey;
+    const value = copy[key];
+    if (value) element.setAttribute('placeholder', value);
+  });
+
+  if (preferredLanguage && preferredLanguage.value !== lang) {
+    preferredLanguage.value = lang;
+  }
 
   localStorage.setItem('turismoLang', lang);
 };
@@ -224,6 +354,47 @@ langOptions.forEach((option) => {
   });
 });
 
+preferredLanguage?.addEventListener('change', () => {
+  const lang = preferredLanguage.value || 'es';
+  setText(lang);
+  setActiveLanguage(lang);
+});
+
+registrationForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(registrationForm);
+  const lang = preferredLanguage?.value || localStorage.getItem('turismoLang') || 'es';
+  const copy = translations[lang] || translations.es;
+
+  if (!registrationForm.checkValidity()) {
+    if (formError) formError.textContent = copy.formErrorRequired;
+    registrationForm.reportValidity();
+    return;
+  }
+
+  const user = {
+    fullName: String(formData.get('fullName') || '').trim(),
+    email: String(formData.get('email') || '').trim(),
+    country: String(formData.get('country') || '').trim(),
+    preferredLanguage: lang,
+    visitorType: String(formData.get('visitorType') || ''),
+    accessNeeds: String(formData.get('accessNeeds') || '').trim(),
+    registeredAt: new Date().toISOString()
+  };
+
+  localStorage.setItem('turismoRegisteredUser', JSON.stringify(user));
+  if (formError) formError.textContent = '';
+  setText(lang);
+  setActiveLanguage(lang);
+  updateRegistrationState();
+});
+
+signOutButton?.addEventListener('click', () => {
+  localStorage.removeItem('turismoRegisteredUser');
+  registrationForm?.reset();
+  updateRegistrationState();
+});
+
 document.addEventListener('click', (event) => {
   const target = event.target instanceof Element ? event.target : null;
   if (!target?.closest('.language-dropdown')) {
@@ -239,6 +410,8 @@ if (savedTheme) {
   setTheme(prefersDark ? 'dark' : 'light');
 }
 
-const savedLang = localStorage.getItem('turismoLang') || 'es';
+const savedUser = getRegisteredUser();
+const savedLang = savedUser?.preferredLanguage || localStorage.getItem('turismoLang') || 'es';
 setText(translations[savedLang] ? savedLang : 'es');
 setActiveLanguage(translations[savedLang] ? savedLang : 'es');
+updateRegistrationState();
