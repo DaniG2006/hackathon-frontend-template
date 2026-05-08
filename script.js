@@ -202,7 +202,16 @@ const translations = {
     teamCard3Title: "Gestión cultural",
     teamCard3Text: "Validación de relatos, comunidades y patrimonio local.",
     teamCard4Title: "Sostenibilidad",
-    teamCard4Text: "Métricas ambientales, turismo responsable y monitoreo comunitario."
+    teamCard4Text: "Métricas ambientales, turismo responsable y monitoreo comunitario.",
+    metricsTitle: "Métricas clave",
+    metricVisitors: "Visitantes alcanzados",
+    metricVisitorsDesc: "Estimación conservadora para el primer año de las rutas comunitarias",
+    metricAccessible: "Rutas accesibles",
+    metricAccessibleDesc: "Porcentaje del recorrido con al menos un canal sensorial alternativo",
+    metricCarbon: "Reducción de huella",
+    metricCarbonDesc: "Meta de reducción de carbono por visitante frente al modelo turístico tradicional",
+    metricIncome: "Ingreso comunitario",
+    metricIncomeDesc: "Porcentaje del gasto turístico que se queda directamente en la comunidad"
   },
   zh: {
     title: "旅游与文化",
@@ -375,7 +384,16 @@ const translations = {
     teamCard3Title: "文化管理",
     teamCard3Text: "验证故事、社区和本地遗产。",
     teamCard4Title: "可持续性",
-    teamCard4Text: "环境指标、负责任旅游和社区监测。"
+    teamCard4Text: "环境指标、负责任旅游和社区监测。",
+    metricsTitle: "关键指标",
+    metricVisitors: "触达游客",
+    metricVisitorsDesc: "社区路线第一年的保守估算",
+    metricAccessible: "无障碍路线",
+    metricAccessibleDesc: "至少有一种替代感官通道的路线百分比",
+    metricCarbon: "足迹减少",
+    metricCarbonDesc: "与传统旅游模式相比每位游客的碳减排目标",
+    metricIncome: "社区收入",
+    metricIncomeDesc: "直接留在社区的旅游支出百分比"
   },
   en: {
     title: "Tourism and Culture",
@@ -548,7 +566,16 @@ const translations = {
     teamCard3Title: "Cultural management",
     teamCard3Text: "Validation of stories, communities and local heritage.",
     teamCard4Title: "Sustainability",
-    teamCard4Text: "Environmental metrics, responsible tourism and community monitoring."
+    teamCard4Text: "Environmental metrics, responsible tourism and community monitoring.",
+    metricsTitle: "Key Metrics",
+    metricVisitors: "Visitors Reached",
+    metricVisitorsDesc: "Conservative estimate for the first year of community routes",
+    metricAccessible: "Accessible Routes",
+    metricAccessibleDesc: "Percentage of routes with at least one alternative sensory channel",
+    metricCarbon: "Footprint Reduction",
+    metricCarbonDesc: "Carbon reduction target per visitor compared to traditional tourism",
+    metricIncome: "Community Income",
+    metricIncomeDesc: "Percentage of tourism spending that stays directly in the community"
   }
 };
 
@@ -1199,7 +1226,57 @@ function initCharts() {
 }
 
 // Inicializar gráficos cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initCharts);
+document.addEventListener('DOMContentLoaded', () => {
+  initCharts();
+  initMetricsAnimation();
+});
+
+// Animación de métricas con contador
+function initMetricsAnimation() {
+  const metricCards = document.querySelectorAll('.metric-card');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const valueEl = entry.target.querySelector('.metric-value');
+        const targetValue = parseInt(valueEl.dataset.count);
+        animateCounter(valueEl, targetValue);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  metricCards.forEach(card => observer.observe(card));
+}
+
+function animateCounter(element, target) {
+  const duration = 2000;
+  const start = 0;
+  const startTime = performance.now();
+  const isNegative = target < 0;
+  const absTarget = Math.abs(target);
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(easeProgress * absTarget);
+    
+    if (isNegative) {
+      element.textContent = '-' + current.toLocaleString();
+    } else {
+      element.textContent = current.toLocaleString();
+    }
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target.toLocaleString();
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
 
 // Recomendaciones ecológicas
 const recButtons = document.querySelectorAll('.btn-rec');

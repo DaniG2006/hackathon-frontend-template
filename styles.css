@@ -1116,6 +1116,20 @@ a {
   line-height: 1.7;
 }
 
+/* Métricas Clave Section */
+.metrics-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+.metrics-title { text-align: center; font-size: 1.5rem; margin-bottom: 24px; color: var(--text); }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.metric-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+.metric-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.metric-icon { font-size: 2rem; display: block; margin-bottom: 12px; }
+.metric-value { font-size: 2.5rem; font-weight: 700; color: var(--primary-strong); line-height: 1; }
+.metric-value.negative { color: #2e7d32; }
+[data-theme="dark"] .metric-value.negative { color: #66bb6a; }
+.metric-unit { font-size: 1rem; color: var(--muted); margin-bottom: 8px; }
+.metric-label { font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.metric-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
+
 .community-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
