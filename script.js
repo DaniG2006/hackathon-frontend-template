@@ -965,14 +965,14 @@ btnCompensate?.addEventListener('click', () => {
     alert('Primero selecciona una ruta para calcular la compensación');
     return;
   }
-
+  
   // Simular donación a proyecto de reforestación
   const compensationAmount = (routePrices[route] * 0.05).toFixed(2);
   const confirmed = confirm(
     `¿Deseas compensar tu huella de carbono donando $${compensationAmount} MXN ` +
     `al proyecto de reforestación local?`
   );
-
+  
   if (confirmed) {
     btnCompensate.textContent = '✓ Compensado';
     btnCompensate.disabled = true;
@@ -980,182 +980,6 @@ btnCompensate?.addEventListener('click', () => {
     btnCompensate.style.color = 'white';
     localStorage.setItem('turismoCarbonCompensated', 'true');
   }
-});
-
-// Archivo Digital 2.0 - TensorFlow.js Vision Recognition
-const btnRecognize = document.getElementById('btn-recognize');
-const recognitionResult = document.getElementById('recognition-result');
-const recognizedMonument = document.getElementById('recognized-monument');
-const recognitionConfidence = document.getElementById('recognition-confidence');
-const visionCanvas = document.getElementById('vision-canvas');
-
-// Monumentos de Durango para reconocimiento simulado
-const durangoMonuments = [
-  { name: 'Catedral Basílica Menor', confidence: 0.94, description: 'Construida en el siglo XVIII, joya del barroco colonial' },
-  { name: 'Museo Francisco Villa', confidence: 0.89, description: 'Casa histórica del Revolucionario' },
-  { name: 'Palacio de Gobierno', confidence: 0.91, description: 'Murales de Francisco Montoya de la Cruz' },
-  { name: 'Teatro Ricardo Castro', confidence: 0.87, description: 'Arquitectura neoclásica del Porfiriato' },
-  { name: 'Mercado Gómez Palacio', confidence: 0.85, description: 'Centro comercial histórico' }
-];
-
-btnRecognize?.addEventListener('click', async () => {
-  // Simular proceso de reconocimiento
-  btnRecognize.disabled = true;
-  btnRecognize.textContent = '📷 Analizando...';
-
-  // Simular delay de procesamiento
-  await new Promise(resolve => setTimeout(resolve, 2000));
-
-  // Seleccionar monumento aleatorio
-  const monument = durangoMonuments[Math.floor(Math.random() * durangoMonuments.length)];
-
-  // Mostrar resultado
-  if (recognizedMonument) recognizedMonument.textContent = monument.name;
-  if (recognitionConfidence) recognitionConfidence.textContent = `Confianza: ${(monument.confidence * 100).toFixed(0)}%`;
-  if (recognitionResult) recognitionResult.hidden = false;
-
-  // Actualizar grafo de conocimiento
-  updateKnowledgeGraph(monument.name);
-
-  btnRecognize.disabled = false;
-  btnRecognize.textContent = '📷 Identificar monumento';
-});
-
-// Grafo de conocimiento
-const graphNodes = document.querySelectorAll('.graph-node');
-const nodeDetails = document.getElementById('node-details');
-
-const nodeInfo = {
-  catedral: 'Catedral Basílica Menor de Durango - Construida entre 1695 y 1844, representa el estilo barroco colonial mexicano.',
-  barroco: 'Arquitectura Barroca - Estilo artístico desarrollado entre los siglos XVII y XVIII, caracterizado por su ornamentación exuberante.',
-  siglo18: 'Siglo XVIII - Período de gran desarrollo arquitectónico en la Nueva España.',
-  tepehuanes: 'Tepehuanes - Pueblo indígena originario de la región de Durango, con rica tradición cultural.',
-  'camino-real': 'Camino Real de Tierra Adentro - Ruta histórica que conectó México con el norte durante la colonia.'
-};
-
-graphNodes.forEach(node => {
-  node.addEventListener('click', () => {
-    graphNodes.forEach(n => n.classList.remove('active'));
-    node.classList.add('active');
-
-    const nodeKey = node.dataset.node;
-    if (nodeDetails && nodeInfo[nodeKey]) {
-      nodeDetails.innerHTML = `<p><strong>${node.textContent}:</strong> ${nodeInfo[nodeKey]}</p>`;
-    }
-  });
-});
-
-function updateKnowledgeGraph(monumentName) {
-  graphNodes.forEach(node => node.classList.remove('active'));
-  const rootNode = document.querySelector('.graph-node.root');
-  if (rootNode) {
-    rootNode.textContent = monumentName;
-    rootNode.classList.add('active');
-  }
-}
-
-// Herramienta de narrativa accesible
-const btnRecord = document.getElementById('btn-record');
-const recordingStatus = document.getElementById('recording-status');
-const recordTimer = document.getElementById('record-timer');
-const aiProcessing = document.getElementById('ai-processing');
-const narrativeOutput = document.getElementById('narrative-output');
-
-let isRecording = false;
-let recordingInterval;
-let recordingSeconds = 0;
-
-btnRecord?.addEventListener('click', async () => {
-  if (!isRecording) {
-    // Iniciar grabación
-    isRecording = true;
-    btnRecord.classList.add('recording');
-    btnRecord.querySelector('.record-text').textContent = 'Detener';
-    recordingStatus.hidden = false;
-    narrativeOutput.hidden = true;
-
-    // Timer
-    recordingSeconds = 0;
-    recordingInterval = setInterval(() => {
-      recordingSeconds++;
-      const mins = Math.floor(recordingSeconds / 60);
-      const secs = recordingSeconds % 60;
-      if (recordTimer) recordTimer.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
-    }, 1000);
-  } else {
-    // Detener grabación
-    isRecording = false;
-    btnRecord.classList.remove('recording');
-    btnRecord.querySelector('.record-text').textContent = 'Grabar leyenda';
-    recordingStatus.hidden = true;
-    clearInterval(recordingInterval);
-
-    // Iniciar procesamiento AI
-    await processNarrative();
-  }
-});
-
-async function processNarrative() {
-  aiProcessing.hidden = false;
-
-  const steps = aiProcessing.querySelectorAll('.processing-step');
-
-  for (let i = 0; i < steps.length; i++) {
-    steps.forEach(s => s.classList.remove('active'));
-    steps[i].classList.add('active');
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    steps[i].classList.remove('active');
-    steps[i].classList.add('completed');
-  }
-
-  aiProcessing.hidden = true;
-  narrativeOutput.hidden = false;
-
-  // Resetear steps
-  steps.forEach(s => {
-    s.classList.remove('active', 'completed');
-    s.hidden = i => i > 0;
-  });
-}
-
-// Tabs de narrativa
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const tab = btn.dataset.tab;
-
-    tabBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    tabContents.forEach(content => {
-      content.hidden = content.id !== `tab-${tab}`;
-    });
-  });
-});
-
-// Botones de idioma
-const langBtns = document.querySelectorAll('.lang-btn');
-const narrativeText = document.getElementById('narrative-text');
-
-const translations = {
-  es: 'La leyenda del Cerro de Mercado cuenta que en tiempos antiguos, los espíritus de la montaña protegían a los viajeros que cruzaban estas tierras.',
-  en: 'The legend of Cerro de Mercado tells that in ancient times, the mountain spirits protected travelers who crossed these lands.',
-  zh: 'Mercado山的传说讲述，在古代，山神保护着穿越这些土地的旅行者。'
-};
-
-langBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.dataset.lang;
-
-    langBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    if (narrativeText && translations[lang]) {
-      narrativeText.textContent = translations[lang];
-    }
-  });
 });
 
 // Actualizar huella de carbono según el modo de transporte
