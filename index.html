@@ -330,57 +330,86 @@
         </div>
         <div class="cards-grid four">
           <article class="card ar-card">
-            <span class="card-icon">AR</span>
-            <h3 data-key="solutionCard1Title">文化路线连续沉浸导航</h3>
-            <p data-key="solutionCard1Text">让路"自己讲故事"——基于位置的AR音频触发，替代视觉标记。</p>
+            <span class="card-icon">🎧</span>
+            <h3>文化路线连续沉浸导航</h3>
+            <p>让路"自己讲故事"——基于位置的AR音频触发，无需频繁扫码</p>
             
             <!-- 基于位置的 AR 音频触发，替代视觉标记 -->
             <div class="geo-nav-demo">
-              <div class="route-map-preview">
-                <div class="route-path"></div>
-                <div class="geofence-zone active" data-section="1">
-                  <span class="zone-icon">🌉</span>
-                  <span class="zone-name">古桥</span>
+              <div class="route-visualization">
+                <div class="route-path-coyotes">
+                  <div class="geofence-point active" data-section="1">
+                    <span class="point-icon">🌉</span>
+                    <span class="point-label">古桥</span>
+                    <div class="audio-wave"></div>
+                  </div>
+                  <div class="geofence-point" data-section="2">
+                    <span class="point-icon">🌳</span>
+                    <span class="point-label">老树</span>
+                  </div>
+                  <div class="geofence-point" data-section="3">
+                    <span class="point-icon">🏚️</span>
+                    <span class="point-label">废弃驿站</span>
+                  </div>
                 </div>
-                <div class="geofence-zone" data-section="2">
-                  <span class="zone-icon">🌳</span>
-                  <span class="zone-name">老树</span>
-                </div>
-                <div class="geofence-zone" data-section="3">
-                  <span class="zone-icon">🏚️</span>
-                  <span class="zone-name">废弃驿站</span>
+                <div class="route-line">
+                  <div class="progress-line" style="width: 25%"></div>
                 </div>
               </div>
               
-              <div class="spatial-audio-player">
-                <button id="btn-audio" class="btn btn-secondary audio-btn" aria-label="Activar narración con audio espacial">
-                  🔊 播放空间音频叙事
+              <div class="spatial-audio-status">
+                <button id="btn-geo-audio" class="btn btn-secondary audio-btn" aria-label="模拟地理围栏触发">
+                  🔊 播放：Abuela María 讲述 Coyotes 传说
                 </button>
-                <div class="audio-visualizer" id="audioVisualizer">
-                  <span></span><span></span><span></span><span></span><span></span>
+                <div class="audio-playing-indicator" id="audioIndicator" hidden>
+                  <span class="pulse"></span>
+                  <span>正在播放空间音频...</span>
                 </div>
               </div>
               
-              <div class="accessibility-features">
-                <span class="feature-tag">♿ 可通行路段提示</span>
-                <span class="feature-tag">🔊 音频导航</span>
-                <span class="feature-tag">📳 振动反馈</span>
+              <div class="accessibility-badges">
+                <span class="badge">♿ 可通行路段提示</span>
+                <span class="badge">🔊 音频导航</span>
+                <span class="badge">📳 振动反馈</span>
               </div>
             </div>
             
-            <!-- 路线进度与碳叙事 -->
-            <div id="route-progress" class="route-progress" role="status" aria-live="polite">
-              <div class="progress-header">
+            <!-- 路线进度与碳足迹 -->
+            <div id="route-progress" role="status" aria-live="polite" class="route-progress-card">
+              <div class="progress-stats">
                 <span class="route-name">Coyotes 古道</span>
-                <span class="progress-percent">10%</span>
+                <span class="completion-rate">10%</span>
               </div>
               <progress value="1.2" max="12"></progress>
               <div class="carbon-narrative">
-                <p>🚶 已步行 <strong>1.2 km</strong></p>
-                <p class="carbon-saved">比开车少排了 <strong>252 克碳</strong></p>
-                <p class="tree-impact">🌲 路边这棵杨树每年能吸收您此段行程 <strong>10 倍</strong>的碳</p>
+                <p class="walked">🚶 已步行 <strong>1.2 km</strong></p>
+                <p class="carbon-saved">🌱 比开车少排 <strong>252 克碳</strong></p>
+                <p class="tree-story">🌲 路边这棵杨树每年能吸收您此段行程 <strong>10 倍</strong>的碳</p>
               </div>
             </div>
+            
+            <!-- 地理围栏模拟脚本 -->
+            <script>
+              (function() {
+                const audioBtn = document.getElementById('btn-geo-audio');
+                const indicator = document.getElementById('audioIndicator');
+                const point1 = document.querySelector('.geofence-point[data-section="1"]');
+                
+                audioBtn?.addEventListener('click', () => {
+                  indicator.hidden = false;
+                  point1.classList.add('playing');
+                  audioBtn.disabled = true;
+                  audioBtn.textContent = '🔊 正在播放...';
+                  
+                  setTimeout(() => {
+                    indicator.hidden = true;
+                    point1.classList.remove('playing');
+                    audioBtn.disabled = false;
+                    audioBtn.textContent = '🔊 播放：Abuela María 讲述 Coyotes 传说';
+                  }, 5000);
+                });
+              })();
+            </script>
           </article>
           <article class="card p2p-card">
             <span class="card-icon">P2P</span>
