@@ -1,31 +1,31 @@
 :root {
-  --bg: #f7f2e8;
-  --surface: #fffaf0;
+  --bg: #f3f5ef;
+  --surface: #eef2ea;
   --surface-strong: #ffffff;
   --text: #17211d;
-  --muted: #5f6a63;
-  --primary: #0f8b6f;
-  --primary-strong: #075f52;
-  --accent: #c45b35;
-  --gold: #e2a93b;
+  --muted: #5f695c;
+  --primary: #697766;
+  --primary-strong: #4f5d4d;
+  --accent: #788875;
+  --gold: #a9b49f;
   --registration-accent: #697766;
-  --sky: #4f8fb8;
+  --sky: #7f907c;
   --border: rgba(23, 33, 29, 0.12);
-  --shadow: 0 18px 42px rgba(47, 57, 45, 0.12);
+  --shadow: 0 18px 42px rgba(66, 78, 62, 0.14);
 }
 
 [data-theme="dark"] {
-  --bg: #101514;
-  --surface: #18201d;
-  --surface-strong: #202b26;
-  --text: #f7f2e8;
-  --muted: #cbd4cc;
-  --primary: #4cc7a5;
-  --primary-strong: #8ee2cd;
-  --accent: #f18a61;
-  --gold: #f0c05a;
+  --bg: #111610;
+  --surface: #1b2119;
+  --surface-strong: #242c22;
+  --text: #f3f5ef;
+  --muted: #cbd4c5;
+  --primary: #8fa08a;
+  --primary-strong: #b4c1ae;
+  --accent: #a5b59f;
+  --gold: #c2cdbb;
   --registration-accent: #8fa08a;
-  --sky: #78bce4;
+  --sky: #9caf96;
   --border: rgba(247, 242, 232, 0.16);
   --shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
 }
@@ -133,7 +133,7 @@ a {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
-  color: var(--primary-strong);
+  color: var(--registration-accent);
   font-size: 0.9rem;
   font-weight: 800;
   text-overflow: ellipsis;
@@ -198,7 +198,7 @@ a {
 
 .lang-option:hover,
 .lang-option.active {
-  background: var(--primary);
+  background: var(--registration-accent);
   color: #ffffff;
 }
 
@@ -317,8 +317,8 @@ a {
 .registration-form input:focus,
 .registration-form select:focus,
 .registration-form textarea:focus {
-  border-color: var(--primary);
-  outline: 3px solid color-mix(in srgb, var(--primary) 22%, transparent);
+  border-color: var(--registration-accent);
+  outline: 3px solid color-mix(in srgb, var(--registration-accent) 22%, transparent);
 }
 
 .form-grid {
@@ -437,8 +437,13 @@ a {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--registration-accent);
   color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: color-mix(in srgb, var(--registration-accent) 86%, #000000);
 }
 
 .btn-secondary {
@@ -495,13 +500,13 @@ a {
 .signal-access {
   left: -18px;
   bottom: 38px;
-  border-left: 5px solid var(--accent);
+  border-left: 5px solid var(--registration-accent);
 }
 
 .signal-data {
   top: 34px;
   right: -12px;
-  border-left: 5px solid var(--sky);
+  border-left: 5px solid color-mix(in srgb, var(--registration-accent) 72%, #ffffff);
 }
 
 .section {
@@ -509,17 +514,16 @@ a {
 }
 
 .section-tint {
-  background: #e7f1e7;
-  background: color-mix(in srgb, var(--primary) 9%, transparent);
+  background: color-mix(in srgb, var(--registration-accent) 13%, var(--bg));
 }
 
 .section-dark {
-  background: #16231f;
+  background: color-mix(in srgb, var(--registration-accent) 42%, #101514);
   color: #f7f2e8;
 }
 
 .section-dark .section-label {
-  color: var(--gold);
+  color: color-mix(in srgb, var(--registration-accent) 70%, #ffffff);
 }
 
 .section-heading {
@@ -576,9 +580,8 @@ a {
   height: 44px;
   margin-bottom: 28px;
   border-radius: 8px;
-  background: #f4dfac;
-  background: color-mix(in srgb, var(--gold) 28%, transparent);
-  color: var(--primary-strong);
+  background: color-mix(in srgb, var(--registration-accent) 18%, var(--surface));
+  color: var(--registration-accent);
   font-weight: 900;
 }
 
@@ -621,7 +624,7 @@ a {
   width: 48px;
   height: 48px;
   border-radius: 8px;
-  background: var(--primary);
+  background: var(--registration-accent);
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 900;
@@ -640,7 +643,7 @@ a {
 .metric strong {
   display: block;
   margin-bottom: 12px;
-  color: var(--accent);
+  color: var(--registration-accent);
   font-size: clamp(2.2rem, 6vw, 4rem);
   line-height: 1;
 }
