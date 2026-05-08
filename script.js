@@ -733,8 +733,11 @@ langOptions.forEach((option) => {
 
 preferredLanguage?.addEventListener('change', () => {
   const lang = preferredLanguage.value || 'es';
-  setText(lang);
-  setActiveLanguage(lang);
+  // Prevent loop: setText already updates preferredLanguage.value
+  if (localStorage.getItem('turismoLang') !== lang) {
+    setText(lang);
+    setActiveLanguage(lang);
+  }
 });
 
 registrationForm?.addEventListener('submit', (event) => {
