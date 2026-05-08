@@ -15,6 +15,8 @@
   <!-- TensorFlow.js para visión artificial -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+  <!-- Chart.js para dashboards -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -552,10 +554,141 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article class="card twin-card">
             <span class="card-icon">CO₂</span>
             <h3 data-key="solutionCard4Title">Gemelo de sostenibilidad</h3>
             <p data-key="solutionCard4Text">Seguimiento de flujo, residuos, transporte e impacto ambiental para tomar mejores decisiones.</p>
+
+            <!-- Dashboard IoT en tiempo real -->
+            <div class="iot-dashboard">
+              <h4>Panel de Control Ambiental</h4>
+
+              <!-- Indicadores en tiempo real -->
+              <div class="iot-metrics">
+                <div class="iot-metric" data-metric="air">
+                  <span class="metric-icon">🌬️</span>
+                  <div class="metric-data">
+                    <span class="metric-value" id="air-quality">42</span>
+                    <span class="metric-unit">AQI</span>
+                    <span class="metric-label">Calidad del aire</span>
+                  </div>
+                  <span class="metric-status good">Buena</span>
+                </div>
+
+                <div class="iot-metric" data-metric="waste">
+                  <span class="metric-icon">♻️</span>
+                  <div class="metric-data">
+                    <span class="metric-value" id="waste-level">68</span>
+                    <span class="metric-unit">%</span>
+                    <span class="metric-label">Nivel de residuos</span>
+                  </div>
+                  <span class="metric-status warning">Moderado</span>
+                </div>
+
+                <div class="iot-metric" data-metric="noise">
+                  <span class="metric-icon">🔊</span>
+                  <div class="metric-data">
+                    <span class="metric-value" id="noise-level">54</span>
+                    <span class="metric-unit">dB</span>
+                    <span class="metric-label">Ruido ambiental</span>
+                  </div>
+                  <span class="metric-status good">Aceptable</span>
+                </div>
+
+                <div class="iot-metric" data-metric="carbon">
+                  <span class="metric-icon">🌱</span>
+                  <div class="metric-data">
+                    <span class="metric-value" id="carbon-total">1.2</span>
+                    <span class="metric-unit">t</span>
+                    <span class="metric-label">CO₂ acumulado</span>
+                  </div>
+                  <span class="metric-status good">Bajo</span>
+                </div>
+              </div>
+
+              <!-- Gráficos Chart.js -->
+              <div class="charts-container">
+                <div class="chart-wrapper">
+                  <canvas id="trafficChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                  <canvas id="carbonChart"></canvas>
+                </div>
+              </div>
+
+              <!-- Predicción de saturación -->
+              <div class="saturation-alert" id="saturation-alert">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                  <strong>Predicción de saturación</strong>
+                  <p>Se espera alta afluencia este fin de semana. Considera visitar en horarios matutinos.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recomendaciones personalizadas -->
+            <div class="eco-recommendations">
+              <h4>Recomendaciones para ti</h4>
+              <div class="recommendation-list">
+                <div class="recommendation-item">
+                  <span class="rec-icon">🚌</span>
+                  <p>Usa transporte público para reducir 0.8 kg CO₂</p>
+                  <button class="btn-rec" data-action="bus">Aceptar</button>
+                </div>
+                <div class="recommendation-item">
+                  <span class="rec-icon">🥤</span>
+                  <p>Trae tu propia botella y obtén descuento en café</p>
+                  <button class="btn-rec" data-action="bottle">Aceptar</button>
+                </div>
+                <div class="recommendation-item">
+                  <span class="rec-icon">🚶</span>
+                  <p>Recorrido a pie por el centro histórico disponible</p>
+                  <button class="btn-rec" data-action="walk">Ver ruta</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- NFT Badge / Gamificación -->
+            <div class="nft-section">
+              <h4>Tu insignia ecológica</h4>
+              <div class="nft-badge" id="nft-badge">
+                <div class="badge-visual">
+                  <span class="badge-level">🥉</span>
+                  <div class="badge-ring" id="badge-ring"></div>
+                </div>
+                <div class="badge-info">
+                  <strong>Explorador Verde</strong>
+                  <span class="badge-progress">650 / 1000 pts</span>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%"></div>
+                  </div>
+                  <small>Próximo nivel: Guardián del Territorio</small>
+                </div>
+              </div>
+              <div class="badge-actions">
+                <button class="btn btn-secondary" id="claim-nft">Verificar en blockchain</button>
+                <button class="btn btn-outline" id="share-badge">Compartir logro</button>
+              </div>
+            </div>
+
+            <!-- Economía circular -->
+            <div class="circular-economy">
+              <h4>Economía circular local</h4>
+              <div class="circular-stats">
+                <div class="circular-item">
+                  <span class="circular-value">2.4t</span>
+                  <span class="circular-label">Residuos reciclados</span>
+                </div>
+                <div class="circular-item">
+                  <span class="circular-value">156</span>
+                  <span class="circular-label">Comercios verdes</span>
+                </div>
+                <div class="circular-item">
+                  <span class="circular-value">$45k</span>
+                  <span class="circular-label">Beneficios comunitarios</span>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </div>

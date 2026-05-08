@@ -1107,6 +1107,171 @@ async function processNarrative() {
   });
 }
 
+// Gemelo Digital de Sostenibilidad - IoT Dashboard
+const iotMetrics = {
+  air: document.getElementById('air-quality'),
+  waste: document.getElementById('waste-level'),
+  noise: document.getElementById('noise-level'),
+  carbon: document.getElementById('carbon-total')
+};
+
+// Simular datos IoT en tiempo real
+function updateIoTMetrics() {
+  const metrics = {
+    air: { min: 30, max: 80, unit: '' },
+    waste: { min: 40, max: 90, unit: '' },
+    noise: { min: 40, max: 70, unit: '' },
+    carbon: { min: 0.5, max: 3.0, unit: '', decimals: 1 }
+  };
+
+  Object.keys(metrics).forEach(key => {
+    const metric = metrics[key];
+    const value = metric.decimals 
+      ? (Math.random() * (metric.max - metric.min) + metric.min).toFixed(metric.decimals)
+      : Math.floor(Math.random() * (metric.max - metric.min) + metric.min);
+    
+    if (iotMetrics[key]) {
+      iotMetrics[key].textContent = value;
+    }
+  });
+}
+
+// Actualizar métricas cada 5 segundos
+setInterval(updateIoTMetrics, 5000);
+
+// Inicializar Chart.js
+function initCharts() {
+  // Gráfico de tráfico de visitantes
+  const trafficCtx = document.getElementById('trafficChart');
+  if (trafficCtx) {
+    new Chart(trafficCtx, {
+      type: 'line',
+      data: {
+        labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Visitantes',
+          data: [120, 150, 180, 140, 200, 350, 320],
+          borderColor: '#697766',
+          backgroundColor: 'rgba(105, 119, 102, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true, ticks: { font: { size: 10 } } },
+          x: { ticks: { font: { size: 10 } } }
+        }
+      }
+    });
+  }
+
+  // Gráfico de huella de carbono
+  const carbonCtx = document.getElementById('carbonChart');
+  if (carbonCtx) {
+    new Chart(carbonCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Transporte', 'Alojamiento', 'Alimentación', 'Actividades'],
+        datasets: [{
+          data: [45, 25, 20, 10],
+          backgroundColor: ['#697766', '#8fa08a', '#a9b49f', '#c2cdbb'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { 
+            position: 'right',
+            labels: { boxWidth: 12, font: { size: 10 } }
+          }
+        }
+      }
+    });
+  }
+}
+
+// Inicializar gráficos cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initCharts);
+
+// Recomendaciones ecológicas
+const recButtons = document.querySelectorAll('.btn-rec');
+recButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const action = btn.dataset.action;
+    btn.textContent = '✓ Hecho';
+    btn.disabled = true;
+    btn.style.background = '#16a34a';
+    btn.style.color = 'white';
+    btn.style.borderColor = '#16a34a';
+    
+    // Sumar puntos al badge
+    updateBadgePoints(50);
+    
+    // Guardar en localStorage
+    const completed = JSON.parse(localStorage.getItem('turismoEcoActions') || '[]');
+    completed.push({ action, timestamp: new Date().toISOString() });
+    localStorage.setItem('turismoEcoActions', JSON.stringify(completed));
+  });
+});
+
+// NFT Badge
+const claimNftBtn = document.getElementById('claim-nft');
+const shareBadgeBtn = document.getElementById('share-badge');
+
+claimNftBtn?.addEventListener('click', () => {
+  const badge = document.getElementById('nft-badge');
+  badge.style.animation = 'pulse 0.5s ease';
+  setTimeout(() => {
+    alert('NFT verificado en Polygon Mumbai:\n0x' + Array.from({length: 64}, () => 
+      Math.floor(Math.random() * 16).toString(16)
+    ).join(''));
+    badge.style.animation = '';
+  }, 500);
+});
+
+shareBadgeBtn?.addEventListener('click', async () => {
+  const shareData = {
+    title: 'Mi insignia ecológica en Durango',
+    text: 'Soy Explorador Verde en el turismo sostenible de Durango. ¡Únete!',
+    url: window.location.href
+  };
+  
+  if (navigator.share) {
+    await navigator.share(shareData);
+  } else {
+    alert('¡Logro copiado al portapapeles!');
+  }
+});
+
+function updateBadgePoints(points) {
+  const progressFill = document.querySelector('.progress-fill');
+  const badgeProgress = document.querySelector('.badge-progress');
+  
+  if (progressFill && badgeProgress) {
+    const currentWidth = parseInt(progressFill.style.width) || 65;
+    const newWidth = Math.min(currentWidth + (points / 10), 100);
+    progressFill.style.width = newWidth + '%';
+    
+    const currentPoints = parseInt(badgeProgress.textContent) || 650;
+    const newPoints = currentPoints + points;
+    badgeProgress.textContent = `${newPoints} / 1000 pts`;
+    
+    // Subir de nivel si llega a 1000
+    if (newPoints >= 1000) {
+      document.querySelector('.badge-level').textContent = '🥈';
+      document.querySelector('.badge-info strong').textContent = 'Guardián del Territorio';
+    }
+  }
+}
+
 // Tabs de narrativa
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
