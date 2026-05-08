@@ -34,7 +34,7 @@ if (isAdminOffUrl) {
 const translations = {
   es: {
     title: "Turismo y Cultura",
-    brand: "Raíz Durango",
+    brand: "CodeTrip",
     nav0: "Inicio",
     nav1: "Problema",
     nav2: "Contradicciones",
@@ -276,7 +276,7 @@ const translations = {
   },
   zh: {
     title: "旅游与文化",
-    brand: "Raíz Durango",
+    brand: "CodeTrip",
     nav0: "首页",
     nav1: "问题",
     nav2: "矛盾",
@@ -518,7 +518,7 @@ const translations = {
   },
   en: {
     title: "Tourism and Culture",
-    brand: "Raíz Durango",
+    brand: "CodeTrip",
     nav0: "Home",
     nav1: "Problem",
     nav2: "Contradictions",
