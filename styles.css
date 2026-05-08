@@ -8,6 +8,7 @@
   --primary-strong: #075f52;
   --accent: #c45b35;
   --gold: #e2a93b;
+  --scorpion-gold: #c9a36f;
   --sky: #4f8fb8;
   --border: rgba(23, 33, 29, 0.12);
   --shadow: 0 18px 42px rgba(47, 57, 45, 0.12);
@@ -23,6 +24,7 @@
   --primary-strong: #8ee2cd;
   --accent: #f18a61;
   --gold: #f0c05a;
+  --scorpion-gold: #dfbf89;
   --sky: #78bce4;
   --border: rgba(247, 242, 232, 0.16);
   --shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
@@ -274,9 +276,10 @@ a {
   display: inline-flex;
   align-items: center;
   padding: 10px 12px;
-  border-left: 5px solid var(--primary);
+  border: 1px solid color-mix(in srgb, var(--scorpion-gold) 58%, transparent);
+  border-left: 5px solid var(--scorpion-gold);
   border-radius: 8px;
-  background: var(--surface);
+  background: color-mix(in srgb, var(--scorpion-gold) 14%, var(--surface));
   color: var(--text);
   font-weight: 800;
 }
@@ -348,6 +351,13 @@ a {
 
 .submit-btn {
   width: 100%;
+  background: var(--scorpion-gold);
+  color: #17211d;
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible {
+  background: color-mix(in srgb, var(--scorpion-gold) 82%, #ffffff);
 }
 
 .hero {
@@ -369,6 +379,12 @@ a {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.registration-copy .section-label {
+  color: var(--scorpion-gold);
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  letter-spacing: 0.08em;
 }
 
 .hero h1,
