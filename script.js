@@ -10,6 +10,7 @@ const preferredLanguage = document.getElementById('preferredLanguage');
 const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
+const toggleRegistrationButton = document.getElementById('toggleRegistrationButton');
 const showBusinessForm = document.getElementById('showBusinessForm');
 const businessWorkflow = document.getElementById('businessWorkflow');
 const businessForm = document.getElementById('businessForm');
@@ -568,15 +569,24 @@ const getRegisteredUser = () => {
   }
 };
 
+let forceShowRegistration = false;
+
+const isAdminUser = () => localStorage.getItem(adminAccessKey) === 'true';
+
 const updateRegistrationState = () => {
   const user = getRegisteredUser();
   const isRegistered = Boolean(user?.email);
   const visitorType = user?.visitorType || '';
-  document.body.classList.toggle('registration-locked', !isRegistered);
+  const isAdmin = isAdminUser();
+
+  // Admin can toggle registration view
+  const shouldHideRegistration = isRegistered && !forceShowRegistration;
+
+  document.body.classList.toggle('registration-locked', !shouldHideRegistration);
   document.body.classList.toggle('profile-tourist', isRegistered && visitorType === 'tourist_visitor');
   document.body.classList.toggle('profile-merchant', isRegistered && visitorType === 'merchant');
   document.body.classList.toggle('profile-admin', isRegistered && visitorType === 'admin');
-  registrationGate?.setAttribute('aria-hidden', String(isRegistered));
+  registrationGate?.setAttribute('aria-hidden', String(shouldHideRegistration));
 
   if (accountPill) {
     accountPill.hidden = !isRegistered;
@@ -585,6 +595,13 @@ const updateRegistrationState = () => {
 
   if (signOutButton) {
     signOutButton.hidden = !isRegistered;
+  }
+
+  // Show toggle button only for admin
+  if (toggleRegistrationButton) {
+    toggleRegistrationButton.hidden = !isAdmin;
+    toggleRegistrationButton.textContent = forceShowRegistration ? '👁️' : '📝';
+    toggleRegistrationButton.title = forceShowRegistration ? 'Ocultar registro' : 'Mostrar registro';
   }
 };
 
@@ -785,10 +802,16 @@ signOutButton?.addEventListener('click', () => {
   localStorage.removeItem('turismoRegisteredUser');
   localStorage.removeItem(adminAccessKey);
   localStorage.removeItem('turismoBusinessProfile');
+  forceShowRegistration = false;
   registrationForm?.reset();
   businessForm?.reset();
   if (businessWorkflow) businessWorkflow.hidden = true;
   if (businessResult) businessResult.hidden = true;
+  updateRegistrationState();
+});
+
+toggleRegistrationButton?.addEventListener('click', () => {
+  forceShowRegistration = !forceShowRegistration;
   updateRegistrationState();
 });
 
