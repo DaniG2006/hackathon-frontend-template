@@ -331,27 +331,55 @@
         <div class="cards-grid four">
           <article class="card ar-card">
             <span class="card-icon">AR</span>
-            <h3 data-key="solutionCard1Title">Navegación AR inclusiva</h3>
-            <p data-key="solutionCard1Text">Recorridos con orientación visual, audio, lectura clara y señales contextuales en puntos culturales.</p>
+            <h3 data-key="solutionCard1Title">文化路线连续沉浸导航</h3>
+            <p data-key="solutionCard1Text">让路"自己讲故事"——基于位置的AR音频触发，替代视觉标记。</p>
             
-            <!-- Marcador AR para la Catedral de Durango -->
-            <a-scene embedded arjs class="ar-scene">
-              <a-marker preset="custom" url="marcadores/catedral-durango.patt">
-                <a-text value="Catedral Basílica Menor, siglo XVIII" position="0 1 0" color="#fff"></a-text>
-              </a-marker>
-              <a-entity camera></a-entity>
-            </a-scene>
+            <!-- 基于位置的 AR 音频触发，替代视觉标记 -->
+            <div class="geo-nav-demo">
+              <div class="route-map-preview">
+                <div class="route-path"></div>
+                <div class="geofence-zone active" data-section="1">
+                  <span class="zone-icon">🌉</span>
+                  <span class="zone-name">古桥</span>
+                </div>
+                <div class="geofence-zone" data-section="2">
+                  <span class="zone-icon">🌳</span>
+                  <span class="zone-name">老树</span>
+                </div>
+                <div class="geofence-zone" data-section="3">
+                  <span class="zone-icon">🏚️</span>
+                  <span class="zone-name">废弃驿站</span>
+                </div>
+              </div>
+              
+              <div class="spatial-audio-player">
+                <button id="btn-audio" class="btn btn-secondary audio-btn" aria-label="Activar narración con audio espacial">
+                  🔊 播放空间音频叙事
+                </button>
+                <div class="audio-visualizer" id="audioVisualizer">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              
+              <div class="accessibility-features">
+                <span class="feature-tag">♿ 可通行路段提示</span>
+                <span class="feature-tag">🔊 音频导航</span>
+                <span class="feature-tag">📳 振动反馈</span>
+              </div>
+            </div>
             
-            <!-- Botón de accesibilidad: activar audio espacial -->
-            <button id="btn-audio" class="btn btn-secondary audio-btn" aria-label="Activar narración con audio espacial">
-              🔊 Escuchar historia
-            </button>
-            
-            <!-- Indicador de huella de carbono -->
-            <div id="carbon-tracker" class="carbon-tracker">
-              <span id="co2-value">0.42 kg CO₂</span>
-              <progress value="42" max="100"></progress>
-              <small>42 % más ligero que en automóvil</small>
+            <!-- 路线进度与碳叙事 -->
+            <div id="route-progress" class="route-progress" role="status" aria-live="polite">
+              <div class="progress-header">
+                <span class="route-name">Coyotes 古道</span>
+                <span class="progress-percent">10%</span>
+              </div>
+              <progress value="1.2" max="12"></progress>
+              <div class="carbon-narrative">
+                <p>🚶 已步行 <strong>1.2 km</strong></p>
+                <p class="carbon-saved">比开车少排了 <strong>252 克碳</strong></p>
+                <p class="tree-impact">🌲 路边这棵杨树每年能吸收您此段行程 <strong>10 倍</strong>的碳</p>
+              </div>
             </div>
           </article>
           <article class="card p2p-card">
