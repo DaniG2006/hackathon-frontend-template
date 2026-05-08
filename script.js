@@ -10,6 +10,8 @@ const preferredLanguage = document.getElementById('preferredLanguage');
 const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
+const adminAccessKey = 'turismoAdminAccess';
+const adminSetupToken = 'dueno-durango-9f2c7a';
 
 const translations = {
   es: {
@@ -240,6 +242,15 @@ const translations = {
 };
 
 const getRegisteredUser = () => {
+  if (localStorage.getItem(adminAccessKey) === 'true') {
+    return {
+      fullName: 'Admin',
+      email: 'owner@local',
+      preferredLanguage: localStorage.getItem('turismoLang') || 'es',
+      visitorType: 'admin'
+    };
+  }
+
   try {
     return JSON.parse(localStorage.getItem('turismoRegisteredUser'));
   } catch {
@@ -394,9 +405,26 @@ if (savedTheme) {
   setTheme(prefersDark ? 'dark' : 'light');
 }
 
-const resetRegistration = new URLSearchParams(window.location.search).has('reset');
+const urlParams = new URLSearchParams(window.location.search);
+const resetRegistration = urlParams.has('reset');
+const adminSetup = urlParams.get('admin') === adminSetupToken;
+const adminOff = urlParams.has('adminOff');
+
 if (resetRegistration) {
   localStorage.removeItem('turismoRegisteredUser');
+}
+
+if (adminSetup) {
+  localStorage.setItem(adminAccessKey, 'true');
+}
+
+if (adminOff) {
+  localStorage.removeItem(adminAccessKey);
+}
+
+if (adminSetup || adminOff) {
+  const cleanUrl = `${window.location.pathname}${window.location.hash}`;
+  window.history.replaceState({}, document.title, cleanUrl);
 }
 
 const savedUser = getRegisteredUser();
