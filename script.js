@@ -1254,16 +1254,16 @@ shareBadgeBtn?.addEventListener('click', async () => {
 function updateBadgePoints(points) {
   const progressFill = document.querySelector('.progress-fill');
   const badgeProgress = document.querySelector('.badge-progress');
-
+  
   if (progressFill && badgeProgress) {
     const currentWidth = parseInt(progressFill.style.width) || 65;
     const newWidth = Math.min(currentWidth + (points / 10), 100);
     progressFill.style.width = newWidth + '%';
-
+    
     const currentPoints = parseInt(badgeProgress.textContent) || 650;
     const newPoints = currentPoints + points;
     badgeProgress.textContent = `${newPoints} / 1000 pts`;
-
+    
     // Subir de nivel si llega a 1000
     if (newPoints >= 1000) {
       document.querySelector('.badge-level').textContent = '🥈';
@@ -1271,80 +1271,6 @@ function updateBadgePoints(points) {
     }
   }
 }
-
-// Inicializar mapa de Leaflet en sección tecnología
-function initTechMap() {
-  const mapContainer = document.getElementById('tech-map');
-  if (!mapContainer) return;
-
-  // Coordenadas de Durango (centro histórico aproximado)
-  const durangoCenter = [24.0277, -104.6532];
-
-  const map = L.map('tech-map').setView(durangoCenter, 14);
-
-  // Capa base de OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19
-  }).addTo(map);
-
-  // Rutas accesibles (líneas verdes)
-  const accessibleRoutes = [
-    [[24.0277, -104.6532], [24.0285, -104.6545], [24.0295, -104.6550]],
-    [[24.0250, -104.6500], [24.0260, -104.6515], [24.0270, -104.6525]],
-    [[24.0300, -104.6580], [24.0290, -104.6560], [24.0280, -104.6540]]
-  ];
-
-  accessibleRoutes.forEach(route => {
-    L.polyline(route, {
-      color: '#697766',
-      weight: 5,
-      opacity: 0.8
-    }).addTo(map);
-  });
-
-  // Puntos de interés (marcadores rojos)
-  const pointsOfInterest = [
-    { coords: [24.0277, -104.6532], name: 'Catedral Basílica', type: 'cultural' },
-    { coords: [24.0285, -104.6545], name: 'Museo Francisco Villa', type: 'museum' },
-    { coords: [24.0255, -104.6510], name: 'Plaza de Armas', type: 'public' },
-    { coords: [24.0295, -104.6560], name: 'Mercado Gómez Palacio', type: 'market' }
-  ];
-
-  pointsOfInterest.forEach(point => {
-    L.circleMarker(point.coords, {
-      radius: 8,
-      fillColor: '#dc2626',
-      color: '#fff',
-      weight: 2,
-      opacity: 1,
-      fillOpacity: 0.9
-    }).addTo(map).bindPopup(`(`<b>${point.name}</b><br>Tipo: ${point.type}`);
-  });
-
-  // Zonas verdes (círculos verdes)
-  const greenZones = [
-    { coords: [24.0265, -104.6520], radius: 150, name: 'Parque Guadiana' },
-    { coords: [24.0305, -104.6570], radius: 100, name: 'Jardín de las Escaleras' }
-  ];
-
-  greenZones.forEach(zone => {
-    L.circle(zone.coords, {
-      radius: zone.radius,
-      fillColor: '#16a34a',
-      color: '#16a34a',
-      weight: 1,
-      opacity: 0.3,
-      fillOpacity: 0.2
-    }).addTo(map).bindPopup(`(`<b>${zone.name}</b><br>Zona verde`);
-  });
-}
-
-// Inicializar mapa cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-  initCharts();
-  initTechMap();
-});
 
 // Tabs de narrativa
 const tabBtns = document.querySelectorAll('.tab-btn');
@@ -1461,4 +1387,79 @@ try {
   }
 } catch {
   localStorage.removeItem('turismoBusinessProfile');
+}
+
+// Inicializar mapa de Leaflet en sección tecnología
+function initTechMap() {
+  const mapContainer = document.getElementById('tech-map');
+  if (!mapContainer) return;
+
+  // Coordenadas de Durango (centro histórico aproximado)
+  const durangoCenter = [24.0277, -104.6532];
+
+  const map = L.map('tech-map').setView(durangoCenter, 14);
+
+  // Capa base de OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Rutas accesibles (líneas verdes)
+  const accessibleRoutes = [
+    [[24.0277, -104.6532], [24.0285, -104.6545], [24.0295, -104.6550]],
+    [[24.0250, -104.6500], [24.0260, -104.6515], [24.0270, -104.6525]],
+    [[24.0300, -104.6580], [24.0290, -104.6560], [24.0280, -104.6540]]
+  ];
+
+  accessibleRoutes.forEach(route => {
+    L.polyline(route, {
+      color: '#697766',
+      weight: 5,
+      opacity: 0.8
+    }).addTo(map);
+  });
+
+  // Puntos de interés (marcadores rojos)
+  const pointsOfInterest = [
+    { coords: [24.0277, -104.6532], name: 'Catedral Basílica', type: 'cultural' },
+    { coords: [24.0285, -104.6545], name: 'Museo Francisco Villa', type: 'museum' },
+    { coords: [24.0255, -104.6510], name: 'Plaza de Armas', type: 'public' },
+    { coords: [24.0295, -104.6560], name: 'Mercado Gómez Palacio', type: 'market' }
+  ];
+
+  pointsOfInterest.forEach(point => {
+    L.circleMarker(point.coords, {
+      radius: 8,
+      fillColor: '#dc2626',
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.9
+    }).addTo(map).bindPopup(`(`<b>${point.name}</b><br>Tipo: ${point.type}`);
+  });
+
+  // Zonas verdes (círculos verdes)
+  const greenZones = [
+    { coords: [24.0265, -104.6520], radius: 150, name: 'Parque Guadiana' },
+    { coords: [24.0305, -104.6570], radius: 100, name: 'Jardín de las Escaleras' }
+  ];
+
+  greenZones.forEach(zone => {
+    L.circle(zone.coords, {
+      radius: zone.radius,
+      fillColor: '#16a34a',
+      color: '#16a34a',
+      weight: 1,
+      opacity: 0.3,
+      fillOpacity: 0.2
+    }).addTo(map).bindPopup(`(`<b>${zone.name}</b><br>Zona verde`);
+  });
+}
+
+// Inicializar cuando DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTechMap);
+} else {
+  initTechMap();
 }
