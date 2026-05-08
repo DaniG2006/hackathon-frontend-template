@@ -12,6 +12,18 @@ const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
 const adminAccessKey = 'turismoAdminAccess';
 const adminSetupToken = 'dueno-durango-9f2c7a';
+const initialUrlParams = new URLSearchParams(window.location.search);
+const initialHashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+const isAdminSetupUrl = initialUrlParams.get('admin') === adminSetupToken || initialHashParams.get('admin') === adminSetupToken;
+const isAdminOffUrl = initialUrlParams.has('adminOff') || initialHashParams.has('adminOff');
+
+if (isAdminSetupUrl) {
+  localStorage.setItem(adminAccessKey, 'true');
+}
+
+if (isAdminOffUrl) {
+  localStorage.removeItem(adminAccessKey);
+}
 
 const translations = {
   es: {
@@ -405,10 +417,11 @@ if (savedTheme) {
   setTheme(prefersDark ? 'dark' : 'light');
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const resetRegistration = urlParams.has('reset');
-const adminSetup = urlParams.get('admin') === adminSetupToken;
-const adminOff = urlParams.has('adminOff');
+const urlParams = initialUrlParams;
+const hashParams = initialHashParams;
+const resetRegistration = urlParams.has('reset') || hashParams.has('reset');
+const adminSetup = isAdminSetupUrl;
+const adminOff = isAdminOffUrl;
 
 if (resetRegistration) {
   localStorage.removeItem('turismoRegisteredUser');
@@ -423,7 +436,7 @@ if (adminOff) {
 }
 
 if (adminSetup || adminOff) {
-  const cleanUrl = `${window.location.pathname}${window.location.hash}`;
+  const cleanUrl = `${window.location.pathname}`;
   window.history.replaceState({}, document.title, cleanUrl);
 }
 
