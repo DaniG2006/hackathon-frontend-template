@@ -1020,76 +1020,292 @@ a {
   gap: 16px;
 }
 
-.p2p-form {
+/* Route NFT Demo Styles */
+.route-nft-demo {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-.p2p-form fieldset {
-  border: 1px solid var(--border);
-  border-radius: 8px;
+.nft-card {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-strong) 100%);
+  border: 2px solid color-mix(in srgb, #8b5cf6 30%, var(--border));
+  border-radius: 16px;
   padding: 16px;
-  margin: 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
 
-.p2p-form legend {
-  font-weight: 800;
-  color: var(--registration-accent);
-  padding: 0 8px;
-}
-
-.p2p-form label {
+.nft-visual {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: color-mix(in srgb, #8b5cf6 15%, var(--surface));
+  border-radius: 12px;
+  min-width: 80px;
 }
 
-.p2p-form label span {
+.nft-icon {
+  font-size: 2.5rem;
+}
+
+.nft-type {
+  font-size: 0.75rem;
   font-weight: 600;
+  color: #8b5cf6;
+  text-transform: uppercase;
+}
+
+.nft-info {
+  flex: 1;
+}
+
+.nft-info h4 {
+  margin: 0 0 8px 0;
   color: var(--text);
 }
 
-.p2p-form select,
-.p2p-form input {
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+.nft-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.segment-tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: color-mix(in srgb, #8b5cf6 20%, transparent);
+  color: #8b5cf6;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.nft-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.section-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #8b5cf6;
+}
+
+.section-checkbox input:checked + span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Revenue Distribution */
+.revenue-distribution {
   background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.revenue-distribution h5 {
+  margin: 0 0 12px 0;
   color: var(--text);
-  font: inherit;
+  font-size: 0.95rem;
 }
 
-.p2p-form select:focus,
-.p2p-form input:focus {
-  border-color: var(--registration-accent);
-  outline: 2px solid color-mix(in srgb, var(--registration-accent) 20%, transparent);
+.distribution-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.price-breakdown {
-  background: color-mix(in srgb, var(--registration-accent) 8%, var(--surface));
-  padding: 12px;
+.dist-bar {
+  display: flex;
+  height: 32px;
   border-radius: 8px;
-  margin: 12px 0;
+  overflow: hidden;
 }
 
-.price-row {
+.dist-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  color: white;
+  font-size: 0.7rem;
+  position: relative;
+}
+
+.dist-segment.hosts {
+  background: #22c55e;
+}
+
+.dist-segment.culture {
+  background: #3b82f6;
+}
+
+.dist-segment.ecology {
+  background: #10b981;
+}
+
+.dist-segment.platform {
+  background: #6b7280;
+}
+
+.dist-label {
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.dist-desc {
+  font-size: 0.65rem;
+  opacity: 0.9;
+}
+
+/* Inclusive Features */
+.inclusive-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ivr-option,
+.screen-reader-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.ivr-icon,
+.sr-icon {
+  font-size: 1.3rem;
+}
+
+/* Carbon Marking */
+.carbon-marking {
+  background: color-mix(in srgb, #22c55e 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, #22c55e 25%, transparent);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carbon-estimate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
 }
 
-.price-row strong {
-  color: var(--registration-accent);
-  font-size: 1.2rem;
+.carbon-label {
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
-.distribution small {
+.carbon-value {
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.low-carbon-route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.route-tag {
+  padding: 4px 10px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.route-detail {
+  font-size: 0.85rem;
   color: var(--muted);
-  font-size: 0.8rem;
+}
+
+.carbon-offset-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed color-mix(in srgb, #22c55e 30%, transparent);
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.carbon-offset-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22c55e;
+}
+
+/* P2P Buy Button */
+.p2p-buy-btn {
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+/* Transaction Status Panel */
+.tx-status-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tx-step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tx-step-item.success {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.step-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .p2p-submit {

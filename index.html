@@ -412,90 +412,138 @@
             </script>
           </article>
           <article class="card p2p-card">
-            <span class="card-icon">P2P</span>
-            <h3 data-key="solutionCard2Title">Plataforma P2P</h3>
-            <p data-key="solutionCard2Text">Conexión directa entre visitantes, comerciantes, guías y comunidades para reducir dependencia externa.</p>
+            <span class="card-icon">🤝</span>
+            <h3>路线社区自运营 P2P 平台</h3>
+            <p>每一公里都回到社区——整条文化路线被 token 化为一个"路线 NFT"</p>
             
-            <!-- Formulario de reserva accesible -->
-            <form id="p2p-booking-form" class="p2p-form" aria-label="Formulario de reserva de ruta">
-              <fieldset>
-                <legend>Reservar ruta comunitaria</legend>
-                
-                <label for="route-select">
-                  <span>Selecciona una ruta:</span>
-                  <select id="route-select" name="route" required>
-                    <option value="">-- Elige una ruta --</option>
-                    <option value="otinapa">Ruta Otinapa</option>
-                    <option value="catedral">Cañón de Catedral</option>
-                    <option value="coyotes">Coyotes</option>
-                  </select>
-                </label>
-                
-                <label for="guide-select">
-                  <span>Guía local:</span>
-                  <select id="guide-select" name="guide" required>
-                    <option value="">-- Selecciona guía --</option>
-                    <option value="maria">María - Guía cultural</option>
-                    <option value="juan">Juan - Historiador</option>
-                    <option value="elena">Elena - Etnógrafa</option>
-                  </select>
-                </label>
-                
-                <label for="booking-date">
-                  <span>Fecha de visita:</span>
-                  <input type="date" id="booking-date" name="date" required />
-                </label>
-                
-                <label for="participants">
-                  <span>Número de participantes:</span>
-                  <input type="number" id="participants" name="participants" min="1" max="20" value="1" required />
-                </label>
-                
-                <div class="price-breakdown" aria-live="polite">
-                  <div class="price-row">
-                    <span>Total a pagar:</span>
-                    <strong id="total-price">$500 MXN</strong>
-                  </div>
-                  <div class="distribution">
-                    <small>70% guía · 20% comunidad · 10% conservación</small>
+            <!-- 路线 NFT 购买与收入分配 -->
+            <div class="route-nft-demo">
+              <div class="nft-card">
+                <div class="nft-visual">
+                  <span class="nft-icon">🎫</span>
+                  <span class="nft-type">路线 NFT</span>
+                </div>
+                <div class="nft-info">
+                  <h4>Coyotes 古道通票</h4>
+                  <p class="nft-price">¥200 <span class="segment-tag">可分段购买</span></p>
+                  <div class="nft-sections">
+                    <label class="section-checkbox">
+                      <input type="checkbox" checked disabled>
+                      <span>古桥段 (¥60)</span>
+                    </label>
+                    <label class="section-checkbox">
+                      <input type="checkbox" checked>
+                      <span>老树林段 (¥80)</span>
+                    </label>
+                    <label class="section-checkbox">
+                      <input type="checkbox">
+                      <span>驿站段 (¥60)</span>
+                    </label>
                   </div>
                 </div>
-                
-                <button type="submit" class="btn btn-primary p2p-submit">
-                  <span class="btn-text">Reservar y pagar con Web3</span>
-                  <span class="btn-loading" hidden>Procesando...</span>
-                </button>
-              </fieldset>
-            </form>
-            
-            <!-- Estado de la transacción -->
-            <div id="tx-status" class="tx-status" hidden>
-              <div class="tx-step" data-step="1">
-                <span class="step-icon">⏳</span>
-                <span>Conectando a Polygon Mumbai...</span>
               </div>
-              <div class="tx-step" data-step="2" hidden>
-                <span class="step-icon">⏳</span>
-                <span>Ejecutando smart contract...</span>
+              
+              <!-- 收入分配可视化 -->
+              <div class="revenue-distribution">
+                <h5>💰 收入自动拆分（链上可查）</h5>
+                <div class="distribution-chart">
+                  <div class="dist-bar">
+                    <div class="dist-segment hosts" style="width: 60%">
+                      <span class="dist-label">60%</span>
+                      <span class="dist-desc">沿途家庭</span>
+                    </div>
+                    <div class="dist-segment culture" style="width: 20%">
+                      <span class="dist-label">20%</span>
+                      <span class="dist-desc">文化基金</span>
+                    </div>
+                    <div class="dist-segment ecology" style="width: 10%">
+                      <span class="dist-label">10%</span>
+                      <span class="dist-desc">生态修复</span>
+                    </div>
+                    <div class="dist-segment platform" style="width: 10%">
+                      <span class="dist-label">10%</span>
+                      <span class="dist-desc">平台维护</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="tx-step" data-step="3" hidden>
-                <span class="step-icon">✅</span>
-                <span>¡NFT de certificado emitido!</span>
-                <a id="nft-link" href="#" target="_blank" class="nft-link">Ver en Polygonscan</a>
+              
+              <!-- 包容性设计：IVR 电话确认 -->
+              <div class="inclusive-features">
+                <div class="ivr-option">
+                  <span class="ivr-icon">📞</span>
+                  <span class="ivr-text">社区长者可通过 IVR 电话确认收入，无需智能手机</span>
+                </div>
+                <div class="screen-reader-info">
+                  <span class="sr-icon">🔊</span>
+                  <span class="sr-text">屏幕阅读用户可听取每个休息点的海拔、坡度、无障碍设施</span>
+                </div>
               </div>
-            </div>
-            
-            <!-- Etiqueta de huella de carbono verificada -->
-            <div class="carbon-badge">
-              <span class="badge-icon">🌱</span>
-              <div class="badge-info">
-                <strong>Huella de carbono verificada</strong>
-                <small>Transporte + Alimentación + Alojamiento</small>
+              
+              <!-- 碳标记与抵消 -->
+              <div class="carbon-marking">
+                <div class="carbon-estimate">
+                  <span class="carbon-label">🌱 预估碳成本</span>
+                  <span class="carbon-value">0.8 kg CO₂</span>
+                </div>
+                <div class="low-carbon-route">
+                  <span class="route-tag">推荐最低碳方案</span>
+                  <span class="route-detail">分段步行 + 社区民宿</span>
+                </div>
+                <label class="carbon-offset-option">
+                  <input type="checkbox" id="carbon-offset">
+                  <span>自愿加购碳抵消 ¥15 → 本地造林 DAO</span>
+                </label>
               </div>
-              <button type="button" class="btn-compensate" id="btn-compensate">
-                Compensar
+              
+              <button type="button" class="btn btn-primary p2p-buy-btn" id="p2p-buy-btn">
+                <span>🛒 购买路线通票 (Web3)</span>
               </button>
+              
+              <!-- 交易状态 -->
+              <div id="p2p-tx-status" class="tx-status-panel" hidden>
+                <div class="tx-step-item" data-step="1">
+                  <span class="step-spinner">⏳</span>
+                  <span>连接 Polygon 网络...</span>
+                </div>
+                <div class="tx-step-item" data-step="2" hidden>
+                  <span class="step-spinner">⏳</span>
+                  <span>执行智能合约分配...</span>
+                </div>
+                <div class="tx-step-item success" data-step="3" hidden>
+                  <span>✅</span>
+                  <span>NFT 通票已生成！收入已自动拆分</span>
+                </div>
+              </div>
             </div>
+            
+            <script>
+              (function() {
+                const buyBtn = document.getElementById('p2p-buy-btn');
+                const txStatus = document.getElementById('p2p-tx-status');
+                const steps = txStatus?.querySelectorAll('.tx-step-item');
+                
+                buyBtn?.addEventListener('click', () => {
+                  txStatus.hidden = false;
+                  buyBtn.disabled = true;
+                  buyBtn.textContent = '处理中...';
+                  
+                  // Step 1
+                  setTimeout(() => {
+                    steps[0].hidden = true;
+                    steps[1].hidden = false;
+                  }, 1500);
+                  
+                  // Step 2
+                  setTimeout(() => {
+                    steps[1].hidden = true;
+                    steps[2].hidden = false;
+                    buyBtn.textContent = '🎫 查看我的 NFT 通票';
+                    buyBtn.disabled = false;
+                  }, 3500);
+                });
+              })();
+            </script>
           </article>
           <article class="card archive-card">
             <span class="card-icon">2.0</span>
