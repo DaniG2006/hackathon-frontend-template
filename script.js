@@ -10,6 +10,7 @@ const preferredLanguage = document.getElementById('preferredLanguage');
 const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
+const adminToggle = document.getElementById('adminToggle');
 const showBusinessForm = document.getElementById('showBusinessForm');
 const businessWorkflow = document.getElementById('businessWorkflow');
 const businessForm = document.getElementById('businessForm');
@@ -790,6 +791,17 @@ signOutButton?.addEventListener('click', () => {
   if (businessWorkflow) businessWorkflow.hidden = true;
   if (businessResult) businessResult.hidden = true;
   updateRegistrationState();
+});
+
+adminToggle?.addEventListener('click', () => {
+  const isAdmin = localStorage.getItem(adminAccessKey) === 'true';
+  if (isAdmin) {
+    localStorage.removeItem(adminAccessKey);
+  } else {
+    localStorage.setItem(adminAccessKey, 'true');
+  }
+  updateRegistrationState();
+  window.location.reload();
 });
 
 document.addEventListener('click', (event) => {
