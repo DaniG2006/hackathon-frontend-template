@@ -12,6 +12,9 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <!-- Web3.js para blockchain -->
   <script src="https://cdn.jsdelivr.net/npm/web3@4.0.3/dist/web3.min.js"></script>
+  <!-- TensorFlow.js para visión artificial -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -433,10 +436,121 @@
               </button>
             </div>
           </article>
-          <article class="card">
+          <article class="card archive-card">
             <span class="card-icon">2.0</span>
             <h3 data-key="solutionCard3Title">Archivo digital 2.0</h3>
             <p data-key="solutionCard3Text">Memoria cultural organizada en formatos accesibles, multilingües y fáciles de actualizar.</p>
+
+            <!-- Reconocimiento visual con TensorFlow.js -->
+            <div class="vision-recognition">
+              <div class="camera-preview" id="camera-preview">
+                <video id="archive-video" autoplay playsinline muted></video>
+                <canvas id="vision-canvas"></canvas>
+                <div class="recognition-overlay" id="recognition-overlay">
+                  <span class="scan-line"></span>
+                  <p>Apunta la cámara a un monumento</p>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary" id="btn-recognize">
+                📷 Identificar monumento
+              </button>
+              <div class="recognition-result" id="recognition-result" hidden>
+                <strong id="recognized-monument">--</strong>
+                <span id="recognition-confidence">--</span>
+              </div>
+            </div>
+
+            <!-- Grafo de conocimiento cultural -->
+            <div class="knowledge-graph" id="knowledge-graph">
+              <h4>Grafo de conocimiento</h4>
+              <div class="graph-container">
+                <div class="graph-node root" data-node="catedral">Catedral</div>
+                <div class="graph-connections">
+                  <div class="graph-node" data-node="barroco">Arquitectura Barroca</div>
+                  <div class="graph-node" data-node="siglo18">Siglo XVIII</div>
+                  <div class="graph-node" data-node="tepehuanes">Tepehuanes</div>
+                  <div class="graph-node" data-node="camino-real">Camino Real</div>
+                </div>
+              </div>
+              <div class="node-details" id="node-details">
+                <p>Selecciona un nodo para ver detalles</p>
+              </div>
+            </div>
+
+            <!-- Herramienta de narrativa accesible -->
+            <div class="narrative-tool">
+              <h4>Caja de herramientas narrativa</h4>
+              <div class="recording-interface">
+                <button type="button" class="btn-record" id="btn-record" aria-label="Grabar narrativa">
+                  <span class="record-icon">🔴</span>
+                  <span class="record-text">Grabar leyenda</span>
+                </button>
+                <div class="recording-status" id="recording-status" hidden>
+                  <span class="recording-pulse"></span>
+                  <span>Grabando... <span id="record-timer">0:00</span></span>
+                </div>
+              </div>
+              <div class="ai-processing" id="ai-processing" hidden>
+                <div class="processing-step" data-step="1">
+                  <span>🎙️</span> Transcribiendo audio...
+                </div>
+                <div class="processing-step" data-step="2" hidden>
+                  <span>🌐</span> Traduciendo a 3 idiomas...
+                </div>
+                <div class="processing-step" data-step="3" hidden>
+                  <span>👋</span> Generando lengua de señas...
+                </div>
+                <div class="processing-step" data-step="4" hidden>
+                  <span>🎵</span> Sintetizando audio espacial...
+                </div>
+              </div>
+              <div class="narrative-output" id="narrative-output" hidden>
+                <div class="output-tabs">
+                  <button class="tab-btn active" data-tab="text">Texto</button>
+                  <button class="tab-btn" data-tab="sign">Señas</button>
+                  <button class="tab-btn" data-tab="audio">Audio</button>
+                </div>
+                <div class="tab-content" id="tab-text">
+                  <p id="narrative-text">La leyenda del Cerro de Mercado cuenta que...</p>
+                  <div class="language-versions">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                  </div>
+                </div>
+                <div class="tab-content" id="tab-sign" hidden>
+                  <div class="sign-avatar">🧑‍🦱 Avatar LSM</div>
+                  <p>Animación en lengua de señas mexicana</p>
+                </div>
+                <div class="tab-content" id="tab-audio" hidden>
+                  <audio controls id="narrative-audio">
+                    <source src="" type="audio/mpeg">
+                  </audio>
+                  <p>Audio espacial 3D</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Indicador de almacenamiento verde -->
+            <div class="green-storage">
+              <div class="storage-info">
+                <span class="storage-icon">🌿</span>
+                <div>
+                  <strong>Almacenamiento consciente</strong>
+                  <small>Datos fríos archivados localmente</small>
+                </div>
+              </div>
+              <div class="storage-stats">
+                <div class="stat">
+                  <span class="stat-value">78%</span>
+                  <span class="stat-label">Cache local</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">-42%</span>
+                  <span class="stat-label">Emisiones</span>
+                </div>
+              </div>
+            </div>
           </article>
           <article class="card">
             <span class="card-icon">CO₂</span>
