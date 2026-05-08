@@ -17,6 +17,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
   <!-- Chart.js para dashboards -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Leaflet para mapas de rutas -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -328,11 +331,57 @@
           <h2 data-key="solutionTitle">Una plataforma para conectar rutas, comunidad y sostenibilidad</h2>
           <p data-key="solutionIntro">La solución convierte el diagnóstico en herramientas concretas para visitantes, comerciantes y comunidades.</p>
         </div>
+
+        <!-- El Camino de los Coyotes - 路线地图演示 -->
+        <div class="coyotes-route-demo">
+          <h3>🗺️ El Camino de los Coyotes - 沉浸式路线演示</h3>          <p>沿着故事走，不留下碳的痕迹。点击下方地图上的标记或"开始模拟行走"，体验12公里古道的叙事与碳足迹追踪。</p>
+          
+          <!-- Leaflet 地图 -->
+          <div id="coyotes-map" class="coyotes-map" aria-label="Coyotes 路线地图，标注了6个叙事点" role="img"></div>
+
+          <!-- 模拟控制器 -->
+          <div class="sim-controls">
+            <button id="btn-start-walk" class="btn btn-primary">▶ 开始模拟行走</button>
+            <button id="btn-reset-walk" class="btn btn-secondary" disabled>↺ 重置路线</button>
+            <span id="walk-status" role="status" aria-live="polite">准备就绪，共 12 公里</span>
+          </div>
+
+          <!-- 碳足迹仪表 -->
+          <div class="carbon-dashboard">
+            <h4>🌱 你的路线碳足迹</h4>
+            <div class="carbon-stats">
+              <div class="stat-item">
+                <span class="stat-label">已走距离</span>
+                <strong id="dist-el">0 km</strong>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">当前模式</span>
+                <span>步行 (0.12 kg CO₂/km)</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">对比驾车</span>
+                <span>0.33 kg CO₂/km</span>
+              </div>
+            </div>            <div class="carbon-meter">
+              <div id="carbon-fill" class="carbon-fill" style="width:0%"></div>
+            </div>
+            <p class="carbon-text" id="carbon-text">已排放 0 kg CO₂ （较驾车节省 0 kg）</p>
+          </div>
+
+          <!-- 叙事长椅模拟 -->
+          <div class="story-bench-sim">
+            <h4>🎤 叙事长椅（社区录音模拟）>/h4>
+            <p>点击下方按钮，模拟社区长者在路线上留下传说。</p>
+            <button id="btn-record-bench" class="btn btn-secondary">🔴 模拟长者录音</button>
+            <div id="record-bench-status" class="bench-status" aria-live="polite"></div>
+          </div>
+        </div>
+
         <div class="cards-grid four">
           <article class="card ar-card">
             <span class="card-icon">🎧</span>
-            <h3>文化路线连续沉浸导航</h3>
-            <p>让路"自己讲故事"——基于位置的AR音频触发，无需频繁扫码</p>
+            <h3 data-key="solutionCard1Title">文化路线连续沉浸导航</h3>
+            <p data-key="solutionCard1Text">让路"自己讲故事"——基于位置的AR音频触发，无需频繁扫码</p>
             
             <!-- 基于位置的 AR 音频触发，替代视觉标记 -->
             <div class="geo-nav-demo">
