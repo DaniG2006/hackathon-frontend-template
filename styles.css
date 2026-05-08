@@ -845,6 +845,164 @@ a {
   font-size: 0.85rem;
 }
 
+/* P2P Card Styles */
+.p2p-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p2p-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.p2p-form fieldset {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0;
+}
+
+.p2p-form legend {
+  font-weight: 800;
+  color: var(--registration-accent);
+  padding: 0 8px;
+}
+
+.p2p-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.p2p-form label span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.p2p-form select,
+.p2p-form input {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.p2p-form select:focus,
+.p2p-form input:focus {
+  border-color: var(--registration-accent);
+  outline: 2px solid color-mix(in srgb, var(--registration-accent) 20%, transparent);
+}
+
+.price-breakdown {
+  background: color-mix(in srgb, var(--registration-accent) 8%, var(--surface));
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.price-row strong {
+  color: var(--registration-accent);
+  font-size: 1.2rem;
+}
+
+.distribution small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.p2p-submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.tx-status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.tx-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.tx-step .step-icon {
+  font-size: 1.2rem;
+}
+
+.nft-link {
+  margin-left: auto;
+  color: var(--registration-accent);
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.carbon-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: color-mix(in srgb, #4ade80 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, #4ade80 30%, transparent);
+  border-radius: 8px;
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.badge-info strong {
+  color: #16a34a;
+  font-size: 0.9rem;
+}
+
+.badge-info small {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.btn-compensate {
+  padding: 6px 12px;
+  border: 1px solid #16a34a;
+  border-radius: 6px;
+  background: transparent;
+  color: #16a34a;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-compensate:hover {
+  background: #16a34a;
+  color: white;
+}
+
 .card-icon {
   display: inline-flex;
   align-items: center;

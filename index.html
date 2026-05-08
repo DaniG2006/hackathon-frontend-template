@@ -10,6 +10,8 @@
   <!-- A-Frame y AR.js para realidad aumentada -->
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- Web3.js para blockchain -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@4.0.3/dist/web3.min.js"></script>
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -345,10 +347,91 @@
               <small>42 % más ligero que en automóvil</small>
             </div>
           </article>
-          <article class="card">
+          <article class="card p2p-card">
             <span class="card-icon">P2P</span>
             <h3 data-key="solutionCard2Title">Plataforma P2P</h3>
             <p data-key="solutionCard2Text">Conexión directa entre visitantes, comerciantes, guías y comunidades para reducir dependencia externa.</p>
+            
+            <!-- Formulario de reserva accesible -->
+            <form id="p2p-booking-form" class="p2p-form" aria-label="Formulario de reserva de ruta">
+              <fieldset>
+                <legend>Reservar ruta comunitaria</legend>
+                
+                <label for="route-select">
+                  <span>Selecciona una ruta:</span>
+                  <select id="route-select" name="route" required>
+                    <option value="">-- Elige una ruta --</option>
+                    <option value="otinapa">Ruta Otinapa</option>
+                    <option value="catedral">Cañón de Catedral</option>
+                    <option value="coyotes">Coyotes</option>
+                  </select>
+                </label>
+                
+                <label for="guide-select">
+                  <span>Guía local:</span>
+                  <select id="guide-select" name="guide" required>
+                    <option value="">-- Selecciona guía --</option>
+                    <option value="maria">María - Guía cultural</option>
+                    <option value="juan">Juan - Historiador</option>
+                    <option value="elena">Elena - Etnógrafa</option>
+                  </select>
+                </label>
+                
+                <label for="booking-date">
+                  <span>Fecha de visita:</span>
+                  <input type="date" id="booking-date" name="date" required />
+                </label>
+                
+                <label for="participants">
+                  <span>Número de participantes:</span>
+                  <input type="number" id="participants" name="participants" min="1" max="20" value="1" required />
+                </label>
+                
+                <div class="price-breakdown" aria-live="polite">
+                  <div class="price-row">
+                    <span>Total a pagar:</span>
+                    <strong id="total-price">$500 MXN</strong>
+                  </div>
+                  <div class="distribution">
+                    <small>70% guía · 20% comunidad · 10% conservación</small>
+                  </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary p2p-submit">
+                  <span class="btn-text">Reservar y pagar con Web3</span>
+                  <span class="btn-loading" hidden>Procesando...</span>
+                </button>
+              </fieldset>
+            </form>
+            
+            <!-- Estado de la transacción -->
+            <div id="tx-status" class="tx-status" hidden>
+              <div class="tx-step" data-step="1">
+                <span class="step-icon">⏳</span>
+                <span>Conectando a Polygon Mumbai...</span>
+              </div>
+              <div class="tx-step" data-step="2" hidden>
+                <span class="step-icon">⏳</span>
+                <span>Ejecutando smart contract...</span>
+              </div>
+              <div class="tx-step" data-step="3" hidden>
+                <span class="step-icon">✅</span>
+                <span>¡NFT de certificado emitido!</span>
+                <a id="nft-link" href="#" target="_blank" class="nft-link">Ver en Polygonscan</a>
+              </div>
+            </div>
+            
+            <!-- Etiqueta de huella de carbono verificada -->
+            <div class="carbon-badge">
+              <span class="badge-icon">🌱</span>
+              <div class="badge-info">
+                <strong>Huella de carbono verificada</strong>
+                <small>Transporte + Alimentación + Alojamiento</small>
+              </div>
+              <button type="button" class="btn-compensate" id="btn-compensate">
+                Compensar
+              </button>
+            </div>
           </article>
           <article class="card">
             <span class="card-icon">2.0</span>

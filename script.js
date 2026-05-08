@@ -870,6 +870,118 @@ function playSpatialAudio() {
   }, 5000);
 }
 
+// P2P Web3 Booking System
+const p2pBookingForm = document.getElementById('p2p-booking-form');
+const routeSelect = document.getElementById('route-select');
+const guideSelect = document.getElementById('guide-select');
+const participantsInput = document.getElementById('participants');
+const totalPriceEl = document.getElementById('total-price');
+const txStatus = document.getElementById('tx-status');
+const btnCompensate = document.getElementById('btn-compensate');
+
+// Precios base por ruta
+const routePrices = {
+  otinapa: 500,
+  catedral: 650,
+  coyotes: 450
+};
+
+// Actualizar precio cuando cambian selecciones
+function updatePrice() {
+  const route = routeSelect?.value;
+  const participants = parseInt(participantsInput?.value) || 1;
+  const basePrice = routePrices[route] || 0;
+  const total = basePrice * participants;
+  
+  if (totalPriceEl && basePrice > 0) {
+    totalPriceEl.textContent = `$${total} MXN`;
+  }
+}
+
+routeSelect?.addEventListener('change', updatePrice);
+participantsInput?.addEventListener('input', updatePrice);
+
+// Simular conexión Web3 y smart contract
+p2pBookingForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const submitBtn = p2pBookingForm.querySelector('.p2p-submit');
+  const btnText = submitBtn?.querySelector('.btn-text');
+  const btnLoading = submitBtn?.querySelector('.btn-loading');
+  
+  // Mostrar estado de carga
+  if (submitBtn) submitBtn.disabled = true;
+  if (btnText) btnText.hidden = true;
+  if (btnLoading) btnLoading.hidden = false;
+  if (txStatus) txStatus.hidden = false;
+  
+  // Paso 1: Conectar a Polygon Mumbai
+  const step1 = txStatus?.querySelector('[data-step="1"]');
+  const step2 = txStatus?.querySelector('[data-step="2"]');
+  const step3 = txStatus?.querySelector('[data-step="3"]');
+  const nftLink = document.getElementById('nft-link');
+  
+  // Simular delay de blockchain
+  await new Promise(resolve => setTimeout(resolve, 1500));
+  if (step1) step1.querySelector('.step-icon').textContent = '✅';
+  if (step2) step2.hidden = false;
+  
+  // Paso 2: Ejecutar smart contract
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  if (step2) step2.querySelector('.step-icon').textContent = '✅';
+  if (step3) step3.hidden = false;
+  
+  // Generar hash de transacción simulado
+  const txHash = '0x' + Array.from({length: 64}, () => 
+    Math.floor(Math.random() * 16).toString(16)
+  ).join('');
+  
+  if (nftLink) {
+    nftLink.href = `https://mumbai.polygonscan.com/tx/${txHash}`;
+  }
+  
+  // Restaurar botón
+  if (submitBtn) submitBtn.disabled = false;
+  if (btnText) btnText.hidden = false;
+  if (btnLoading) btnLoading.hidden = true;
+  
+  // Guardar reserva en localStorage
+  const booking = {
+    route: routeSelect?.value,
+    guide: guideSelect?.value,
+    date: document.getElementById('booking-date')?.value,
+    participants: participantsInput?.value,
+    total: totalPriceEl?.textContent,
+    txHash: txHash,
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem('turismoP2PBooking', JSON.stringify(booking));
+});
+
+// Botón de compensación de carbono
+btnCompensate?.addEventListener('click', () => {
+  const route = routeSelect?.value;
+  if (!route) {
+    alert('Primero selecciona una ruta para calcular la compensación');
+    return;
+  }
+  
+  // Simular donación a proyecto de reforestación
+  const compensationAmount = (routePrices[route] * 0.05).toFixed(2);
+  const confirmed = confirm(
+    `¿Deseas compensar tu huella de carbono donando $${compensationAmount} MXN ` +
+    `al proyecto de reforestación local?`
+  );
+  
+  if (confirmed) {
+    btnCompensate.textContent = '✓ Compensado';
+    btnCompensate.disabled = true;
+    btnCompensate.style.background = '#16a34a';
+    btnCompensate.style.color = 'white';
+    localStorage.setItem('turismoCarbonCompensated', 'true');
+  }
+});
+
 // Actualizar huella de carbono según el modo de transporte
 function updateCarbonFootprint(transportMode) {
   const co2Value = document.getElementById('co2-value');
