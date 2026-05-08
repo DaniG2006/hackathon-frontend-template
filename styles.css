@@ -1299,6 +1299,75 @@ a {
   color: #fcd34d;
 }
 
+/* Recursos y Datos de Referencia */
+.resources-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+}
+
+.resources-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.resources-table th,
+.resources-table td {
+  padding: 20px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.resources-table th {
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.resources-table tbody tr:hover {
+  background: var(--surface);
+}
+
+.resources-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.resources-table td strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.resources-table td span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.resource-link {
+  color: var(--primary-strong);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resource-link::after {
+  content: "↗";
+  font-size: 0.8em;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 920px) {
   .hero-layout,
   .split-section,
