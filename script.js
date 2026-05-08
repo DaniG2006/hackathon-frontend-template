@@ -10,7 +10,6 @@ const preferredLanguage = document.getElementById('preferredLanguage');
 const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
-const toggleRegistrationButton = document.getElementById('toggleRegistrationButton');
 const showBusinessForm = document.getElementById('showBusinessForm');
 const businessWorkflow = document.getElementById('businessWorkflow');
 const businessForm = document.getElementById('businessForm');
@@ -107,7 +106,7 @@ const translations = {
     businessNoFiles: "Sin archivos cargados",
     problemLabel: "Situación actual y problema",
     problemTitle: "Durango se encuentra en una encrucijada cultural, digital y ambiental",
-    problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, alcanzando tres destinos en su fase piloto de 2025, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del propio viaje erosiona silenciosamente los mismos bosques y cañones que se quieren proteger.",
+    problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.",
     problemCard1Title: "Participación cultural desigual",
     problemCard1Text: "Las personas con discapacidad, los adultos mayores y quienes tienen bajas competencias digitales quedan prácticamente excluidos de las experiencias inmersivas. Las historias en lenguas originarias a menudo no llegan a todos por falta de adaptación a lengua de señas o a formatos de audio accesibles.",
     problemCard2Title: "Costo ecológico del crecimiento turístico",
@@ -117,12 +116,12 @@ const translations = {
     approachLabel: "Contradicciones centrales actuales",
     approachTitle: "El reto no es solo mostrar cultura, sino hacerla accesible, medible y comunitaria",
     approachText: "La propuesta parte de tres tensiones principales: quién puede participar, cómo se mide el costo ecológico y quién controla la narrativa cultural.",
-    approach1Title: "Participación cultural desigual",
-    approach1Text: "Personas con discapacidad, adultos mayores y quienes tienen bajas competencias digitales quedan excluidos de las experiencias inmersivas. Las historias en lenguas originarias no llegan a todos por falta de adaptación a lengua de señas o formatos de audio accesibles.",
-    approach2Title: "Costo ecológico del crecimiento turístico",
-    approach2Text: "Aunque las rutas comunitarias llevan la etiqueta \"eco\", carecen de cuantificación en tiempo real y de retroalimentación sobre el flujo de visitantes, los medios de transporte y los residuos generados. La sostenibilidad se queda en una declaración de intenciones.",
-    approach3Title: "Expresión comunitaria insuficiente",
-    approach3Text: "El diseño y la distribución de beneficios turísticos dependen en gran medida de plataformas externas. Las comunidades no pueden gestionar de forma autónoma sus narrativas culturales ni su ética ambiental mediante herramientas inclusivas.",
+    approach1Title: "Accesibilidad real",
+    approach1Text: "Contenidos en audio, lectura clara, lengua de señas, alto contraste y formatos adecuados para diferentes edades, capacidades y niveles digitales.",
+    approach2Title: "Sostenibilidad con evidencia",
+    approach2Text: "Indicadores de flujo, transporte, residuos y huella de carbono para que las rutas eco no dependan solo de una declaración de intenciones.",
+    approach3Title: "Autonomía narrativa",
+    approach3Text: "Herramientas simples para que las comunidades publiquen, corrijan y administren sus historias, beneficios y criterios ambientales.",
     impactLabel: "Métricas clave",
     impactTitle: "Indicadores para tomar decisiones con datos",
     metric1Value: "3",
@@ -164,10 +163,10 @@ const translations = {
     solutionLabel: "Solución propuesta",
     solutionTitle: "Una plataforma para conectar rutas, comunidad y sostenibilidad",
     solutionIntro: "La solución convierte el diagnóstico en herramientas concretas para visitantes, comerciantes y comunidades.",
-    solutionCard1Title: "Navegación AR Inclusiva y Carbono-Consciente",
-    solutionCard1Text: "Al apuntar la cámara hacia un edificio del Centro Histórico de Durango, la app superpone visualizaciones históricas. Para personas ciegas: narración con audio espacial y retroalimentación háptica. Para personas sordas: avatar virtual de intérprete de lengua de señas en tiempo real. Incluye rastreador personal de huella de carbono basado en la ruta elegida.",
-    solutionCard2Title: "Plataforma P2P de Turismo Comunitario con Trazabilidad Web3",
-    solutionCard2Text: "Cada ruta comunitaria se tokeniza. Las reservas se registran en blockchain (Polygon PoS); los pagos se distribuyen automáticamente mediante smart contracts entre guías, cocineras tradicionales y fondos de conservación. Interfaz compatible con lectores de pantalla. Sistema de créditos comunitarios para personas sin cuenta bancaria.",
+    solutionCard1Title: "Navegación AR inclusiva",
+    solutionCard1Text: "Recorridos con orientación visual, audio, lectura clara y señales contextuales en puntos culturales.",
+    solutionCard2Title: "Plataforma P2P",
+    solutionCard2Text: "Conexión directa entre visitantes, comerciantes, guías y comunidades para reducir dependencia externa.",
     solutionCard3Title: "Archivo digital 2.0",
     solutionCard3Text: "Memoria cultural organizada en formatos accesibles, multilingües y fáciles de actualizar.",
     solutionCard4Title: "Gemelo de sostenibilidad",
@@ -290,12 +289,12 @@ const translations = {
     approachLabel: "当前的核心矛盾",
     approachTitle: "挑战不只是展示文化，而是让文化可及、可衡量，并由社区掌握",
     approachText: "方案从三组主要张力出发：谁能参与，如何衡量生态成本，以及谁掌握文化叙事。",
-    approach1Title: "文化参与不平等",
-    approach1Text: "残障人士、老年人和数字能力较低的人被排除在沉浸式体验之外。由于缺乏手语或无障碍音频格式的适配，原住民语言的故事无法触达所有人。",
-    approach2Title: "旅游增长的生态成本",
-    approach2Text: "尽管社区路线带有"生态"标签，但缺乏对游客流量、交通工具和产生废弃物的实时量化和反馈。可持续性仅停留在意愿声明层面。",
-    approach3Title: "社区表达不足",
-    approach3Text: "旅游设计和收益分配在很大程度上依赖外部平台。社区无法通过包容性工具自主管理其文化叙事和环境伦理。",
+    approach1Title: "真正的无障碍",
+    approach1Text: "提供音频、清晰阅读、手语、高对比度，以及适合不同年龄、能力和数字水平的内容格式。",
+    approach2Title: "由证据支撑的可持续",
+    approach2Text: "用人流、交通、废弃物和碳足迹指标，让生态路线不只依赖意愿声明。",
+    approach3Title: "叙事自主权",
+    approach3Text: "提供简单工具，让社区能够发布、修正和管理自己的故事、收益与环境标准。",
     impactLabel: "关键指标",
     impactTitle: "用数据支持决策的指标",
     metric1Value: "3",
@@ -337,10 +336,10 @@ const translations = {
     solutionLabel: " proposed solution",
     solutionTitle: "一个连接路线、社区和可持续性的平台",
     solutionIntro: "该解决方案将诊断转化为访客、商户和社区的具体工具。",
-    solutionCard1Title: "包容性AR导航与碳意识",
-    solutionCard1Text: "将相机对准杜兰戈历史中心的建筑时，应用会叠加历史可视化。对于视障人士：空间音频叙述和触觉反馈。对于听障人士：实时手语翻译虚拟化身。包括基于所选路线的个人碳足迹追踪器。",
-    solutionCard2Title: "Web3可追溯社区旅游P2P平台",
-    solutionCard2Text: "每条社区路线都被代币化。预订记录在区块链上（Polygon PoS）；通过智能合约自动向导游、传统厨师和保育基金分配付款。界面兼容屏幕阅读器。为无银行账户者提供社区信用系统。",
+    solutionCard1Title: "包容性AR导航",
+    solutionCard1Text: "在文化景点提供视觉引导、音频、清晰阅读和情境信号。",
+    solutionCard2Title: "P2P平台",
+    solutionCard2Text: "访客、商户、导游和社区之间的直接连接，减少对外部平台的依赖。",
     solutionCard3Title: "数字档案2.0",
     solutionCard3Text: "以无障碍、多语言、易更新的格式组织文化记忆。",
     solutionCard4Title: "可持续性孪生",
@@ -463,12 +462,12 @@ const translations = {
     approachLabel: "Current central contradictions",
     approachTitle: "The challenge is not only to show culture, but to make it accessible, measurable, and community-led",
     approachText: "The proposal begins with three main tensions: who can participate, how ecological cost is measured, and who controls the cultural narrative.",
-    approach1Title: "Unequal cultural participation",
-    approach1Text: "People with disabilities, older adults, and those with low digital skills are excluded from immersive experiences. Stories in Indigenous languages do not reach everyone due to lack of adaptation to sign language or accessible audio formats.",
-    approach2Title: "Ecological cost of tourism growth",
-    approach2Text: "Although community routes carry the \"eco\" label, they lack real-time quantification and feedback on visitor flow, means of transport, and waste generated. Sustainability remains a declaration of intent.",
-    approach3Title: "Insufficient community expression",
-    approach3Text: "Tourism design and benefit distribution depend largely on external platforms. Communities cannot autonomously manage their cultural narratives or environmental ethics through inclusive tools.",
+    approach1Title: "Real accessibility",
+    approach1Text: "Audio, clear reading, sign language, high contrast, and formats adapted to different ages, abilities, and levels of digital skill.",
+    approach2Title: "Sustainability with evidence",
+    approach2Text: "Visitor-flow, transport, waste, and carbon-footprint indicators so eco routes do not rely only on declarations of intent.",
+    approach3Title: "Narrative autonomy",
+    approach3Text: "Simple tools for communities to publish, correct, and manage their own stories, benefits, and environmental criteria.",
     impactLabel: "Key metrics",
     impactTitle: "Indicators for data-based decisions",
     metric1Value: "3",
@@ -510,10 +509,10 @@ const translations = {
     solutionLabel: "Proposed solution",
     solutionTitle: "A platform to connect routes, community and sustainability",
     solutionIntro: "The solution turns the diagnosis into concrete tools for visitors, merchants and communities.",
-    solutionCard1Title: "Inclusive AR Navigation & Carbon-Conscious",
-    solutionCard1Text: "When pointing the camera at a building in Durango's Historic Center, the app overlays historical visualizations. For blind people: spatial audio narration and haptic feedback. For deaf people: real-time sign language interpreter avatar. Includes personal carbon footprint tracker based on chosen route.",
-    solutionCard2Title: "P2P Community Tourism Platform with Web3 Traceability",
-    solutionCard2Text: "Each community route is tokenized. Reservations are recorded on blockchain (Polygon PoS); payments are automatically distributed via smart contracts among guides, traditional cooks and conservation funds. Screen reader compatible interface. Community credit system for unbanked individuals.",
+    solutionCard1Title: "Inclusive AR navigation",
+    solutionCard1Text: "Routes with visual guidance, audio, clear reading and contextual signals at cultural points.",
+    solutionCard2Title: "P2P platform",
+    solutionCard2Text: "Direct connection between visitors, merchants, guides and communities to reduce external dependence.",
     solutionCard3Title: "Digital archive 2.0",
     solutionCard3Text: "Cultural memory organized in accessible, multilingual and easy-to-update formats.",
     solutionCard4Title: "Sustainability twin",
@@ -569,24 +568,15 @@ const getRegisteredUser = () => {
   }
 };
 
-let forceShowRegistration = false;
-
-const isAdminUser = () => localStorage.getItem(adminAccessKey) === 'true';
-
 const updateRegistrationState = () => {
   const user = getRegisteredUser();
   const isRegistered = Boolean(user?.email);
   const visitorType = user?.visitorType || '';
-  const isAdmin = isAdminUser();
-
-  // Show registration if: not registered OR (admin AND force show)
-  const shouldShowRegistration = !isRegistered || (isAdmin && forceShowRegistration);
-
-  document.body.classList.toggle('registration-locked', shouldShowRegistration);
+  document.body.classList.toggle('registration-locked', !isRegistered);
   document.body.classList.toggle('profile-tourist', isRegistered && visitorType === 'tourist_visitor');
   document.body.classList.toggle('profile-merchant', isRegistered && visitorType === 'merchant');
   document.body.classList.toggle('profile-admin', isRegistered && visitorType === 'admin');
-  registrationGate?.setAttribute('aria-hidden', String(!shouldShowRegistration));
+  registrationGate?.setAttribute('aria-hidden', String(isRegistered));
 
   if (accountPill) {
     accountPill.hidden = !isRegistered;
@@ -595,13 +585,6 @@ const updateRegistrationState = () => {
 
   if (signOutButton) {
     signOutButton.hidden = !isRegistered;
-  }
-
-  // Show toggle button only for admin
-  if (toggleRegistrationButton) {
-    toggleRegistrationButton.hidden = !isAdmin;
-    toggleRegistrationButton.textContent = forceShowRegistration ? '👁️' : '📝';
-    toggleRegistrationButton.title = forceShowRegistration ? 'Ocultar registro' : 'Mostrar registro';
   }
 };
 
@@ -733,11 +716,8 @@ langOptions.forEach((option) => {
 
 preferredLanguage?.addEventListener('change', () => {
   const lang = preferredLanguage.value || 'es';
-  // Prevent loop: setText already updates preferredLanguage.value
-  if (localStorage.getItem('turismoLang') !== lang) {
-    setText(lang);
-    setActiveLanguage(lang);
-  }
+  setText(lang);
+  setActiveLanguage(lang);
 });
 
 registrationForm?.addEventListener('submit', (event) => {
@@ -805,16 +785,10 @@ signOutButton?.addEventListener('click', () => {
   localStorage.removeItem('turismoRegisteredUser');
   localStorage.removeItem(adminAccessKey);
   localStorage.removeItem('turismoBusinessProfile');
-  forceShowRegistration = false;
   registrationForm?.reset();
   businessForm?.reset();
   if (businessWorkflow) businessWorkflow.hidden = true;
   if (businessResult) businessResult.hidden = true;
-  updateRegistrationState();
-});
-
-toggleRegistrationButton?.addEventListener('click', () => {
-  forceShowRegistration = !forceShowRegistration;
   updateRegistrationState();
 });
 
