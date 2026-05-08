@@ -11,6 +11,7 @@ const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
 const adminToggle = document.getElementById('adminToggle');
+const fullscreenToggle = document.getElementById('fullscreenToggle');
 const showBusinessForm = document.getElementById('showBusinessForm');
 const businessWorkflow = document.getElementById('businessWorkflow');
 const businessForm = document.getElementById('businessForm');
@@ -906,6 +907,36 @@ navMenu?.addEventListener('click', (event) => {
 themeToggle?.addEventListener('click', () => {
   const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+// 全屏模式功能
+fullscreenToggle?.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().then(() => {
+      fullscreenToggle.textContent = '⛶';
+      fullscreenToggle.setAttribute('title', '退出全屏');
+    }).catch(err => {
+      console.log('Error attempting to enable fullscreen:', err);
+    });
+  } else {
+    document.exitFullscreen().then(() => {
+      fullscreenToggle.textContent = '⛶';
+      fullscreenToggle.setAttribute('title', '全屏');
+    });
+  }
+});
+
+// 监听全屏变化事件
+document.addEventListener('fullscreenchange', () => {
+  if (fullscreenToggle) {
+    if (document.fullscreenElement) {
+      fullscreenToggle.textContent = '⛶';
+      fullscreenToggle.setAttribute('title', '退出全屏');
+    } else {
+      fullscreenToggle.textContent = '⛶';
+      fullscreenToggle.setAttribute('title', '全屏');
+    }
+  }
 });
 
 langToggle?.addEventListener('click', (event) => {
