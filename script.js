@@ -106,7 +106,7 @@ const translations = {
     businessNoFiles: "Sin archivos cargados",
     problemLabel: "Situación actual y problema",
     problemTitle: "Durango se encuentra en una encrucijada cultural, digital y ambiental",
-    problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.",
+    problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, alcanzando tres destinos en su fase piloto de 2025, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del propio viaje erosiona silenciosamente los mismos bosques y cañones que se quieren proteger.",
     problemCard1Title: "Participación cultural desigual",
     problemCard1Text: "Las personas con discapacidad, los adultos mayores y quienes tienen bajas competencias digitales quedan prácticamente excluidos de las experiencias inmersivas. Las historias en lenguas originarias a menudo no llegan a todos por falta de adaptación a lengua de señas o a formatos de audio accesibles.",
     problemCard2Title: "Costo ecológico del crecimiento turístico",
