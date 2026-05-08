@@ -546,120 +546,149 @@
             </script>
           </article>
           <article class="card archive-card">
-            <span class="card-icon">2.0</span>
-            <h3 data-key="solutionCard3Title">Archivo digital 2.0</h3>
-            <p data-key="solutionCard3Text">Memoria cultural organizada en formatos accesibles, multilingües y fáciles de actualizar.</p>
+            <span class="card-icon">📚</span>
+            <h3>沿线文化记忆数字档案馆</h3>
+            <p>让长者成为路线的永恒讲述者——"叙事长椅"记录每一段路的故事</p>
 
-            <!-- Reconocimiento visual con TensorFlow.js -->
-            <div class="vision-recognition">
-              <div class="camera-preview" id="camera-preview">
-                <video id="archive-video" autoplay playsinline muted></video>
-                <canvas id="vision-canvas"></canvas>
-                <div class="recognition-overlay" id="recognition-overlay">
-                  <span class="scan-line"></span>
-                  <p>Apunta la cámara a un monumento</p>
-                </div>
-              </div>
-              <button type="button" class="btn btn-secondary" id="btn-recognize">
-                📷 Identificar monumento
-              </button>
-              <div class="recognition-result" id="recognition-result" hidden>
-                <strong id="recognized-monument">--</strong>
-                <span id="recognition-confidence">--</span>
-              </div>
-            </div>
-
-            <!-- Grafo de conocimiento cultural -->
-            <div class="knowledge-graph" id="knowledge-graph">
-              <h4>Grafo de conocimiento</h4>
-              <div class="graph-container">
-                <div class="graph-node root" data-node="catedral">Catedral</div>
-                <div class="graph-connections">
-                  <div class="graph-node" data-node="barroco">Arquitectura Barroca</div>
-                  <div class="graph-node" data-node="siglo18">Siglo XVIII</div>
-                  <div class="graph-node" data-node="tepehuanes">Tepehuanes</div>
-                  <div class="graph-node" data-node="camino-real">Camino Real</div>
-                </div>
-              </div>
-              <div class="node-details" id="node-details">
-                <p>Selecciona un nodo para ver detalles</p>
-              </div>
-            </div>
-
-            <!-- Herramienta de narrativa accesible -->
-            <div class="narrative-tool">
-              <h4>Caja de herramientas narrativa</h4>
-              <div class="recording-interface">
-                <button type="button" class="btn-record" id="btn-record" aria-label="Grabar narrativa">
-                  <span class="record-icon">🔴</span>
-                  <span class="record-text">Grabar leyenda</span>
-                </button>
-                <div class="recording-status" id="recording-status" hidden>
-                  <span class="recording-pulse"></span>
-                  <span>Grabando... <span id="record-timer">0:00</span></span>
-                </div>
-              </div>
-              <div class="ai-processing" id="ai-processing" hidden>
-                <div class="processing-step" data-step="1">
-                  <span>🎙️</span> Transcribiendo audio...
-                </div>
-                <div class="processing-step" data-step="2" hidden>
-                  <span>🌐</span> Traduciendo a 3 idiomas...
-                </div>
-                <div class="processing-step" data-step="3" hidden>
-                  <span>👋</span> Generando lengua de señas...
-                </div>
-                <div class="processing-step" data-step="4" hidden>
-                  <span>🎵</span> Sintetizando audio espacial...
-                </div>
-              </div>
-              <div class="narrative-output" id="narrative-output" hidden>
-                <div class="output-tabs">
-                  <button class="tab-btn active" data-tab="text">Texto</button>
-                  <button class="tab-btn" data-tab="sign">Señas</button>
-                  <button class="tab-btn" data-tab="audio">Audio</button>
-                </div>
-                <div class="tab-content" id="tab-text">
-                  <p id="narrative-text">La leyenda del Cerro de Mercado cuenta que...</p>
-                  <div class="language-versions">
-                    <button class="lang-btn active" data-lang="es">ES</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="zh">中文</button>
+            <!-- 叙事长椅 NFC 交互演示 -->
+            <div class="story-bench-demo">
+              <div class="bench-visual">
+                <div class="bench-illustration">
+                  <span class="bench-icon">🪑</span>
+                  <div class="nfc-tag">
+                    <span class="nfc-wave"></span>
+                    <span class="nfc-label">NFC</span>
                   </div>
                 </div>
-                <div class="tab-content" id="tab-sign" hidden>
-                  <div class="sign-avatar">🧑‍🦱 Avatar LSM</div>
-                  <p>Animación en lengua de señas mexicana</p>
+                <div class="bench-location">
+                  <span class="location-pin">📍</span>
+                  <span>Coyotes 古道 · 古桥段</span>
                 </div>
-                <div class="tab-content" id="tab-audio" hidden>
-                  <audio controls id="narrative-audio">
-                    <source src="" type="audio/mpeg">
-                  </audio>
-                  <p>Audio espacial 3D</p>
+              </div>
+
+              <div class="story-recording-flow">
+                <div class="flow-step active" data-step="1">
+                  <span class="step-num">1</span>
+                  <span class="step-icon">👴</span>
+                  <span class="step-desc">长者坐在长椅上，用本族语言讲述故事</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step" data-step="2">
+                  <span class="step-num">2</span>
+                  <span class="step-icon">📱</span>
+                  <span class="step-desc">手机轻触 NFC，录音自动上传</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step" data-step="3">
+                  <span class="step-num">3</span>
+                  <span class="step-icon">🤖</span>
+                  <span class="step-desc">AI 生成口述文本、字幕和手语动画</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step" data-step="4">
+                  <span class="step-num">4</span>
+                  <span class="step-icon">📍</span>
+                  <span class="step-desc">故事标定在地理坐标上，成为数字遗产</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-secondary" id="btn-simulate-nfc">
+                📲 模拟 NFC 触碰：播放长者故事
+              </button>
+
+              <div class="story-player" id="story-player" hidden>
+                <div class="player-header">
+                  <span class="storyteller">� Don José · 82岁</span>
+                  <span class="story-lang">Tepehuano</span>
+                </div>
+                <div class="audio-player-ui">
+                  <button class="play-btn" id="play-story">▶️</button>
+                  <div class="waveform">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                  <span class="duration">2:34</span>
+                </div>
+                <div class="story-outputs">
+                  <span class="output-badge">📝 西班牙语字幕</span>
+                  <span class="output-badge">👋 手语动画</span>
+                  <span class="output-badge">📍 GPS 坐标</span>
                 </div>
               </div>
             </div>
 
-            <!-- Indicador de almacenamiento verde -->
-            <div class="green-storage">
-              <div class="storage-info">
-                <span class="storage-icon">🌿</span>
-                <div>
-                  <strong>Almacenamiento consciente</strong>
-                  <small>Datos fríos archivados localmente</small>
-                </div>
+            <!-- 文化主权设置 -->
+            <div class="cultural-sovereignty">
+              <h5>🛡️ 文化主权设置</h5>
+              <p class="sovereignty-desc">长者通过简单的"是/否"滑动设定故事访问权限</p>
+              <div class="access-toggles">
+                <label class="toggle-item">
+                  <span class="toggle-label">仅限社区内部访问</span>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="access-community">
+                    <span class="slider"></span>
+                  </div>
+                </label>
+                <label class="toggle-item">
+                  <span class="toggle-label">游客需捐助才可聆听</span>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="access-donation" checked>
+                    <span class="slider"></span>
+                  </div>
+                </label>
+                <label class="toggle-item">
+                  <span class="toggle-label">完全开放</span>
+                  <div class="toggle-switch">
+                    <input type="checkbox" id="access-public">
+                    <span class="slider"></span>
+                  </div>
+                </label>
               </div>
-              <div class="storage-stats">
-                <div class="stat">
-                  <span class="stat-value">78%</span>
-                  <span class="stat-label">Cache local</span>
+            </div>
+
+            <!-- 碳意识存储 -->
+            <div class="carbon-conscious-storage">
+              <div class="storage-header">
+                <span class="storage-icon">🌱</span>
+                <span class="storage-title">碳意识存储</span>
+              </div>
+              <div class="storage-details">
+                <div class="storage-tech">
+                  <span class="tech-badge">Opus 低码率压缩</span>
+                  <span class="tech-badge">社区 Wi-Fi 边缘节点</span>
                 </div>
-                <div class="stat">
-                  <span class="stat-value">-42%</span>
-                  <span class="stat-label">Emisiones</span>
+                <p class="storage-benefit">避免实时云端上传产生额外碳足迹</p>
+                <div class="storage-stats-mini">
+                  <span>💾 压缩率: 85%</span>
+                  <span>🌿 碳节省: -62%</span>
                 </div>
               </div>
             </div>
+
+            <script>
+              (function() {
+                const nfcBtn = document.getElementById('btn-simulate-nfc');
+                const storyPlayer = document.getElementById('story-player');
+                const playBtn = document.getElementById('play-story');
+                const waveform = document.querySelector('.waveform');
+
+                nfcBtn?.addEventListener('click', () => {
+                  storyPlayer.hidden = false;
+                  nfcBtn.textContent = '🔊 正在播放长者故事...';
+                  nfcBtn.disabled = true;
+
+                  setTimeout(() => {
+                    nfcBtn.textContent = '📲 模拟 NFC 触碰：播放长者故事';
+                    nfcBtn.disabled = false;
+                  }, 3000);
+                });
+
+                playBtn?.addEventListener('click', () => {
+                  waveform.classList.toggle('playing');
+                  playBtn.textContent = waveform.classList.contains('playing') ? '⏸️' : '▶️';
+                });
+              })();
+            </script>
           </article>
           <article class="card twin-card">
             <span class="card-icon">CO₂</span>
