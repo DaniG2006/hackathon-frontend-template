@@ -579,14 +579,14 @@ const updateRegistrationState = () => {
   const visitorType = user?.visitorType || '';
   const isAdmin = isAdminUser();
 
-  // Admin can toggle registration view
-  const shouldHideRegistration = isRegistered && !forceShowRegistration;
+  // Show registration if: not registered OR (admin AND force show)
+  const shouldShowRegistration = !isRegistered || (isAdmin && forceShowRegistration);
 
-  document.body.classList.toggle('registration-locked', !shouldHideRegistration);
+  document.body.classList.toggle('registration-locked', shouldShowRegistration);
   document.body.classList.toggle('profile-tourist', isRegistered && visitorType === 'tourist_visitor');
   document.body.classList.toggle('profile-merchant', isRegistered && visitorType === 'merchant');
   document.body.classList.toggle('profile-admin', isRegistered && visitorType === 'admin');
-  registrationGate?.setAttribute('aria-hidden', String(shouldHideRegistration));
+  registrationGate?.setAttribute('aria-hidden', String(!shouldShowRegistration));
 
   if (accountPill) {
     accountPill.hidden = !isRegistered;
