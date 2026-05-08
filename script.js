@@ -804,6 +804,93 @@ adminToggle?.addEventListener('click', () => {
   window.location.reload();
 });
 
+// Audio espacial para accesibilidad
+const btnAudio = document.getElementById('btn-audio');
+let audioContext = null;
+let isPlaying = false;
+
+btnAudio?.addEventListener('click', () => {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  
+  if (isPlaying) {
+    audioContext.suspend();
+    btnAudio.textContent = '🔊 Escuchar historia';
+    isPlaying = false;
+  } else {
+    audioContext.resume();
+    // Simular narración con audio espacial
+    playSpatialAudio();
+    btnAudio.textContent = '⏸️ Pausar narración';
+    isPlaying = true;
+  }
+});
+
+function playSpatialAudio() {
+  if (!audioContext) return;
+  
+  // Crear oscilador para simular voz
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  const panner = audioContext.createPanner();
+  
+  oscillator.connect(panner);
+  panner.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  // Configurar audio espacial
+  panner.panningModel = 'HRTF';
+  panner.distanceModel = 'inverse';
+  panner.refDistance = 1;
+  panner.maxDistance = 10000;
+  panner.rolloffFactor = 1;
+  panner.coneInnerAngle = 360;
+  panner.coneOuterAngle = 0;
+  panner.coneOuterGain = 0;
+  
+  // Posición 3D del audio (frente al usuario)
+  panner.positionX.value = 0;
+  panner.positionY.value = 0;
+  panner.positionZ.value = -1;
+  
+  oscillator.frequency.value = 150;
+  oscillator.type = 'sine';
+  gainNode.gain.value = 0.3;
+  
+  oscillator.start();
+  
+  // Detener después de 5 segundos (simulación)
+  setTimeout(() => {
+    oscillator.stop();
+    if (btnAudio) {
+      btnAudio.textContent = '🔊 Escuchar historia';
+      isPlaying = false;
+    }
+  }, 5000);
+}
+
+// Actualizar huella de carbono según el modo de transporte
+function updateCarbonFootprint(transportMode) {
+  const co2Value = document.getElementById('co2-value');
+  const progressBar = document.querySelector('#carbon-tracker progress');
+  const comparisonText = document.querySelector('#carbon-tracker small');
+  
+  const emissions = {
+    walking: { value: 0, percent: 0, text: '0 emisiones - 100% más ligero que en automóvil' },
+    bicycle: { value: 0, percent: 0, text: '0 emisiones - 100% más ligero que en automóvil' },
+    electric: { value: 0.12, percent: 12, text: '88% más ligero que en automóvil' },
+    bus: { value: 0.42, percent: 42, text: '58% más ligero que en automóvil' },
+    car: { value: 1.0, percent: 100, text: 'Límite de referencia' }
+  };
+  
+  const data = emissions[transportMode] || emissions.bus;
+  
+  if (co2Value) co2Value.textContent = `${data.value} kg CO₂`;
+  if (progressBar) progressBar.value = data.percent;
+  if (comparisonText) comparisonText.textContent = data.text;
+}
+
 document.addEventListener('click', (event) => {
   const target = event.target instanceof Element ? event.target : null;
   if (!target?.closest('.language-dropdown')) {

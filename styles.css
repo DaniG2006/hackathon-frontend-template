@@ -786,6 +786,65 @@ a {
   padding: 24px;
 }
 
+/* AR Card Styles */
+.ar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ar-scene {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.audio-btn {
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carbon-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: color-mix(in srgb, var(--registration-accent) 10%, var(--surface));
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--registration-accent) 20%, transparent);
+}
+
+.carbon-tracker span {
+  font-weight: 800;
+  color: var(--registration-accent);
+  font-size: 1.1rem;
+}
+
+.carbon-tracker progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.carbon-tracker progress::-webkit-progress-bar {
+  background: var(--surface);
+  border-radius: 4px;
+}
+
+.carbon-tracker progress::-webkit-progress-value {
+  background: var(--registration-accent);
+  border-radius: 4px;
+}
+
+.carbon-tracker small {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .card-icon {
   display: inline-flex;
   align-items: center;

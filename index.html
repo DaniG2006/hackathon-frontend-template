@@ -7,6 +7,9 @@
   <title>Turismo y Cultura</title>
   <link rel="icon" type="image/png" href="icon%20transpalent.png" />
   <link rel="stylesheet" href="styles.css?v=20260508-structure" />
+  <!-- A-Frame y AR.js para realidad aumentada -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -317,10 +320,30 @@
           <p data-key="solutionIntro">La solución convierte el diagnóstico en herramientas concretas para visitantes, comerciantes y comunidades.</p>
         </div>
         <div class="cards-grid four">
-          <article class="card">
+          <article class="card ar-card">
             <span class="card-icon">AR</span>
             <h3 data-key="solutionCard1Title">Navegación AR inclusiva</h3>
             <p data-key="solutionCard1Text">Recorridos con orientación visual, audio, lectura clara y señales contextuales en puntos culturales.</p>
+            
+            <!-- Marcador AR para la Catedral de Durango -->
+            <a-scene embedded arjs class="ar-scene">
+              <a-marker preset="custom" url="marcadores/catedral-durango.patt">
+                <a-text value="Catedral Basílica Menor, siglo XVIII" position="0 1 0" color="#fff"></a-text>
+              </a-marker>
+              <a-entity camera></a-entity>
+            </a-scene>
+            
+            <!-- Botón de accesibilidad: activar audio espacial -->
+            <button id="btn-audio" class="btn btn-secondary audio-btn" aria-label="Activar narración con audio espacial">
+              🔊 Escuchar historia
+            </button>
+            
+            <!-- Indicador de huella de carbono -->
+            <div id="carbon-tracker" class="carbon-tracker">
+              <span id="co2-value">0.42 kg CO₂</span>
+              <progress value="42" max="100"></progress>
+              <small>42 % más ligero que en automóvil</small>
+            </div>
           </article>
           <article class="card">
             <span class="card-icon">P2P</span>
