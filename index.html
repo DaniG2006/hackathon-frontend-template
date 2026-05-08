@@ -6,7 +6,7 @@
   <meta name="description" content="Turismo y Cultura: una propuesta digital, accesible y sostenible para rutas eco-culturales de Durango." />
   <title>Turismo y Cultura</title>
   <link rel="icon" type="image/png" href="icon%20transpalent.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260508-structure" />
 </head>
 <body class="registration-locked">
   <section class="registration-gate" id="registrationGate" aria-labelledby="registrationLabel">
@@ -77,12 +77,13 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home" data-key="brand">Turismo y Cultura</a>
+      <a class="brand" href="#home" data-key="brand">Raíz Durango</a>
       <nav class="nav" id="navMenu" aria-label="Principal">
-        <a href="#problem" data-key="nav0">Problema</a>
-        <a href="#approach" data-key="nav1">Contradicciones</a>
-        <a href="#impact" data-key="nav2">Impacto</a>
-        <a href="#community" data-key="nav3">Comunidad</a>
+        <a href="#home" data-key="nav0">Turismo y cultura</a>
+        <a href="#problema" data-key="nav1">Problema</a>
+        <a href="#contradicciones" data-key="nav2">Contradicciones</a>
+        <a href="#impacto" data-key="nav3">Impacto</a>
+        <a href="#comunidad" data-key="nav4">Comunidad</a>
       </nav>
       <div class="header-controls">
         <span class="account-pill" id="accountPill" hidden></span>
@@ -109,8 +110,8 @@
           <h1 data-key="h1">Turismo y Cultura</h1>
           <p class="lead" data-key="heroP">Ya no se trata solo de paisajes e historias, sino de lograr que cada visita camine con suavidad y que ninguna cultura quede silenciada en el olvido.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#problem" data-key="primaryAction">Ver diagnóstico</a>
-            <a class="btn btn-secondary" href="#approach" data-key="secondaryAction">Explorar contradicciones</a>
+            <a class="btn btn-primary" href="#problema" data-key="primaryAction">Ver diagnóstico</a>
+            <a class="btn btn-secondary" href="#contradicciones" data-key="secondaryAction">Explorar contradicciones</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="Mapa visual de rutas culturales accesibles">
@@ -135,8 +136,8 @@
           <p data-key="touristProfileText">Encuentra historias, rutas recomendadas, puntos accesibles y señales de sostenibilidad pensadas para disfrutar cada visita con contexto.</p>
         </div>
         <div class="profile-actions">
-          <a class="btn btn-primary" href="#problem" data-key="touristAction1">Ver rutas sugeridas</a>
-          <a class="btn btn-secondary" href="#impact" data-key="touristAction2">Consultar impacto</a>
+          <a class="btn btn-primary" href="#solucion" data-key="touristAction1">Ver rutas sugeridas</a>
+          <a class="btn btn-secondary" href="#impacto" data-key="touristAction2">Consultar impacto</a>
         </div>
       </div>
       <div class="container profile-cards">
@@ -164,7 +165,7 @@
         </div>
         <div class="profile-actions">
           <button class="btn btn-primary" id="showBusinessForm" type="button" data-key="merchantAction1">Registrar empresa</button>
-          <a class="btn btn-secondary" href="#approach" data-key="merchantAction2">Ver herramientas</a>
+          <a class="btn btn-secondary" href="#tecnologia" data-key="merchantAction2">Ver herramientas</a>
         </div>
       </div>
       <div class="container profile-cards">
@@ -247,7 +248,7 @@
       </div>
     </section>
 
-    <section class="section" id="problem">
+    <section class="section" id="problema">
       <div class="container">
         <div class="section-heading">
           <p class="section-label" data-key="problemLabel">Situación actual y problema</p>
@@ -274,7 +275,7 @@
       </div>
     </section>
 
-    <section class="section section-tint" id="approach">
+    <section class="section section-tint" id="contradicciones">
       <div class="container split-section">
         <div>
           <p class="section-label" data-key="approachLabel">Contradicciones centrales actuales</p>
@@ -307,11 +308,60 @@
       </div>
     </section>
 
-    <section class="section" id="impact">
+    <section class="section" id="solucion">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label" data-key="impactLabel">Impacto esperado</p>
-          <h2 data-key="impactTitle">Del recorrido turístico a una memoria viva y accesible</h2>
+          <p class="section-label">Solución propuesta</p>
+          <h2>Una plataforma para conectar rutas, comunidad y sostenibilidad</h2>
+          <p>La solución convierte el diagnóstico en herramientas concretas para visitantes, comerciantes y comunidades.</p>
+        </div>
+        <div class="cards-grid four">
+          <article class="card">
+            <span class="card-icon">AR</span>
+            <h3>Navegación AR inclusiva</h3>
+            <p>Recorridos con orientación visual, audio, lectura clara y señales contextuales en puntos culturales.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">P2P</span>
+            <h3>Plataforma P2P</h3>
+            <p>Conexión directa entre visitantes, comerciantes, guías y comunidades para reducir dependencia externa.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">2.0</span>
+            <h3>Archivo digital 2.0</h3>
+            <p>Memoria cultural organizada en formatos accesibles, multilingües y fáciles de actualizar.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">CO₂</span>
+            <h3>Gemelo de sostenibilidad</h3>
+            <p>Seguimiento de flujo, residuos, transporte e impacto ambiental para tomar mejores decisiones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="tecnologia">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Stack tecnológico</p>
+          <h2>Seis capas tecnológicas para una experiencia medible</h2>
+        </div>
+        <div class="cards-grid three">
+          <article class="card"><span class="card-icon">AR</span><h3>AR multimodal</h3><p>Capas visuales, audio y contenidos adaptados a cada recorrido.</p></article>
+          <article class="card"><span class="card-icon">W3</span><h3>Web3</h3><p>Registro confiable de contribuciones, beneficios y trazabilidad comunitaria.</p></article>
+          <article class="card"><span class="card-icon">IoT</span><h3>IoT</h3><p>Sensores y registros ligeros para flujo de visitantes y puntos de interés.</p></article>
+          <article class="card"><span class="card-icon">IA</span><h3>IA-NLP</h3><p>Traducción, síntesis y adaptación de narrativas culturales.</p></article>
+          <article class="card"><span class="card-icon">OD</span><h3>Datos abiertos</h3><p>Indicadores consultables para turismo, cultura y sostenibilidad.</p></article>
+          <article class="card"><span class="card-icon">MC</span><h3>Monitoreo comunitario</h3><p>Participación local para validar datos, historias y criterios ambientales.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metricas">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label" data-key="impactLabel">Métricas clave</p>
+          <h2 data-key="impactTitle">Indicadores para tomar decisiones con datos</h2>
         </div>
         <div class="metrics-grid">
           <article class="metric">
@@ -330,7 +380,36 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="community">
+    <section class="section section-tint" id="impacto">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Impacto comparativo</p>
+          <h2>Antes vs Después</h2>
+          <p>El proyecto transforma una visita fragmentada en una experiencia cultural accesible, comunitaria y medible.</p>
+        </div>
+        <div class="impact-compare">
+          <article><strong>Antes</strong><span>Rutas dispersas, accesibilidad limitada, datos ambientales débiles y beneficios poco visibles.</span></article>
+          <article><strong>Después</strong><span>Rutas inclusivas, memoria digital viva, participación comunitaria y métricas de sostenibilidad.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="equipo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Equipo</p>
+          <h2>Perfiles necesarios para desarrollar la propuesta</h2>
+        </div>
+        <div class="cards-grid four">
+          <article class="card"><span class="card-icon">UX</span><h3>Diseño inclusivo</h3><p>Experiencias claras, accesibles y sensibles al contexto cultural.</p></article>
+          <article class="card"><span class="card-icon">DEV</span><h3>Desarrollo web</h3><p>Frontend, datos y flujos interactivos para usuarios y comerciantes.</p></article>
+          <article class="card"><span class="card-icon">CUL</span><h3>Gestión cultural</h3><p>Validación de relatos, comunidades y patrimonio local.</p></article>
+          <article class="card"><span class="card-icon">ECO</span><h3>Sostenibilidad</h3><p>Métricas ambientales, turismo responsable y monitoreo comunitario.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="comunidad">
       <div class="container community-panel">
         <div>
           <p class="section-label" data-key="communityLabel">Poder comunitario</p>
@@ -344,10 +423,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p data-key="footer">© 2026 Turismo y Cultura · Durango eco-cultural</p>
+      <p data-key="footer">Hackathon Turismo Sostenible Durango 2025 · Raíz Durango · Créditos y enlaces</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260508-structure"></script>
 </body>
 </html>
