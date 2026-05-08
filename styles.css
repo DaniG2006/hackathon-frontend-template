@@ -1232,6 +1232,73 @@ a {
   text-align: center;
 }
 
+/* Accesibilidad - Checklist */
+.a11y-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.a11y-item {
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.a11y-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.a11y-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.a11y-item h3 {
+  font-size: 1.1rem;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.a11y-item p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.a11y-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-pass {
+  background: #dcfce7;
+  color: #166534;
+}
+
+[data-theme="dark"] .status-pass {
+  background: #14532d;
+  color: #86efac;
+}
+
+.status-wip {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+[data-theme="dark"] .status-wip {
+  background: #78350f;
+  color: #fcd34d;
+}
+
 @media (max-width: 920px) {
   .hero-layout,
   .split-section,
