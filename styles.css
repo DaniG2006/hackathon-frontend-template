@@ -55,6 +55,15 @@ body.registration-locked {
   overflow: hidden;
 }
 
+/* 注册页面隐藏导航菜单 */
+body.registration-locked .site-header {
+  display: none;
+}
+
+body.registration-locked {
+  padding-top: 0;
+}
+
 img {
   display: block;
   max-width: 100%;
