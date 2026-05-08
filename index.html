@@ -691,140 +691,187 @@
             </script>
           </article>
           <article class="card twin-card">
-            <span class="card-icon">CO₂</span>
-            <h3 data-key="solutionCard4Title">Gemelo de sostenibilidad</h3>
-            <p data-key="solutionCard4Text">Seguimiento de flujo, residuos, transporte e impacto ambiental para tomar mejores decisiones.</p>
+            <span class="card-icon">🌿</span>
+            <h3>路线级环境数字孪生</h3>
+            <p>看见路的呼吸——为文化路线建立环境仪表板，实时监测路线健康状态</p>
 
-            <!-- Dashboard IoT en tiempo real -->
-            <div class="iot-dashboard">
-              <h4>Panel de Control Ambiental</h4>
+            <!-- 环境仪表板 -->
+            <div class="environment-dashboard">
+              <h4>🌡️ Coyotes 古道环境仪表板</h4>
 
-              <!-- Indicadores en tiempo real -->
-              <div class="iot-metrics">
-                <div class="iot-metric" data-metric="air">
-                  <span class="metric-icon">🌬️</span>
-                  <div class="metric-data">
-                    <span class="metric-value" id="air-quality">42</span>
-                    <span class="metric-unit">AQI</span>
-                    <span class="metric-label">Calidad del aire</span>
+              <!-- IoT 指标网格 -->
+              <div class="env-metrics-grid">
+                <div class="env-metric">
+                  <span class="metric-icon">🚶</span>
+                  <div class="metric-info">
+                    <span class="metric-value">127</span>
+                    <span class="metric-unit">人次/日</span>
+                    <span class="metric-name">徒步人数</span>
                   </div>
-                  <span class="metric-status good">Buena</span>
+                  <span class="metric-trend up">↑ 12%</span>
                 </div>
 
-                <div class="iot-metric" data-metric="waste">
-                  <span class="metric-icon">♻️</span>
-                  <div class="metric-data">
-                    <span class="metric-value" id="waste-level">68</span>
-                    <span class="metric-unit">%</span>
-                    <span class="metric-label">Nivel de residuos</span>
+                <div class="env-metric">
+                  <span class="metric-icon">🗑️</span>
+                  <div class="metric-info">
+                    <span class="metric-value">8.5</span>
+                    <span class="metric-unit">kg</span>
+                    <span class="metric-name">沿途垃圾</span>
                   </div>
-                  <span class="metric-status warning">Moderado</span>
+                  <span class="metric-trend down">↓ 5%</span>
                 </div>
 
-                <div class="iot-metric" data-metric="noise">
-                  <span class="metric-icon">🔊</span>
-                  <div class="metric-data">
-                    <span class="metric-value" id="noise-level">54</span>
-                    <span class="metric-unit">dB</span>
-                    <span class="metric-label">Ruido ambiental</span>
+                <div class="env-metric">
+                  <span class="metric-icon">🌧️</span>
+                  <div class="metric-info">
+                    <span class="metric-value">12</span>
+                    <span class="metric-unit">mm</span>
+                    <span class="metric-name">昨日降雨</span>
                   </div>
-                  <span class="metric-status good">Aceptable</span>
+                  <span class="metric-status normal">正常</span>
                 </div>
 
-                <div class="iot-metric" data-metric="carbon">
-                  <span class="metric-icon">🌱</span>
-                  <div class="metric-data">
-                    <span class="metric-value" id="carbon-total">1.2</span>
-                    <span class="metric-unit">t</span>
-                    <span class="metric-label">CO₂ acumulado</span>
+                <div class="env-metric">
+                  <span class="metric-icon">�</span>
+                  <div class="metric-info">
+                    <span class="metric-value">0.72</span>
+                    <span class="metric-unit">指数</span>
+                    <span class="metric-name">植被干扰</span>
                   </div>
-                  <span class="metric-status good">Bajo</span>
+                  <span class="metric-status good">良好</span>
                 </div>
               </div>
 
-              <!-- Gráficos Chart.js -->
-              <div class="charts-container">
-                <div class="chart-wrapper">
-                  <canvas id="trafficChart"></canvas>
+              <!-- 路线压力热力图 -->
+              <div class="route-heatmap">
+                <h5>路线压力热力图</h5>
+                <div class="heatmap-visual">
+                  <div class="route-segment low" data-section="1">
+                    <span class="segment-label">起点</span>
+                    <div class="heat-indicator"></div>
+                  </div>
+                  <div class="route-segment medium" data-section="2">
+                    <span class="segment-label">古桥</span>
+                    <div class="heat-indicator"></div>
+                  </div>
+                  <div class="route-segment high" data-section="3">
+                    <span class="segment-label">老树林</span>
+                    <div class="heat-indicator"></div>
+                  </div>
+                  <div class="route-segment medium" data-section="4">
+                    <span class="segment-label">驿站</span>
+                    <div class="heat-indicator"></div>
+                  </div>
+                  <div class="route-segment low" data-section="5">
+                    <span class="segment-label">终点</span>
+                    <div class="heat-indicator"></div>
+                  </div>
                 </div>
-                <div class="chart-wrapper">
-                  <canvas id="carbonChart"></canvas>
+                <div class="heatmap-legend">
+                  <span><span class="dot low"></span> 低压力</span>
+                  <span><span class="dot medium"></span> 中等</span>
+                  <span><span class="dot high"></span> 高压力</span>
                 </div>
               </div>
 
-              <!-- Predicción de saturación -->
-              <div class="saturation-alert" id="saturation-alert">
-                <span class="alert-icon">⚠️</span>
-                <div class="alert-content">
-                  <strong>Predicción de saturación</strong>
-                  <p>Se espera alta afluencia este fin de semana. Considera visitar en horarios matutinos.</p>
+              <!-- 路线饱和度预警 -->
+              <div class="saturation-warning" id="saturation-warning">
+                <div class="warning-header">
+                  <span class="warning-icon">⚠️</span>
+                  <strong>路线饱和度预警</strong>
+                </div>
+                <p>老树林段连续 3 天超过环境阈值，建议分流至替代路径</p>
+                <div class="alternative-route">
+                  <span>🔄 推荐替代：古桥-溪流-观景台路线</span>
                 </div>
               </div>
             </div>
 
-            <!-- Recomendaciones personalizadas -->
-            <div class="eco-recommendations">
-              <h4>Recomendaciones para ti</h4>
-              <div class="recommendation-list">
-                <div class="recommendation-item">
-                  <span class="rec-icon">🚌</span>
-                  <p>Usa transporte público para reducir 0.8 kg CO₂</p>
-                  <button class="btn-rec" data-action="bus">Aceptar</button>
-                </div>
-                <div class="recommendation-item">
-                  <span class="rec-icon">🥤</span>
-                  <p>Trae tu propia botella y obtén descuento en café</p>
-                  <button class="btn-rec" data-action="bottle">Aceptar</button>
-                </div>
-                <div class="recommendation-item">
-                  <span class="rec-icon">🚶</span>
-                  <p>Recorrido a pie por el centro histórico disponible</p>
-                  <button class="btn-rec" data-action="walk">Ver ruta</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- NFT Badge / Gamificación -->
-            <div class="nft-section">
-              <h4>Tu insignia ecológica</h4>
-              <div class="nft-badge" id="nft-badge">
-                <div class="badge-visual">
-                  <span class="badge-level">🥉</span>
-                  <div class="badge-ring" id="badge-ring"></div>
-                </div>
-                <div class="badge-info">
-                  <strong>Explorador Verde</strong>
-                  <span class="badge-progress">650 / 1000 pts</span>
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 65%"></div>
+            <!-- 宁静指数与虚拟树 -->
+            <div class="serenity-tree-section">
+              <div class="serenity-index">
+                <h5>当前路段宁静指数</h5>
+                <div class="serenity-meter">
+                  <div class="serenity-bar">
+                    <div class="serenity-fill" style="width: 78%"></div>
                   </div>
-                  <small>Próximo nivel: Guardián del Territorio</small>
+                  <span class="serenity-value">78/100</span>
                 </div>
+                <p class="serenity-desc">🍃 非常宁静，适合冥想与观鸟</p>
               </div>
-              <div class="badge-actions">
-                <button class="btn btn-secondary" id="claim-nft">Verificar en blockchain</button>
-                <button class="btn btn-outline" id="share-badge">Compartir logro</button>
+
+              <div class="virtual-tree">
+                <h5>🌳 我的虚拟树</h5>
+                <div class="tree-container">
+                  <div class="tree-visual" id="virtualTree">
+                    <span class="tree-emoji">🌱</span>
+                    <div class="tree-growth">成长中...</div>
+                  </div>
+                  <div class="tree-stats">
+                    <p>已低碳出行 <strong>12</strong> 次</p>
+                    <p>树高 <strong>1.8m</strong> ↑</p>
+                  </div>
+                </div>
+                <p class="tree-message">每低碳出行一次，树就长高一点 🌿</p>
               </div>
             </div>
 
-            <!-- Economía circular -->
-            <div class="circular-economy">
-              <h4>Economía circular local</h4>
-              <div class="circular-stats">
-                <div class="circular-item">
-                  <span class="circular-value">2.4t</span>
-                  <span class="circular-label">Residuos reciclados</span>
+            <!-- 社区参与观测 -->
+            <div class="community-observations">
+              <h5>👥 社区科学观测</h5>
+              <div class="observation-list">
+                <div class="observation-item">
+                  <span class="obs-icon">🏠</span>
+                  <div class="obs-content">
+                    <span class="obs-text">"河水有些浑浊"</span>
+                    <span class="obs-meta">住户 María · 2小时前 · 📱短信</span>
+                  </div>
                 </div>
-                <div class="circular-item">
-                  <span class="circular-value">156</span>
-                  <span class="circular-label">Comercios verdes</span>
+                <div class="observation-item">
+                  <span class="obs-icon">🦌</span>
+                  <div class="obs-content">
+                    <span class="obs-text">"见到鹿群在溪边饮水"</span>
+                    <span class="obs-meta">向导 José · 昨天 · 📱短信</span>
+                  </div>
                 </div>
-                <div class="circular-item">
-                  <span class="circular-value">$45k</span>
-                  <span class="circular-label">Beneficios comunitarios</span>
+                <div class="observation-item">
+                  <span class="obs-icon">🌸</span>
+                  <div class="obs-content">
+                    <span class="obs-text">"野花开始盛开"</span>
+                    <span class="obs-meta">护林员 Ana · 2天前 · 📱短信</span>
+                  </div>
                 </div>
               </div>
+              <div class="obs-tech-note">
+                <span>📡 极低带宽短信上传，汇入数字孪生</span>
+              </div>
             </div>
+
+            <script>
+              (function() {
+                // 模拟虚拟树成长
+                const treeVisual = document.getElementById('virtualTree');
+                const treeEmoji = treeVisual?.querySelector('.tree-emoji');
+                let growthStage = 0;
+                const treeStages = ['🌱', '🌿', '🌲', '🌳'];
+
+                setInterval(() => {
+                  growthStage = (growthStage + 1) % treeStages.length;
+                  if (treeEmoji) treeEmoji.textContent = treeStages[growthStage];
+                }, 3000);
+
+                // 路线段悬停效果
+                const segments = document.querySelectorAll('.route-segment');
+                segments.forEach(seg => {
+                  seg.addEventListener('mouseenter', () => {
+                    seg.style.transform = 'scale(1.05)';
+                  });
+                  seg.addEventListener('mouseleave', () => {
+                    seg.style.transform = 'scale(1)';
+                  });
+                });
+              })();
+            </script>
           </article>
         </div>
       </div>

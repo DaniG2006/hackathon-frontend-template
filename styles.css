@@ -2645,62 +2645,395 @@ a {
   color: var(--muted);
 }
 
-/* Twin Card (Gemelo de Sostenibilidad) */
+/* Twin Card (路线级环境数字孪生) */
 .twin-card {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* IoT Dashboard */
-.iot-dashboard {
+/* Environment Dashboard */
+.environment-dashboard {
   padding: 16px;
   background: var(--surface);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border);
 }
 
-.iot-dashboard h4 {
-  margin: 0 0 12px;
+.environment-dashboard h4 {
+  margin: 0 0 16px;
   font-size: 0.95rem;
+  color: var(--text);
 }
 
-.iot-metrics {
+/* Environment Metrics Grid */
+.env-metrics-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 16px;
 }
 
-.iot-metric {
+.env-metric {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px;
+  gap: 8px;
+  padding: 10px;
   background: var(--surface-strong);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--border);
 }
 
-.metric-icon {
-  font-size: 1.5rem;
+.env-metric .metric-icon {
+  font-size: 1.4rem;
 }
 
-.metric-data {
+.env-metric .metric-info {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.metric-value {
-  font-size: 1.3rem;
+.env-metric .metric-value {
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--registration-accent);
+  color: var(--primary-strong);
 }
 
-.metric-unit {
+.env-metric .metric-unit {
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.env-metric .metric-name {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.metric-trend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.metric-trend.up {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.metric-trend.down {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.metric-status {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.metric-status.good {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.metric-status.normal {
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+/* Route Heatmap */
+.route-heatmap {
+  margin-bottom: 16px;
+}
+
+.route-heatmap h5 {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.heatmap-visual {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.route-segment {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.route-segment.low {
+  background: #dcfce7;
+  border: 2px solid #86efac;
+}
+
+.route-segment.medium {
+  background: #fef3c7;
+  border: 2px solid #fcd34d;
+}
+
+.route-segment.high {
+  background: #fee2e2;
+  border: 2px solid #fca5a5;
+}
+
+.segment-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.heat-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.route-segment.low .heat-indicator {
+  background: #22c55e;
+}
+
+.route-segment.medium .heat-indicator {
+  background: #f59e0b;
+}
+
+.route-segment.high .heat-indicator {
+  background: #ef4444;
+  animation: pulseRed 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseRed {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.heatmap-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.heatmap-legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.heatmap-legend .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.heatmap-legend .dot.low { background: #22c55e; }
+.heatmap-legend .dot.medium { background: #f59e0b; }
+.heatmap-legend .dot.high { background: #ef4444; }
+
+/* Saturation Warning */
+.saturation-warning {
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.warning-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.warning-header strong {
+  color: #92400e;
+}
+
+.saturation-warning p {
+  font-size: 0.85rem;
+  color: #78350f;
+  margin: 0 0 10px;
+}
+
+.alternative-route {
+  padding: 8px 12px;
+  background: white;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #065f46;
+}
+
+/* Serenity & Tree Section */
+.serenity-tree-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.serenity-index,
+.virtual-tree {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.serenity-index h5,
+.virtual-tree h5 {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.serenity-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.serenity-bar {
+  flex: 1;
+  height: 10px;
+  background: var(--surface-strong);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.serenity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.serenity-value {
+  font-weight: 800;
+  color: #16a34a;
+  font-size: 0.9rem;
+}
+
+.serenity-desc {
+  font-size: 0.8rem;
+  color: #15803d;
+  margin: 0;
+}
+
+/* Virtual Tree */
+.tree-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tree-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.tree-emoji {
+  font-size: 3rem;
+  transition: all 0.5s ease;
+}
+
+.tree-growth {
   font-size: 0.7rem;
   color: var(--muted);
+}
+
+.tree-stats {
+  flex: 1;
+}
+
+.tree-stats p {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.tree-stats strong {
+  color: var(--text);
+}
+
+.tree-message {
+  margin: 10px 0 0;
+  font-size: 0.75rem;
+  color: #16a34a;
+  text-align: center;
+}
+
+/* Community Observations */
+.community-observations {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.community-observations h5 {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.observation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.observation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  background: var(--surface-strong);
+  border-radius: 10px;
+}
+
+.obs-icon {
+  font-size: 1.3rem;
+}
+
+.obs-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.obs-text {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.obs-meta {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.obs-tech-note {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.75rem;
+  color: #16a34a;
 }
 
 .metric-label {
