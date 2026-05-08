@@ -509,6 +509,87 @@ a {
   border-left: 5px solid color-mix(in srgb, var(--registration-accent) 72%, #ffffff);
 }
 
+.profile-section {
+  display: none;
+  padding: 0 0 clamp(48px, 7vw, 84px);
+}
+
+.profile-tourist .tourist-template,
+.profile-merchant .merchant-template,
+.profile-admin .tourist-template,
+.profile-admin .merchant-template {
+  display: block;
+}
+
+.profile-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 26px;
+  border: 1px solid color-mix(in srgb, var(--registration-accent) 28%, transparent);
+  border-left: 6px solid var(--registration-accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--registration-accent) 10%, var(--surface-strong));
+  box-shadow: var(--shadow);
+}
+
+.merchant-panel {
+  background: color-mix(in srgb, var(--registration-accent) 18%, var(--surface-strong));
+}
+
+.profile-panel h2 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.profile-panel p:not(.section-label) {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.profile-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.profile-card {
+  min-height: 132px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.profile-card strong {
+  color: var(--registration-accent);
+  font-size: 1.05rem;
+}
+
+.profile-card span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .section {
   padding: clamp(56px, 8vw, 96px) 0;
 }
@@ -689,8 +770,18 @@ a {
     min-height: auto;
   }
 
+  .profile-panel {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .profile-actions {
+    justify-content: flex-start;
+  }
+
   .cards-grid.three,
-  .metrics-grid {
+  .metrics-grid,
+  .profile-cards {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -768,7 +859,8 @@ a {
   }
 
   .cards-grid.three,
-  .metrics-grid {
+  .metrics-grid,
+  .profile-cards {
     grid-template-columns: 1fr;
   }
 

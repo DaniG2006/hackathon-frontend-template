@@ -45,6 +45,28 @@ const translations = {
     signalAccessText: "Visitas suaves para todas las personas",
     signalDataTitle: "Datos",
     signalDataText: "Huella y flujo en tiempo real",
+    touristProfileLabel: "Vista Turista/Visitante",
+    touristProfileTitle: "Explora Durango con rutas culturales claras y suaves",
+    touristProfileText: "Encuentra historias, rutas recomendadas, puntos accesibles y señales de sostenibilidad pensadas para disfrutar cada visita con contexto.",
+    touristAction1: "Ver rutas sugeridas",
+    touristAction2: "Consultar impacto",
+    touristCard1Title: "Mapa cultural",
+    touristCard1Text: "Ubica recorridos, edificios históricos y paradas comunitarias.",
+    touristCard2Title: "Guía accesible",
+    touristCard2Text: "Consulta contenidos claros antes de iniciar tu recorrido.",
+    touristCard3Title: "Viaje responsable",
+    touristCard3Text: "Revisa recomendaciones para reducir residuos y huella de carbono.",
+    merchantProfileLabel: "Vista Comerciante",
+    merchantProfileTitle: "Administra tu presencia cultural y conecta con visitantes",
+    merchantProfileText: "Publica información de tu negocio, presenta productos locales y revisa señales útiles para integrarte a las rutas comunitarias.",
+    merchantAction1: "Gestionar comunidad",
+    merchantAction2: "Ver herramientas",
+    merchantCard1Title: "Perfil comercial",
+    merchantCard1Text: "Organiza horarios, servicios y productos para visitantes.",
+    merchantCard2Title: "Narrativa local",
+    merchantCard2Text: "Cuenta la historia de tu comercio dentro de la ruta cultural.",
+    merchantCard3Title: "Flujo de visitantes",
+    merchantCard3Text: "Observa qué información ayuda a planear mejor la atención.",
     problemLabel: "Situación actual y problema",
     problemTitle: "Durango se encuentra en una encrucijada cultural, digital y ambiental",
     problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.",
@@ -120,6 +142,28 @@ const translations = {
     signalAccessText: "面向所有人的温和参访",
     signalDataTitle: "数据",
     signalDataText: "实时追踪足迹与人流",
+    touristProfileLabel: "游客/访问者界面",
+    touristProfileTitle: "用清晰、温和的文化路线探索杜兰戈",
+    touristProfileText: "查看故事、推荐路线、可进入地点与可持续提示，让每一次参访都更有背景和方向。",
+    touristAction1: "查看推荐路线",
+    touristAction2: "查看影响",
+    touristCard1Title: "文化地图",
+    touristCard1Text: "定位路线、历史建筑与社区停靠点。",
+    touristCard2Title: "清晰导览",
+    touristCard2Text: "出发前查看容易理解的内容。",
+    touristCard3Title: "负责任旅行",
+    touristCard3Text: "查看减少垃圾和碳足迹的建议。",
+    merchantProfileLabel: "商户界面",
+    merchantProfileTitle: "管理你的文化展示，并与访客建立连接",
+    merchantProfileText: "发布商户信息，展示本地产品，并查看有助于融入社区路线的提示。",
+    merchantAction1: "管理社区连接",
+    merchantAction2: "查看工具",
+    merchantCard1Title: "商业档案",
+    merchantCard1Text: "整理营业时间、服务与面向访客的产品。",
+    merchantCard2Title: "本地叙事",
+    merchantCard2Text: "在文化路线中讲述你的商户故事。",
+    merchantCard3Title: "访客流量",
+    merchantCard3Text: "查看有助于改善接待安排的信息。",
     problemLabel: "当前状况与问题",
     problemTitle: "杜兰戈正处在文化、数字化与环境的十字路口",
     problemIntro: "杜兰戈的文化旅游面临清晰的张力：一方面，“生态文化社区路线”已经有了良好的开端；另一方面，大量珍贵的文化记忆仍然无法被数字化触达。当游客在历史建筑前举起手机时，坐轮椅的人也许连进入建筑都做不到。而在推广生态路线的同时，旅行本身的碳足迹也可能正在悄悄侵蚀那些原本想要保护的森林与峡谷。",
@@ -195,6 +239,28 @@ const translations = {
     signalAccessText: "Gentle visits for every person",
     signalDataTitle: "Data",
     signalDataText: "Real-time footprint and flow",
+    touristProfileLabel: "Tourist/Visitor View",
+    touristProfileTitle: "Explore Durango through clear and gentle cultural routes",
+    touristProfileText: "Find stories, recommended routes, accessible points, and sustainability signals designed to give every visit context.",
+    touristAction1: "View suggested routes",
+    touristAction2: "Check impact",
+    touristCard1Title: "Cultural map",
+    touristCard1Text: "Locate routes, historic buildings, and community stops.",
+    touristCard2Title: "Accessible guide",
+    touristCard2Text: "Review clear content before starting your route.",
+    touristCard3Title: "Responsible travel",
+    touristCard3Text: "See recommendations to reduce waste and carbon footprint.",
+    merchantProfileLabel: "Merchant View",
+    merchantProfileTitle: "Manage your cultural presence and connect with visitors",
+    merchantProfileText: "Publish your business information, present local products, and review useful signals for joining community routes.",
+    merchantAction1: "Manage community",
+    merchantAction2: "View tools",
+    merchantCard1Title: "Business profile",
+    merchantCard1Text: "Organize hours, services, and products for visitors.",
+    merchantCard2Title: "Local narrative",
+    merchantCard2Text: "Tell your business story within the cultural route.",
+    merchantCard3Title: "Visitor flow",
+    merchantCard3Text: "Review information that helps improve planning and attention.",
     problemLabel: "Current situation and problem",
     problemTitle: "Durango stands at a cultural, digital, and environmental crossroads",
     problemIntro: "Cultural tourism in Durango faces a clear tension: the Eco-Cultural Community Routes have had a promising start, yet a great deal of valuable cultural memory remains outside digital reach. While one tourist raises a phone in front of a historic building, a person in a wheelchair may not even be able to enter. And while ecological routes are promoted, the carbon footprint of the journey itself may be silently eroding the forests and canyons they aim to protect.",
@@ -273,7 +339,11 @@ const getRegisteredUser = () => {
 const updateRegistrationState = () => {
   const user = getRegisteredUser();
   const isRegistered = Boolean(user?.email);
+  const visitorType = user?.visitorType || '';
   document.body.classList.toggle('registration-locked', !isRegistered);
+  document.body.classList.toggle('profile-tourist', isRegistered && visitorType === 'tourist_visitor');
+  document.body.classList.toggle('profile-merchant', isRegistered && visitorType === 'merchant');
+  document.body.classList.toggle('profile-admin', isRegistered && visitorType === 'admin');
   registrationGate?.setAttribute('aria-hidden', String(isRegistered));
 
   if (accountPill) {
@@ -398,6 +468,7 @@ registrationForm?.addEventListener('submit', (event) => {
 
 signOutButton?.addEventListener('click', () => {
   localStorage.removeItem('turismoRegisteredUser');
+  localStorage.removeItem(adminAccessKey);
   registrationForm?.reset();
   updateRegistrationState();
 });
@@ -425,6 +496,7 @@ const adminOff = isAdminOffUrl;
 
 if (resetRegistration) {
   localStorage.removeItem('turismoRegisteredUser');
+  localStorage.removeItem(adminAccessKey);
 }
 
 if (adminSetup) {
