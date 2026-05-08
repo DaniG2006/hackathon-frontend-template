@@ -1141,6 +1141,84 @@ a {
   max-width: 760px;
 }
 
+/* Hoja de Ruta - Tabla */
+.roadmap-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+}
+
+.roadmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.roadmap-table th,
+.roadmap-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.roadmap-table th {
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.roadmap-table tbody tr:hover {
+  background: var(--surface);
+}
+
+.roadmap-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority-essential {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+[data-theme="dark"] .priority-essential {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.priority-recommended {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+[data-theme="dark"] .priority-recommended {
+  background: #1e3a8a;
+  color: #bfdbfe;
+}
+
+.priority-optional {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+[data-theme="dark"] .priority-optional {
+  background: #581c87;
+  color: #e9d5ff;
+}
+
 .site-footer {
   padding: 22px 0;
   border-top: 1px solid var(--border);
