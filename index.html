@@ -163,7 +163,7 @@
           <p data-key="merchantProfileText">Publica información de tu negocio, presenta productos locales y revisa señales útiles para integrarte a las rutas comunitarias.</p>
         </div>
         <div class="profile-actions">
-          <a class="btn btn-primary" href="#community" data-key="merchantAction1">Gestionar comunidad</a>
+          <button class="btn btn-primary" id="showBusinessForm" type="button" data-key="merchantAction1">Registrar empresa</button>
           <a class="btn btn-secondary" href="#approach" data-key="merchantAction2">Ver herramientas</a>
         </div>
       </div>
@@ -180,6 +180,70 @@
           <strong data-key="merchantCard3Title">Flujo de visitantes</strong>
           <span data-key="merchantCard3Text">Observa qué información ayuda a planear mejor la atención.</span>
         </article>
+      </div>
+      <div class="container business-workflow" id="businessWorkflow" hidden>
+        <form class="business-form" id="businessForm">
+          <div class="section-heading compact-heading">
+            <p class="section-label" data-key="businessFormLabel">Registro empresarial</p>
+            <h2 data-key="businessFormTitle">Registra tu empresa o comercio cultural</h2>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span data-key="businessNameLabel">Nombre de la empresa</span>
+              <input name="businessName" type="text" required data-placeholder-key="businessNamePlaceholder" placeholder="Nombre comercial" />
+            </label>
+
+            <label>
+              <span data-key="businessTypeLabel">Tipo de negocio</span>
+              <select name="businessType" required>
+                <option value="" data-key="businessTypePlaceholder">Selecciona una opción</option>
+                <option value="food" data-key="businessTypeFood">Gastronomía</option>
+                <option value="crafts" data-key="businessTypeCrafts">Artesanías</option>
+                <option value="lodging" data-key="businessTypeLodging">Hospedaje</option>
+                <option value="guide" data-key="businessTypeGuide">Guía turística</option>
+                <option value="transport" data-key="businessTypeTransport">Transporte</option>
+                <option value="culture" data-key="businessTypeCulture">Cultura y experiencias</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span data-key="businessInfoLabel">Información comercial</span>
+            <input name="businessInfo" type="text" required data-placeholder-key="businessInfoPlaceholder" placeholder="Horarios, servicios principales o contacto" />
+          </label>
+
+          <label>
+            <span data-key="businessLocationLabel">Ubicación</span>
+            <input name="businessLocation" type="text" required data-placeholder-key="businessLocationPlaceholder" placeholder="Dirección, comunidad o punto de referencia" />
+          </label>
+
+          <label>
+            <span data-key="businessDescriptionLabel">Descripción</span>
+            <textarea name="businessDescription" rows="4" required data-placeholder-key="businessDescriptionPlaceholder" placeholder="Describe qué ofrece tu empresa y su relación con turismo y cultura"></textarea>
+          </label>
+
+          <label>
+            <span data-key="businessPaymentLabel">Métodos de pago</span>
+            <input name="businessPayment" type="text" required data-placeholder-key="businessPaymentPlaceholder" placeholder="Efectivo, tarjeta, transferencia, QR..." />
+          </label>
+
+          <div class="form-grid">
+            <label>
+              <span data-key="businessPhotosLabel">Fotos de turismo y cultura</span>
+              <input name="businessPhotos" type="file" accept="image/*" multiple />
+            </label>
+
+            <label>
+              <span data-key="businessLetterLabel">Carta de recomendación</span>
+              <input name="businessLetter" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" />
+            </label>
+          </div>
+
+          <button class="btn btn-primary submit-btn" type="submit" data-key="businessRegisterButton">Registrar empresa</button>
+        </form>
+
+        <article class="business-result" id="businessResult" hidden></article>
       </div>
     </section>
 

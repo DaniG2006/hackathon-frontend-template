@@ -10,6 +10,10 @@ const preferredLanguage = document.getElementById('preferredLanguage');
 const formError = document.getElementById('formError');
 const accountPill = document.getElementById('accountPill');
 const signOutButton = document.getElementById('signOutButton');
+const showBusinessForm = document.getElementById('showBusinessForm');
+const businessWorkflow = document.getElementById('businessWorkflow');
+const businessForm = document.getElementById('businessForm');
+const businessResult = document.getElementById('businessResult');
 const adminAccessKey = 'turismoAdminAccess';
 const adminSetupToken = 'dueno-durango-9f2c7a';
 const initialUrlParams = new URLSearchParams(window.location.search);
@@ -59,7 +63,7 @@ const translations = {
     merchantProfileLabel: "Vista Comerciante",
     merchantProfileTitle: "Administra tu presencia cultural y conecta con visitantes",
     merchantProfileText: "Publica información de tu negocio, presenta productos locales y revisa señales útiles para integrarte a las rutas comunitarias.",
-    merchantAction1: "Gestionar comunidad",
+    merchantAction1: "Registrar empresa",
     merchantAction2: "Ver herramientas",
     merchantCard1Title: "Perfil comercial",
     merchantCard1Text: "Organiza horarios, servicios y productos para visitantes.",
@@ -67,6 +71,38 @@ const translations = {
     merchantCard2Text: "Cuenta la historia de tu comercio dentro de la ruta cultural.",
     merchantCard3Title: "Flujo de visitantes",
     merchantCard3Text: "Observa qué información ayuda a planear mejor la atención.",
+    businessFormLabel: "Registro empresarial",
+    businessFormTitle: "Registra tu empresa o comercio cultural",
+    businessNameLabel: "Nombre de la empresa",
+    businessNamePlaceholder: "Nombre comercial",
+    businessTypeLabel: "Tipo de negocio",
+    businessTypePlaceholder: "Selecciona una opción",
+    businessTypeFood: "Gastronomía",
+    businessTypeCrafts: "Artesanías",
+    businessTypeLodging: "Hospedaje",
+    businessTypeGuide: "Guía turística",
+    businessTypeTransport: "Transporte",
+    businessTypeCulture: "Cultura y experiencias",
+    businessInfoLabel: "Información comercial",
+    businessInfoPlaceholder: "Horarios, servicios principales o contacto",
+    businessLocationLabel: "Ubicación",
+    businessLocationPlaceholder: "Dirección, comunidad o punto de referencia",
+    businessDescriptionLabel: "Descripción",
+    businessDescriptionPlaceholder: "Describe qué ofrece tu empresa y su relación con turismo y cultura",
+    businessPaymentLabel: "Métodos de pago",
+    businessPaymentPlaceholder: "Efectivo, tarjeta, transferencia, QR...",
+    businessPhotosLabel: "Fotos de turismo y cultura",
+    businessLetterLabel: "Carta de recomendación",
+    businessRegisterButton: "Registrar empresa",
+    businessResultTitle: "Empresa registrada",
+    businessResultType: "Tipo",
+    businessResultInfo: "Información comercial",
+    businessResultLocation: "Ubicación",
+    businessResultDescription: "Descripción",
+    businessResultPayment: "Métodos de pago",
+    businessResultPhotos: "Fotos",
+    businessResultLetter: "Recomendación",
+    businessNoFiles: "Sin archivos cargados",
     problemLabel: "Situación actual y problema",
     problemTitle: "Durango se encuentra en una encrucijada cultural, digital y ambiental",
     problemIntro: "El turismo cultural de Durango vive una tensión clara: las Rutas Comunitarias Eco-Culturales han tenido un inicio prometedor, pero mucha memoria cultural valiosa sigue fuera del alcance digital. Mientras un turista alza su teléfono frente a un edificio histórico, una persona en silla de ruedas quizá no pueda ni siquiera entrar. Y mientras se promueven rutas ecológicas, la huella de carbono del viaje puede erosionar silenciosamente los bosques y cañones que se quieren proteger.",
@@ -156,7 +192,7 @@ const translations = {
     merchantProfileLabel: "商户界面",
     merchantProfileTitle: "管理你的文化展示，并与访客建立连接",
     merchantProfileText: "发布商户信息，展示本地产品，并查看有助于融入社区路线的提示。",
-    merchantAction1: "管理社区连接",
+    merchantAction1: "注册企业",
     merchantAction2: "查看工具",
     merchantCard1Title: "商业档案",
     merchantCard1Text: "整理营业时间、服务与面向访客的产品。",
@@ -164,6 +200,38 @@ const translations = {
     merchantCard2Text: "在文化路线中讲述你的商户故事。",
     merchantCard3Title: "访客流量",
     merchantCard3Text: "查看有助于改善接待安排的信息。",
+    businessFormLabel: "企业注册",
+    businessFormTitle: "注册你的文化企业或商户",
+    businessNameLabel: "企业名称",
+    businessNamePlaceholder: "商业名称",
+    businessTypeLabel: "商业类型",
+    businessTypePlaceholder: "请选择一个选项",
+    businessTypeFood: "美食",
+    businessTypeCrafts: "手工艺",
+    businessTypeLodging: "住宿",
+    businessTypeGuide: "旅游导览",
+    businessTypeTransport: "交通",
+    businessTypeCulture: "文化与体验",
+    businessInfoLabel: "商业信息",
+    businessInfoPlaceholder: "营业时间、主要服务或联系方式",
+    businessLocationLabel: "地点",
+    businessLocationPlaceholder: "地址、社区或参考地点",
+    businessDescriptionLabel: "描述",
+    businessDescriptionPlaceholder: "描述你的企业提供什么，以及它与旅游和文化的关系",
+    businessPaymentLabel: "付款方式",
+    businessPaymentPlaceholder: "现金、银行卡、转账、二维码等",
+    businessPhotosLabel: "旅游和文化照片",
+    businessLetterLabel: "推荐信",
+    businessRegisterButton: "注册企业",
+    businessResultTitle: "企业已注册",
+    businessResultType: "类型",
+    businessResultInfo: "商业信息",
+    businessResultLocation: "地点",
+    businessResultDescription: "描述",
+    businessResultPayment: "付款方式",
+    businessResultPhotos: "照片",
+    businessResultLetter: "推荐信",
+    businessNoFiles: "未上传文件",
     problemLabel: "当前状况与问题",
     problemTitle: "杜兰戈正处在文化、数字化与环境的十字路口",
     problemIntro: "杜兰戈的文化旅游面临清晰的张力：一方面，“生态文化社区路线”已经有了良好的开端；另一方面，大量珍贵的文化记忆仍然无法被数字化触达。当游客在历史建筑前举起手机时，坐轮椅的人也许连进入建筑都做不到。而在推广生态路线的同时，旅行本身的碳足迹也可能正在悄悄侵蚀那些原本想要保护的森林与峡谷。",
@@ -253,7 +321,7 @@ const translations = {
     merchantProfileLabel: "Merchant View",
     merchantProfileTitle: "Manage your cultural presence and connect with visitors",
     merchantProfileText: "Publish your business information, present local products, and review useful signals for joining community routes.",
-    merchantAction1: "Manage community",
+    merchantAction1: "Register business",
     merchantAction2: "View tools",
     merchantCard1Title: "Business profile",
     merchantCard1Text: "Organize hours, services, and products for visitors.",
@@ -261,6 +329,38 @@ const translations = {
     merchantCard2Text: "Tell your business story within the cultural route.",
     merchantCard3Title: "Visitor flow",
     merchantCard3Text: "Review information that helps improve planning and attention.",
+    businessFormLabel: "Business registration",
+    businessFormTitle: "Register your cultural business or company",
+    businessNameLabel: "Business name",
+    businessNamePlaceholder: "Commercial name",
+    businessTypeLabel: "Business type",
+    businessTypePlaceholder: "Select one option",
+    businessTypeFood: "Food",
+    businessTypeCrafts: "Crafts",
+    businessTypeLodging: "Lodging",
+    businessTypeGuide: "Tour guide",
+    businessTypeTransport: "Transport",
+    businessTypeCulture: "Culture and experiences",
+    businessInfoLabel: "Business information",
+    businessInfoPlaceholder: "Hours, main services, or contact",
+    businessLocationLabel: "Location",
+    businessLocationPlaceholder: "Address, community, or reference point",
+    businessDescriptionLabel: "Description",
+    businessDescriptionPlaceholder: "Describe what your business offers and how it connects to tourism and culture",
+    businessPaymentLabel: "Payment methods",
+    businessPaymentPlaceholder: "Cash, card, transfer, QR...",
+    businessPhotosLabel: "Tourism and culture photos",
+    businessLetterLabel: "Recommendation letter",
+    businessRegisterButton: "Register business",
+    businessResultTitle: "Business registered",
+    businessResultType: "Type",
+    businessResultInfo: "Business information",
+    businessResultLocation: "Location",
+    businessResultDescription: "Description",
+    businessResultPayment: "Payment methods",
+    businessResultPhotos: "Photos",
+    businessResultLetter: "Recommendation",
+    businessNoFiles: "No files uploaded",
     problemLabel: "Current situation and problem",
     problemTitle: "Durango stands at a cultural, digital, and environmental crossroads",
     problemIntro: "Cultural tourism in Durango faces a clear tension: the Eco-Cultural Community Routes have had a promising start, yet a great deal of valuable cultural memory remains outside digital reach. While one tourist raises a phone in front of a historic building, a person in a wheelchair may not even be able to enter. And while ecological routes are promoted, the carbon footprint of the journey itself may be silently eroding the forests and canyons they aim to protect.",
@@ -400,6 +500,56 @@ const setActiveLanguage = (lang) => {
   });
 };
 
+const getCurrentCopy = () => {
+  const lang = localStorage.getItem('turismoLang') || 'es';
+  return translations[lang] || translations.es;
+};
+
+const formatFiles = (files) => {
+  if (!files || files.length === 0) return getCurrentCopy().businessNoFiles;
+  return Array.from(files).map((file) => file.name).join(', ');
+};
+
+const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#039;'
+}[char]));
+
+const getBusinessTypeLabel = (value) => {
+  const copy = getCurrentCopy();
+  const labels = {
+    food: copy.businessTypeFood,
+    crafts: copy.businessTypeCrafts,
+    lodging: copy.businessTypeLodging,
+    guide: copy.businessTypeGuide,
+    transport: copy.businessTypeTransport,
+    culture: copy.businessTypeCulture
+  };
+  return labels[value] || value;
+};
+
+const renderBusinessResult = (business) => {
+  if (!businessResult || !business) return;
+  const copy = getCurrentCopy();
+  businessResult.hidden = false;
+  businessResult.innerHTML = `
+    <p class="section-label">${copy.businessResultTitle}</p>
+    <h3>${escapeHtml(business.name)}</h3>
+    <dl>
+      <div><dt>${copy.businessResultType}</dt><dd>${escapeHtml(getBusinessTypeLabel(business.type))}</dd></div>
+      <div><dt>${copy.businessResultInfo}</dt><dd>${escapeHtml(business.info)}</dd></div>
+      <div><dt>${copy.businessResultLocation}</dt><dd>${escapeHtml(business.location)}</dd></div>
+      <div><dt>${copy.businessResultDescription}</dt><dd>${escapeHtml(business.description)}</dd></div>
+      <div><dt>${copy.businessResultPayment}</dt><dd>${escapeHtml(business.payment)}</dd></div>
+      <div><dt>${copy.businessResultPhotos}</dt><dd>${escapeHtml(business.photos || copy.businessNoFiles)}</dd></div>
+      <div><dt>${copy.businessResultLetter}</dt><dd>${escapeHtml(business.letter || copy.businessNoFiles)}</dd></div>
+    </dl>
+  `;
+};
+
 menuToggle?.addEventListener('click', () => {
   const isOpen = navMenu?.classList.toggle('open');
   document.body.classList.toggle('menu-open', Boolean(isOpen));
@@ -466,10 +616,47 @@ registrationForm?.addEventListener('submit', (event) => {
   updateRegistrationState();
 });
 
+showBusinessForm?.addEventListener('click', () => {
+  if (!businessWorkflow) return;
+  businessWorkflow.hidden = false;
+  businessWorkflow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+businessForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (!businessForm.checkValidity()) {
+    businessForm.reportValidity();
+    return;
+  }
+
+  const formData = new FormData(businessForm);
+  const photosInput = businessForm.elements.businessPhotos;
+  const letterInput = businessForm.elements.businessLetter;
+  const business = {
+    name: String(formData.get('businessName') || '').trim(),
+    type: String(formData.get('businessType') || ''),
+    info: String(formData.get('businessInfo') || '').trim(),
+    location: String(formData.get('businessLocation') || '').trim(),
+    description: String(formData.get('businessDescription') || '').trim(),
+    payment: String(formData.get('businessPayment') || '').trim(),
+    photos: formatFiles(photosInput?.files),
+    letter: formatFiles(letterInput?.files),
+    registeredAt: new Date().toISOString()
+  };
+
+  localStorage.setItem('turismoBusinessProfile', JSON.stringify(business));
+  renderBusinessResult(business);
+});
+
 signOutButton?.addEventListener('click', () => {
   localStorage.removeItem('turismoRegisteredUser');
   localStorage.removeItem(adminAccessKey);
+  localStorage.removeItem('turismoBusinessProfile');
   registrationForm?.reset();
+  businessForm?.reset();
+  if (businessWorkflow) businessWorkflow.hidden = true;
+  if (businessResult) businessResult.hidden = true;
   updateRegistrationState();
 });
 
@@ -497,6 +684,7 @@ const adminOff = isAdminOffUrl;
 if (resetRegistration) {
   localStorage.removeItem('turismoRegisteredUser');
   localStorage.removeItem(adminAccessKey);
+  localStorage.removeItem('turismoBusinessProfile');
 }
 
 if (adminSetup) {
@@ -517,3 +705,13 @@ const savedLang = savedUser?.preferredLanguage || localStorage.getItem('turismoL
 setText(translations[savedLang] ? savedLang : 'es');
 setActiveLanguage(translations[savedLang] ? savedLang : 'es');
 updateRegistrationState();
+
+try {
+  const savedBusiness = JSON.parse(localStorage.getItem('turismoBusinessProfile'));
+  if (savedBusiness && businessWorkflow) {
+    businessWorkflow.hidden = false;
+    renderBusinessResult(savedBusiness);
+  }
+} catch {
+  localStorage.removeItem('turismoBusinessProfile');
+}
